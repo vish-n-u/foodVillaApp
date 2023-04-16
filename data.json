@@ -1,0 +1,1919 @@
+[
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "77381",
+            "name": "Hotel Shree Ballaleshwar Misal",
+            "uuid": "40467066-e6a9-4af3-9743-323b5690dc26",
+            "city": "5",
+            "area": "Dombivli West",
+            "totalRatingsString": "5000+ ratings",
+            "cloudinaryImageId": "ystbrntinahbgecn7djw",
+            "cuisines": [
+                "Maharashtrian",
+                "Snacks"
+            ],
+            "tags": [],
+            "costForTwo": 10000,
+            "costForTwoString": "₹100 FOR TWO",
+            "deliveryTime": 22,
+            "minDeliveryTime": 22,
+            "maxDeliveryTime": 22,
+            "slaString": "22 MINS",
+            "lastMileTravel": 0.8999999761581421,
+            "slugs": {
+                "restaurant": "hotel-ballaleshwar-dombivali-west-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Hotel Ballaleshwar, Mahatma Gandhi Rd, Vishnu Nagar, Dombivali West, Mumbai",
+            "locality": "Dombivali West",
+            "parentId": 184288,
+            "unserviceable": false,
+            "veg": true,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "aggregatedDiscountInfo": {
+                "header": "30% off",
+                "shortDescriptionList": [
+                    {
+                        "meta": "30% off | Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "30% off up to ₹75 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "aggregatedDiscountInfoV2": {
+                "header": "30% OFF",
+                "shortDescriptionList": [
+                    {
+                        "meta": "Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "30% off up to ₹75 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "ribbon": [
+                {
+                    "type": "PROMOTED"
+                }
+            ],
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "cid=6450719~p=1~eid=00000187-753f-5931-02af-13d800b1010e",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "0.8 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "77381",
+                "deliveryTime": 22,
+                "minDeliveryTime": 22,
+                "maxDeliveryTime": 22,
+                "lastMileTravel": 0.8999999761581421,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": true,
+            "avgRating": "3.7",
+            "totalRatings": 5000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "50666",
+            "name": "Pizza Hut",
+            "uuid": "1a541016-d08b-4907-b6a1-e0ebc5736e6c",
+            "city": "5",
+            "area": "Dombivli East",
+            "totalRatingsString": "10000+ ratings",
+            "cloudinaryImageId": "zc47hvtvewuinl4ravyu",
+            "cuisines": [
+                "Pizzas"
+            ],
+            "tags": [],
+            "costForTwo": 35000,
+            "costForTwoString": "₹350 FOR TWO",
+            "deliveryTime": 23,
+            "minDeliveryTime": 23,
+            "maxDeliveryTime": 23,
+            "slaString": "23 MINS",
+            "lastMileTravel": 0.4000000059604645,
+            "slugs": {
+                "restaurant": "pizza-hut-tilak-road-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Deshmukh Building . Padke Cross road, Tilak road , OPP HDFC BANK, Dombivali East, Dombivali",
+            "locality": "tilak road",
+            "parentId": 721,
+            "unserviceable": false,
+            "veg": false,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "aggregatedDiscountInfo": {
+                "header": "40% off",
+                "shortDescriptionList": [
+                    {
+                        "meta": "40% off | Use SWIGGYIT",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "40% off up to ₹80 | Use code SWIGGYIT",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "aggregatedDiscountInfoV2": {
+                "header": "40% OFF",
+                "shortDescriptionList": [
+                    {
+                        "meta": "Use SWIGGYIT",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "40% off up to ₹80 | Use code SWIGGYIT",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "0.4 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "50666",
+                "deliveryTime": 23,
+                "minDeliveryTime": 23,
+                "maxDeliveryTime": 23,
+                "lastMileTravel": 0.4000000059604645,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": false,
+            "avgRating": "3.7",
+            "totalRatings": 10000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "81940",
+            "name": "McDonald's",
+            "uuid": "79a4d280-e6bc-4193-9969-db064e3cf698",
+            "city": "5",
+            "area": "Dombivli East",
+            "totalRatingsString": "10000+ ratings",
+            "cloudinaryImageId": "7bb739d7f6ae8b4ce8ed590765dffd2f",
+            "cuisines": [
+                "Burgers",
+                "Beverages",
+                "Cafe",
+                "Desserts"
+            ],
+            "tags": [],
+            "costForTwo": 40000,
+            "costForTwoString": "₹400 FOR TWO",
+            "deliveryTime": 18,
+            "minDeliveryTime": 18,
+            "maxDeliveryTime": 18,
+            "slaString": "18 MINS",
+            "lastMileTravel": 1.7999999523162842,
+            "slugs": {
+                "restaurant": "mcdonalds-near-gharda-circle-dombivli-2",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Hardcastle Restaurants Pvt Ltd, McDonalds Family Restaurants Pvt Ltd, Sonal Business Park, Shop nos. 7,8,9 and 10 on Ground Floor and Office nos. 109 and 110 on First floor, RP 137, Near Gharda Circle",
+            "locality": "Near Gharda Circle",
+            "parentId": 630,
+            "unserviceable": false,
+            "veg": false,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "aggregatedDiscountInfo": {
+                "header": "30% off",
+                "shortDescriptionList": [
+                    {
+                        "meta": "30% off | Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "30% off up to ₹75 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "aggregatedDiscountInfoV2": {
+                "header": "30% OFF",
+                "shortDescriptionList": [
+                    {
+                        "meta": "Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "30% off up to ₹75 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "1.7 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "81940",
+                "deliveryTime": 18,
+                "minDeliveryTime": 18,
+                "maxDeliveryTime": 18,
+                "lastMileTravel": 1.7999999523162842,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": false,
+            "avgRating": "4.3",
+            "totalRatings": 10000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "90461",
+            "name": "The Belgian Waffle Co.",
+            "uuid": "4913e366-b8e9-4a65-a766-92eda992cfd5",
+            "city": "5",
+            "area": "Kalyan",
+            "totalRatingsString": "1000+ ratings",
+            "cloudinaryImageId": "dqsnzwoepj8ltvo17ay5",
+            "cuisines": [
+                "Waffle",
+                "Desserts",
+                "Ice Cream"
+            ],
+            "tags": [],
+            "costForTwo": 20000,
+            "costForTwoString": "₹200 FOR TWO",
+            "deliveryTime": 43,
+            "minDeliveryTime": 43,
+            "maxDeliveryTime": 43,
+            "slaString": "43 MINS",
+            "lastMileTravel": 7.699999809265137,
+            "slugs": {
+                "restaurant": "the-belgian-waffle-co-kalyan-kalyan",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Shop No 2, Anmol CHS ltd., Bhoirwadi, Birla College Road, Khadakpada, Kalyan, Mumbai",
+            "locality": "Bhoirwadi",
+            "parentId": 2233,
+            "unserviceable": false,
+            "veg": true,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "ribbon": [
+                {
+                    "type": "PROMOTED"
+                }
+            ],
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 6800,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 6800,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "6800",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "cid=6466127~p=4~eid=00000187-753f-5931-02af-13d900b10435",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "7.6 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "90461",
+                "deliveryTime": 43,
+                "minDeliveryTime": 43,
+                "maxDeliveryTime": 43,
+                "lastMileTravel": 7.699999809265137,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": true,
+            "avgRating": "4.2",
+            "totalRatings": 1000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "34829",
+            "name": "New Modern Cafe- Pure Veg",
+            "uuid": "007fe33e-8415-4f93-a76c-f1aa2b49d33b",
+            "city": "5",
+            "area": "Dombivli East",
+            "totalRatingsString": "10000+ ratings",
+            "cloudinaryImageId": "gkgehgbk1bxvdwinq5bm",
+            "cuisines": [
+                "South Indian",
+                "North Indian",
+                "Chinese",
+                "Fast Food",
+                "Beverages"
+            ],
+            "tags": [],
+            "costForTwo": 40000,
+            "costForTwoString": "₹400 FOR TWO",
+            "deliveryTime": 21,
+            "minDeliveryTime": 21,
+            "maxDeliveryTime": 21,
+            "slaString": "21 MINS",
+            "lastMileTravel": 0.30000001192092896,
+            "slugs": {
+                "restaurant": "new-modern-cafe-dombivali-east-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "1, Chirag CHS, Phadke Road, Dombivali East, Mumbai",
+            "locality": "Dombivali East",
+            "parentId": 147315,
+            "unserviceable": false,
+            "veg": false,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "aggregatedDiscountInfo": {
+                "header": "10% off",
+                "shortDescriptionList": [
+                    {
+                        "meta": "10% off | Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "10% off up to ₹40 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "aggregatedDiscountInfoV2": {
+                "header": "10% OFF",
+                "shortDescriptionList": [
+                    {
+                        "meta": "Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "10% off up to ₹40 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "0.3 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "34829",
+                "deliveryTime": 21,
+                "minDeliveryTime": 21,
+                "maxDeliveryTime": 21,
+                "lastMileTravel": 0.30000001192092896,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": false,
+            "avgRating": "4.2",
+            "totalRatings": 10000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "379063",
+            "name": "Dombivli Gajanan Vada Pav",
+            "uuid": "3585092f-abd3-4f2e-b4cd-b68efadece7f",
+            "city": "5",
+            "area": "Dombivli",
+            "totalRatingsString": "1000+ ratings",
+            "cloudinaryImageId": "istpoaiklgusuapxedjl",
+            "cuisines": [
+                "Snacks",
+                "Maharashtrian"
+            ],
+            "tags": [],
+            "costForTwo": 6000,
+            "costForTwoString": "₹60 FOR TWO",
+            "deliveryTime": 11,
+            "minDeliveryTime": 11,
+            "maxDeliveryTime": 11,
+            "slaString": "11 MINS",
+            "lastMileTravel": 0.10000000149011612,
+            "slugs": {
+                "restaurant": "dombivli-gajanan-vada-pav-dombivli-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Shop No. 5, Triveni Building, Nehru Road, Bhaji Market,",
+            "locality": "Near Railway Station",
+            "parentId": 73869,
+            "unserviceable": false,
+            "veg": false,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "aggregatedDiscountInfo": {
+                "header": "10% off",
+                "shortDescriptionList": [
+                    {
+                        "meta": "10% off | Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "10% off up to ₹40 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "aggregatedDiscountInfoV2": {
+                "header": "10% OFF",
+                "shortDescriptionList": [
+                    {
+                        "meta": "Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "10% off up to ₹40 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "0.1 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "379063",
+                "deliveryTime": 11,
+                "minDeliveryTime": 11,
+                "maxDeliveryTime": 11,
+                "lastMileTravel": 0.10000000149011612,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": false,
+            "avgRating": "4.3",
+            "totalRatings": 1000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "403973",
+            "name": "Chinese Wok",
+            "uuid": "c400bb96-a6c8-43b0-aa44-f78926cdd58c",
+            "city": "5",
+            "area": "Dombivli East",
+            "totalRatingsString": "1000+ ratings",
+            "cloudinaryImageId": "58ee0c742e8d56c3475db9ced65d2d47",
+            "cuisines": [
+                "Chinese",
+                "Asian",
+                "Tibetan",
+                "Desserts"
+            ],
+            "tags": [],
+            "costForTwo": 25000,
+            "costForTwoString": "₹250 FOR TWO",
+            "deliveryTime": 16,
+            "minDeliveryTime": 16,
+            "maxDeliveryTime": 16,
+            "slaString": "16 MINS",
+            "lastMileTravel": 0.5,
+            "slugs": {
+                "restaurant": "chinese-wok-(wok-express)-dombivli-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "SHOP NO. -07, GROUND FLOOR, ANANT NIWAS, B WING, SENAPATI BAPAT MARG, BEHIND GOMANTAK HOTEL, OPPOSITE ROSHAN AUTOMOBILES NEAR MERWANS , TILAK X ROAD, DOMBIVALI EAST",
+            "locality": "Dombivli East",
+            "parentId": 61955,
+            "unserviceable": false,
+            "veg": false,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "aggregatedDiscountInfo": {
+                "header": "60% off",
+                "shortDescriptionList": [
+                    {
+                        "meta": "60% off | Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "60% off up to ₹120 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "aggregatedDiscountInfoV2": {
+                "header": "60% OFF",
+                "shortDescriptionList": [
+                    {
+                        "meta": "Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "60% off up to ₹120 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "ribbon": [
+                {
+                    "type": "PROMOTED"
+                }
+            ],
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "cid=6384061~p=7~eid=00000187-753f-5931-02af-13da00b1077e",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "0.5 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "403973",
+                "deliveryTime": 16,
+                "minDeliveryTime": 16,
+                "maxDeliveryTime": 16,
+                "lastMileTravel": 0.5,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": true,
+            "avgRating": "3.9",
+            "totalRatings": 1000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "329272",
+            "name": "RAJUS PIZZA CORNER $ JUICE CENTRE",
+            "uuid": "55e70b5f-5978-4f12-925c-02233375e56b",
+            "city": "5",
+            "area": "Dombivli East",
+            "totalRatingsString": "1000+ ratings",
+            "cloudinaryImageId": "ap8rvjfmfwb31hhuners",
+            "cuisines": [
+                "Pizzas",
+                "Italian-American",
+                "Continental",
+                "Beverages"
+            ],
+            "tags": [],
+            "costForTwo": 20000,
+            "costForTwoString": "₹200 FOR TWO",
+            "deliveryTime": 15,
+            "minDeliveryTime": 15,
+            "maxDeliveryTime": 15,
+            "slaString": "15 MINS",
+            "lastMileTravel": 0.10000000149011612,
+            "slugs": {
+                "restaurant": "rajus-pizza-corner-$-juice-centre-dombivli-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Tilak Cinema, Station Road, Ramnagar, Dombivli East, Mumbai, Maharashtra, India",
+            "locality": "Dombivli",
+            "parentId": 166059,
+            "unserviceable": false,
+            "veg": false,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "aggregatedDiscountInfo": {
+                "header": "10% off",
+                "shortDescriptionList": [
+                    {
+                        "meta": "10% off | Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "10% off | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "aggregatedDiscountInfoV2": {
+                "header": "10% OFF",
+                "shortDescriptionList": [
+                    {
+                        "meta": "Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "10% off | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "0.1 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "329272",
+                "deliveryTime": 15,
+                "minDeliveryTime": 15,
+                "maxDeliveryTime": 15,
+                "lastMileTravel": 0.10000000149011612,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": false,
+            "avgRating": "3.9",
+            "totalRatings": 1000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "73828",
+            "name": "Ramdev Pure Veg",
+            "uuid": "998e0902-1c48-41ae-9122-95a64df2ab99",
+            "city": "5",
+            "area": "Mumbai",
+            "totalRatingsString": "5000+ ratings",
+            "cloudinaryImageId": "gbcswqwui640opuabgz3",
+            "cuisines": [
+                "Indian",
+                "Chinese",
+                "Desserts"
+            ],
+            "tags": [],
+            "costForTwo": 40000,
+            "costForTwoString": "₹400 FOR TWO",
+            "deliveryTime": 32,
+            "minDeliveryTime": 32,
+            "maxDeliveryTime": 32,
+            "slaString": "32 MINS",
+            "lastMileTravel": 5.900000095367432,
+            "slugs": {
+                "restaurant": "ramdev-pure-veg-kalyan-kalyan",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Ramdev Pure Veg, Zojwalla Shopping Complex, Agra Road, Kalyan West, Mumbai",
+            "locality": "Kalyan",
+            "parentId": 166551,
+            "unserviceable": false,
+            "veg": true,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "aggregatedDiscountInfo": {
+                "header": "30% off",
+                "shortDescriptionList": [
+                    {
+                        "meta": "30% off | Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "30% off up to ₹75 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "aggregatedDiscountInfoV2": {
+                "header": "30% OFF",
+                "shortDescriptionList": [
+                    {
+                        "meta": "Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "30% off up to ₹75 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "ribbon": [
+                {
+                    "type": "PROMOTED"
+                }
+            ],
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 5400,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 5400,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "5400",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "cid=6368004~p=10~eid=00000187-753f-5931-02af-13db00b10a46",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "5.9 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "73828",
+                "deliveryTime": 32,
+                "minDeliveryTime": 32,
+                "maxDeliveryTime": 32,
+                "lastMileTravel": 5.900000095367432,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": true,
+            "avgRating": "4.1",
+            "totalRatings": 5000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "513069",
+            "name": "Burger King",
+            "uuid": "99fd3ca3-cc4f-4a4c-adb9-a9de4f11aca1",
+            "city": "5",
+            "area": "Dombivli",
+            "totalRatingsString": "5000+ ratings",
+            "cloudinaryImageId": "28fb13049b4e55297bb3f703cde63c35",
+            "cuisines": [
+                "Burgers",
+                "American"
+            ],
+            "tags": [],
+            "costForTwo": 35000,
+            "costForTwoString": "₹350 FOR TWO",
+            "deliveryTime": 21,
+            "minDeliveryTime": 21,
+            "maxDeliveryTime": 21,
+            "slaString": "21 MINS",
+            "lastMileTravel": 2.299999952316284,
+            "slugs": {
+                "restaurant": "burger-king-arcadia-dombivali-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Shop No. 13 & 14 (Ground Floor), Shop No. 113 & 114 (First Floor), Arcadia Complex, Opposite Pendarkar Collage, MIDC, Dombivali, East 421203",
+            "locality": "Arcadia",
+            "parentId": 166,
+            "unserviceable": false,
+            "veg": false,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "aggregatedDiscountInfo": {
+                "header": "60% off",
+                "shortDescriptionList": [
+                    {
+                        "meta": "60% off | Use STEALDEAL",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "60% off up to ₹120 | Use code STEALDEAL",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "aggregatedDiscountInfoV2": {
+                "header": "60% OFF",
+                "shortDescriptionList": [
+                    {
+                        "meta": "Use STEALDEAL",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "60% off up to ₹120 | Use code STEALDEAL",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "2.2 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "513069",
+                "deliveryTime": 21,
+                "minDeliveryTime": 21,
+                "maxDeliveryTime": 21,
+                "lastMileTravel": 2.299999952316284,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": false,
+            "avgRating": "4.2",
+            "totalRatings": 5000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "572069",
+            "name": "The Momos nation",
+            "uuid": "35df2251-40e1-4980-a3c5-fd8f775f7a60",
+            "city": "5",
+            "area": "Dombivli",
+            "totalRatingsString": "100+ ratings",
+            "cloudinaryImageId": "b646a4291529757a447ef150964c11be",
+            "cuisines": [
+                "Chinese",
+                "Beverages"
+            ],
+            "tags": [],
+            "costForTwo": 15000,
+            "costForTwoString": "₹150 FOR TWO",
+            "deliveryTime": 21,
+            "minDeliveryTime": 21,
+            "maxDeliveryTime": 21,
+            "slaString": "21 MINS",
+            "lastMileTravel": 0.10000000149011612,
+            "slugs": {
+                "restaurant": "the-momo-nation-dombivli-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Shop No B-04 Nav dombivali society station road ramnagar dombivali east, Kalyan Tahashil (Except Kalyan Dombivali Municipal Corporation ), Kalyan Tahashil (Thane Zone-8), , Maharashtra, 421201",
+            "locality": "Ramnagar",
+            "parentId": 232078,
+            "unserviceable": false,
+            "veg": false,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "aggregatedDiscountInfo": {
+                "header": "30% off",
+                "shortDescriptionList": [
+                    {
+                        "meta": "30% off | Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "30% off up to ₹75 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "aggregatedDiscountInfoV2": {
+                "header": "30% OFF",
+                "shortDescriptionList": [
+                    {
+                        "meta": "Use TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "descriptionList": [
+                    {
+                        "meta": "30% off up to ₹75 | Use code TRYNEW",
+                        "discountType": "Percentage",
+                        "operationType": "RESTAURANT"
+                    }
+                ],
+                "subHeader": "",
+                "headerType": 0,
+                "superFreedel": ""
+            },
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "0.1 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "572069",
+                "deliveryTime": 21,
+                "minDeliveryTime": 21,
+                "maxDeliveryTime": 21,
+                "lastMileTravel": 0.10000000149011612,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": false,
+            "avgRating": "4.1",
+            "totalRatings": 100,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "447796",
+            "name": "SHREE SIDDHIVINAYAK DABELI",
+            "uuid": "29d1dbb8-9faf-4bee-aca9-0b07bbfe6587",
+            "city": "5",
+            "area": "Dombivli",
+            "totalRatingsString": "100+ ratings",
+            "cloudinaryImageId": "benrnkgnpw0l2a4lxagh",
+            "cuisines": [
+                "Fast Food",
+                "Street Food",
+                "Beverages"
+            ],
+            "tags": [],
+            "costForTwo": 15000,
+            "costForTwoString": "₹150 FOR TWO",
+            "deliveryTime": 16,
+            "minDeliveryTime": 16,
+            "maxDeliveryTime": 16,
+            "slaString": "16 MINS",
+            "lastMileTravel": 0.6000000238418579,
+            "slugs": {
+                "restaurant": "shree-siddhivinayak-dabeli-dombivli-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "GALA NO. 01, PATIL CHAWL., SHIV  MANDIR ROAD, DOMBIVALI (EAST) - 421201",
+            "locality": "Shiv Mandir Road",
+            "parentId": 269698,
+            "unserviceable": false,
+            "veg": true,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "ribbon": [
+                {
+                    "type": "PROMOTED"
+                }
+            ],
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "cid=6288847~p=13~eid=00000187-753f-5931-02af-13dc00b10d7c",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "0.6 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "447796",
+                "deliveryTime": 16,
+                "minDeliveryTime": 16,
+                "maxDeliveryTime": 16,
+                "lastMileTravel": 0.6000000238418579,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": true,
+            "avgRating": "4.4",
+            "totalRatings": 100,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "295911",
+            "name": "Thakur Vada Pav",
+            "uuid": "095d1214-553f-4f44-a29b-90b978a4410c",
+            "city": "5",
+            "area": "Dombivli",
+            "totalRatingsString": "1000+ ratings",
+            "cloudinaryImageId": "ozghjjb4ouswcxdlk6hn",
+            "cuisines": [
+                "Maharashtrian"
+            ],
+            "tags": [],
+            "costForTwo": 15000,
+            "costForTwoString": "₹150 FOR TWO",
+            "deliveryTime": 12,
+            "minDeliveryTime": 12,
+            "maxDeliveryTime": 12,
+            "slaString": "12 MINS",
+            "lastMileTravel": 0.6000000238418579,
+            "slugs": {
+                "restaurant": "thakur-vada-pav-dombivli-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Shop No. 01/A. Wing, Nav-Vrushali C.H.S, Agarkar Road, Dombivli East, opposite Aditya Hall, Dombivli, Maharashtra 421201",
+            "locality": "Opposite Aditya Hall",
+            "parentId": 204057,
+            "unserviceable": false,
+            "veg": true,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "0.6 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "295911",
+                "deliveryTime": 12,
+                "minDeliveryTime": 12,
+                "maxDeliveryTime": 12,
+                "lastMileTravel": 0.6000000238418579,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": false,
+            "avgRating": "4.4",
+            "totalRatings": 1000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "233838",
+            "name": "The Appetite Momos",
+            "uuid": "8ef39428-f160-4a75-b421-f4f123b57609",
+            "city": "5",
+            "area": "Dombivli East",
+            "totalRatingsString": "1000+ ratings",
+            "cloudinaryImageId": "tk0fnd0t8bnhzzqemhl9",
+            "cuisines": [
+                "Tibetan",
+                "Snacks",
+                "Fast Food"
+            ],
+            "tags": [],
+            "costForTwo": 20000,
+            "costForTwoString": "₹200 FOR TWO",
+            "deliveryTime": 14,
+            "minDeliveryTime": 14,
+            "maxDeliveryTime": 14,
+            "slaString": "14 MINS",
+            "lastMileTravel": 0.4000000059604645,
+            "slugs": {
+                "restaurant": "the-appetite-momos-dombivli-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Shop 4, Ground Floor, Vaibhav CHS, Nehru Road, Tilak Nagar, Dombivali East, Thane",
+            "locality": "Tilak Nagar",
+            "parentId": 3562,
+            "unserviceable": false,
+            "veg": false,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "0.4 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "233838",
+                "deliveryTime": 14,
+                "minDeliveryTime": 14,
+                "maxDeliveryTime": 14,
+                "lastMileTravel": 0.4000000059604645,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": false,
+            "avgRating": "3.8",
+            "totalRatings": 1000,
+            "new": false
+        },
+        "subtype": "basic"
+    },
+    {
+        "type": "restaurant",
+        "data": {
+            "type": "F",
+            "id": "59244",
+            "name": "Behrouz Biryani",
+            "uuid": "d767082e-19c2-4b85-a891-469c052f15fb",
+            "city": "5",
+            "area": "Dombivli East",
+            "totalRatingsString": "5000+ ratings",
+            "cloudinaryImageId": "gjebao24op20cnhd4bzm",
+            "cuisines": [
+                "Biryani",
+                "Mughlai",
+                "Lucknowi",
+                "Hyderabadi",
+                "Kebabs",
+                "North Indian",
+                "Persian",
+                "Desserts"
+            ],
+            "tags": [],
+            "costForTwo": 50000,
+            "costForTwoString": "₹500 FOR TWO",
+            "deliveryTime": 21,
+            "minDeliveryTime": 21,
+            "maxDeliveryTime": 21,
+            "slaString": "21 MINS",
+            "lastMileTravel": 1.600000023841858,
+            "slugs": {
+                "restaurant": "behrouz-biryani-shivaji-udyog-nagar-dombivli",
+                "city": "mumbai"
+            },
+            "cityState": "5",
+            "address": "Shade No.34 at Survey No.73, 9(P) of Village - G. B. Patherli, Shivaji Udyog Nagar Behind Sarita Ice Factory, Dombivali East, Thane",
+            "locality": "Shivaji Udyog Nagar",
+            "parentId": 1803,
+            "unserviceable": false,
+            "veg": false,
+            "select": false,
+            "favorite": false,
+            "tradeCampaignHeaders": [],
+            "ribbon": [
+                {
+                    "type": "PROMOTED"
+                }
+            ],
+            "chain": [],
+            "feeDetails": {
+                "fees": [
+                    {
+                        "name": "distance",
+                        "fee": 3100,
+                        "message": ""
+                    },
+                    {
+                        "name": "time",
+                        "fee": 0,
+                        "message": ""
+                    },
+                    {
+                        "name": "special",
+                        "fee": 0,
+                        "message": ""
+                    }
+                ],
+                "totalFees": 3100,
+                "message": "",
+                "title": "Delivery Charge",
+                "amount": "3100",
+                "icon": ""
+            },
+            "availability": {
+                "opened": true,
+                "nextOpenMessage": "",
+                "nextCloseMessage": ""
+            },
+            "longDistanceEnabled": 0,
+            "rainMode": "NONE",
+            "thirdPartyAddress": false,
+            "thirdPartyVendor": "",
+            "adTrackingID": "cid=6472219~p=16~eid=00000187-753f-5931-02af-13dd00b11039",
+            "badges": {
+                "imageBased": [],
+                "textBased": [],
+                "textExtendedBadges": []
+            },
+            "lastMileTravelString": "1.6 kms",
+            "hasSurge": false,
+            "sla": {
+                "restaurantId": "59244",
+                "deliveryTime": 21,
+                "minDeliveryTime": 21,
+                "maxDeliveryTime": 21,
+                "lastMileTravel": 1.600000023841858,
+                "lastMileDistance": 0,
+                "serviceability": "SERVICEABLE",
+                "rainMode": "NONE",
+                "longDistance": "NOT_LONG_DISTANCE",
+                "preferentialService": false,
+                "iconType": "EMPTY"
+            },
+            "promoted": true,
+            "avgRating": "4.1",
+            "totalRatings": 5000,
+            "new": false
+        },
+        "subtype": "basic"
+    }
+]
