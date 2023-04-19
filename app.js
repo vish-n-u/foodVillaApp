@@ -10,41 +10,33 @@ import { Footer } from "./src/footer";
 import Home from "./src/homePage";
 import MenuCard from "./src/menuCard";
 import Trial from "./src/trial";
-import SignupForm from "./src/signuUp";
+import SignupForm from "./Authorization/src/Register";
+import Login from "./Authorization/src/Login";
 import Count from "./src/count";
-import MarkdownEditor from "./src/count";
+import LoginUsingOtp from "./Authorization/src/loginUsingOtp";
 import Card from "./src/cart";
 import Timer from "./src/Timer";
 import store from "./redux/store";
 import ShimmerUI from "./src/shimmerUI";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 // import About from "./src/about";
+const clientConfigs = {
+  client_id:
+    "899698031769-ndeoh4e02af6ee1qffqgecp23dbno64g.apps.googleusercontent.com",
+};
 
 const About = lazy(() => import("./src/about"));
 const Body = lazy(() => import("./src/body"));
 
 const AppLayout = () => {
-  const user = useContext(UserContext);
-  const [users, setUsers] = useState({
-    firstName: "AAA",
-    email: "xyz@gmail.com",
-  });
   return (
     <Provider store={store}>
-      {console.log("userContext.provider=", UserContext.Provider)}
+      <GoogleOAuthProvider clientId={clientConfigs.client_id}>
+        <Header />
 
-      <Header />
-      <UserContext.Provider
-        value={{
-          ...user,
-          user: {
-            firstName: users.firstName,
-            email: users.email,
-          },
-        }}
-      >
         <Outlet />
         <Footer />
-      </UserContext.Provider>
+      </GoogleOAuthProvider>
     </Provider>
   );
 };
@@ -67,6 +59,8 @@ const appRouter = createBrowserRouter([
       },
       { path: "/count", element: <Count /> },
       { path: "/timer", element: <Timer /> },
+      { path: "/login", element: <Login /> },
+      { path: "/otpLogin/:id", element: <LoginUsingOtp /> },
 
       {
         path: "/about",

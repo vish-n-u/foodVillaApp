@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import { swiggyMenuApi, swiggyRestaurantApi } from "./constants";
 import RestaurantCard from "./restaurantCard";
 import ShimmerUI from "./shimmerUI";
 import useRestaurant from "./utils/useRestaurant";
-import { IsOnline } from "./utils/useIfOnline";
+
 import { useDispatch, useSelector } from "react-redux";
 import { addData } from "../redux/restaurantDetailsSlice";
 
@@ -19,22 +18,25 @@ function ErrorDisplay() {
   return <h1>some internal err has occured...</h1>;
 }
 const Body = () => {
-  // create a search bar
-  // create ShimmerUI
-  //create two state variables filterData and restaurantData
   let [filterSearch, setFilterSearch] = useState([]);
   let [searchText, setSearchText] = useState("search");
   let [restaurants, setRestaurants] = useState([]);
   let restaurantDetails = useSelector((store) => store.restaurantDetails);
   const Dispatch = useDispatch();
   let err = false;
-  console.log("----restauranrDetails", restaurantDetails, filterSearch);
+
   useRestaurant(
     setRestaurants,
     setFilterSearch,
     err,
     Dispatch,
     restaurantDetails
+  );
+  console.log(
+    "----restauranrDetails",
+    restaurantDetails,
+    "----filterSearch",
+    filterSearch
   );
   return (
     <div className=" bg-fuchsia-50 w-screen" key="body">

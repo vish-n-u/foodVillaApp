@@ -1,16 +1,62 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { useSelector } from "react-redux";
-
+import { useState, useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateName } from "../redux/userNameSlice";
 import { IsOnline } from "./utils/useIfOnline";
-import UserContext from "./utils/userContext";
+import { authenticateUserAndGetData } from "../Authorization/src/utils/constants";
 
 let online = <IsOnline />;
 // console.log("---", IsOnline());
+
+async function setUserData(Dispatch) {
+  const isValidUser = await fetch(authenticateUserAndGetData, {
+    method: "POST",
+    mode: "cors",
+    body: JSON.stringify({ token: localStorage.getItem("token") }),
+    headers: { "content-type": "application/json" },
+  });
+  console.log("isValidUSer by header----,", isValidUser);
+
+  if (isValidUser.status != 200) {
+    localStorage.clear();
+  } else {
+    console.log("Meh");
+    let validUserData = await isValidUser.json();
+    console.log("validUserData by header----,", validUserData.message.userName);
+    Dispatch(updateName(validUserData.message.userName));
+  }
+}
 const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
-  const { user, frusser } = useContext(UserContext);
-  console.log(user, frusser);
+  const userName = useSelector((store) => store.userName);
+  const [isSigninClicked, setIsSigninClicked] = useState(false);
+  const ref = useRef();
+  const Dispatch = useDispatch();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+    else {
+      // console.log("user in header", user);
+      if (!userName || userName == undefined) {
+        setUserData(Dispatch);
+      } else {
+        return;
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    function listens(e) {
+      if (!ref.current?.contains(e.target)) {
+        setIsSigninClicked(false);
+      }
+    }
+    document.addEventListener("mousedown", listens);
+    return () => {
+      document.removeEventListener("mousedown", listens);
+    };
+  });
+
   return (
     <div className="flex justify-between shadow-lg bg-fuchsia-100 w-screen">
       <img
@@ -31,9 +77,42 @@ const Header = () => {
             <li className="my-3 p-2">
               <Link to="/about">About</Link>
             </li>
-            <li className="my-3 p-2">
-              <Link to="/signUp">Signin</Link>
-            </li>
+            <div
+              className="my-3 p-2"
+              onClick={() => setIsSigninClicked(!isSigninClicked)}
+            >
+              {userName || "Signin"}
+              {isSigninClicked && (
+                <div
+                  ref={ref}
+                  className="fixed top-14 right-5 lg:h-32 lg:w-60 bg-white flex justify-around items-center "
+                >
+                  {!userName ? (
+                    <>
+                      {" "}
+                      <li className="z-10">
+                        <Link to="/signUp">Register</Link>
+                      </li>
+                      <li className="z-10">
+                        <Link to="/login">Login</Link>
+                      </li>
+                    </>
+                  ) : (
+                    <li
+                      className="z-10"
+                      onClick={() => {
+                        localStorage.clear();
+                        window.location.reload(false);
+                      }}
+                    >
+                      {" "}
+                      logout
+                    </li>
+                  )}
+                </div>
+              )}
+            </div>
+
             <li className="my-3 p-2">
               <Link to="/cart">Cart-{Object.keys(cartItems).length}</Link>
             </li>

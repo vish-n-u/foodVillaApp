@@ -8,10 +8,13 @@ async function getData(setRestaurants, setFilterSearch, err, Dispatch) {
     // console.log("restaurant data", jsonData);
     // const jsonData = await data.json();
     // console.log("useRestaurant getData", setRestaurants, setFilterSearch, err);
+
     if (setRestaurants) {
+      console.log("---reached setTimeout");
       setRestaurants(jsonData);
 
       setFilterSearch(jsonData);
+      return;
     } else {
       // console.log("use Restaurant else case");
       jsonData.map((rs) => {
@@ -33,6 +36,7 @@ const useRestaurant = (
   restaurantDetails
 ) => {
   useEffect(() => {
+    console.log(Object.keys(restaurantDetails).length);
     if (Object.keys(restaurantDetails).length > 1) {
       // if (!setRestaurants) return;
 
@@ -48,7 +52,7 @@ const useRestaurant = (
     }
 
     getData(setRestaurants, setFilterSearch, err, Dispatch);
-  }, []);
+  }, [setRestaurants, setFilterSearch, Dispatch]);
 };
 
 export default useRestaurant;
