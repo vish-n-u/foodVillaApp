@@ -75,8 +75,8 @@ console.log(eachItemPrice)
       hover:shadow-xl w-full" > 
       
      
-      <h2  key={'Rbody3'} className="mt-2 h-7 w-1/3 overflow-hidden overflow-y-clip overflow-x-clip" >{name}</h2>
-      <div className="justify-around align-middle items-center flex w-1/4 bg-white border">
+      <h2  key={'Rbody3'} className="mt-2 h-7 lg:w-1/3 md:-1/3 w-1/4 overflow-hidden overflow-y-clip overflow-x-clip" >{name}</h2>
+      <div className="lg:justify-around md:justify-around align-middle items-center flex lg:w-1/4 md:w-1/4 w-1/2 bg-white border">
         <button onClick={()=>{
           let iQuantity = itemsQuantityInCart
           Dispatch(removeItem({id:restaurantId,rs:carts}))
