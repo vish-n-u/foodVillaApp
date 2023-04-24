@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Redirect, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateName } from "../../redux/userNameSlice";
-const OTP = ({ err, setErr, email, token, userName }) => {
+const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
   console.log(token);
   let [timerSec, setTimerSec] = useState(20);
   const [otp, setOtp] = useState("");
@@ -63,7 +63,8 @@ const OTP = ({ err, setErr, email, token, userName }) => {
                     email,
                     token,
                     userName,
-                    Dispatch
+                    Dispatch,
+                    refreshToken
                   )
                 }
               >
@@ -109,7 +110,8 @@ async function handleSubmit(
   email,
   token,
   userName,
-  Dispatch
+  Dispatch,
+  refreshToken
 ) {
   console.log("finalSubmit");
   const isOtpCorrect = await fetch(
@@ -137,6 +139,7 @@ async function handleSubmit(
   } else {
     console.log("this is token", token);
     localStorage.setItem("token", token);
+    localStorage.setItem("refreshToken", refreshToken);
     Dispatch(updateName(userName));
     setIsRegistrationComplete(true);
 

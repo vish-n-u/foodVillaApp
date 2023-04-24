@@ -41,6 +41,7 @@ const Register = () => {
   );
   const [isSigningInUsingGoogle, setISSigningInUsingGoogle] = useState(false);
   const [jwtToken, setJwtToken] = useState("");
+  const [refreshToken, setRefreshToken] = useState("");
 
   return isSigningInUsingGoogle ? (
     <Navigate to="/" />
@@ -52,6 +53,7 @@ const Register = () => {
       email={email}
       token={jwtToken}
       userName={userName}
+      refreshToken={refreshToken}
     />
   ) : (
     <>
@@ -135,7 +137,7 @@ const Register = () => {
                       err,
                       val,
                       setJwtToken,
-                      userName
+                      setRefreshToken
                     );
                   }}
                 >
@@ -168,7 +170,8 @@ async function handleClick(
   setisFormSubmitted,
   err,
   val,
-  setJwtToken
+  setJwtToken,
+  setRefreshToken
 ) {
   const data = {
     userName,
@@ -210,7 +213,14 @@ async function handleClick(
       alert("An internal server err occured pls retry");
       return;
     } else {
-      sendOTP(email, setisFormSubmitted, returnDataJson, setJwtToken, userName);
+      sendOTP(
+        email,
+        setisFormSubmitted,
+        returnDataJson,
+        setJwtToken,
+        userName,
+        setRefreshToken
+      );
     }
   } catch (err) {
     console.log(err);
@@ -218,7 +228,12 @@ async function handleClick(
   }
 }
 
-async function sendOTP(email, setisFormSubmitted, returnDataJson, setJwtToken) {
+async function sendOTP(email,
+  setisFormSubmitted,
+  returnDataJson,
+  setJwtToken,
+  userName,
+  setRefreshToken) {
   console.log("myEmail:", email, "myTOken", returnDataJson.message.token);
   try {
     let sendOTP = await fetch(
@@ -244,6 +259,7 @@ async function sendOTP(email, setisFormSubmitted, returnDataJson, setJwtToken) {
       console.log("OTP VERIFICATION SUCESS", returnDataJson.message.token);
       setisFormSubmitted(true);
       setJwtToken(returnDataJson.message.token);
+      setRefreshToken(returnDataJson.message.refreshToken)
     }
   } catch (err) {
     console.log(err);

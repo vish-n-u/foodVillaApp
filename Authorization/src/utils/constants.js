@@ -11,3 +11,5 @@ export const registerViaGoogle =
 export const authenticateUserAndGetData =
   "http://localhost:3000/socialMedia/api/v1/authUser";
 // "https://cute-teal-pelican-tam.cyclic.app/socialMedia/api/v1/authUser";
+
+export const createOrderLink = "http://localhost:3000/socialMedia/api/v1/order";

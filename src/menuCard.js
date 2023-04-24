@@ -49,7 +49,6 @@ const MenuCard = () => {
           console.log("Menu will be opened");
           setIsMenuClicked(true);
         }
-      } else {
       }
     };
     document.addEventListener("mousedown", handler);
@@ -67,6 +66,7 @@ const MenuCard = () => {
   useEffect(() => {
     console.log("window.screen.width", getWidth());
   }, [getWidth()]);
+
   console.log(window.screen.width);
   return !details ? (
     <p>null</p>
@@ -78,7 +78,7 @@ const MenuCard = () => {
           isMenuClicked ? "bg-black bg-opacity-60 " : ""
         } align-middle justify-center items-center w-screen`}
       >
-        <h1>{"======== " + isMenuClicked}</h1>
+        <h1>{isMenuClicked}</h1>
         <div className="flex flex-col items-center w-full">
           {
             <FilterMenu
@@ -151,7 +151,8 @@ const MenuCard = () => {
                                     {rs.name}
                                   </h2>
                                   <h3>
-                                    {+rs.defaultPrice / 100 || rs.price / 100}
+                                    {"₹" +  
+                                      (rs.defaultPrice / 100 || rs.price / 100)}
                                   </h3>
                                   <span className="overflow-hidden ">
                                     {rs.description}

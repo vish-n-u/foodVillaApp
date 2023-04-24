@@ -9,6 +9,7 @@ const Emailpage = () => {
   const [invalidEmail, setInvalidEmail] = useState({});
   const [otpSent, setIsOtpSent] = useState(false);
   const [token, setToken] = useState("");
+  const [refreshToken, setRefreshToken] = useState("");
   const [userName, setUserName] = useState("");
   console.log("invalidEmail", invalidEmail);
   return otpSent ? (
@@ -18,6 +19,7 @@ const Emailpage = () => {
       email={email}
       token={token}
       userName={userName}
+      refreshToken={refreshToken}
     />
   ) : (
     <div className="w-full h-screen  bg-slate-200">
@@ -72,7 +74,8 @@ const Emailpage = () => {
                 setInvalidEmail,
                 setIsOtpSent,
                 setToken,
-                setUserName
+                setUserName,
+                setRefreshToken
               );
             }}
           >
@@ -91,7 +94,8 @@ const verifyUser = async (
   setInvalidEmail,
   setIsOtpSent,
   setToken,
-  setUserName
+  setUserName,
+  setRefreshToken
 ) => {
   const data = await fetch(loginRoute, {
     method: "POST",
@@ -130,6 +134,7 @@ const verifyUser = async (
       } else if (data.status == 200) {
         console.log(dataJson, "from emailPage");
         setToken(dataJson.message.token);
+        setRefreshToken(dataJson.message.refreshToken);
         setUserName(dataJson.message.userName);
         setIsOtpSent(true);
       }

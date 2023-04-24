@@ -16,6 +16,7 @@ function GoogleLogins({ setISSigningInUsingGoogle }) {
     const newData = await data.json();
 
     localStorage.setItem("token", newData.message.token);
+    localStorage.setItem("refreshToken", newData.message.refreshToken);
     Dispatch(updateName(newData.message.userName));
     setISSigningInUsingGoogle(true);
   };

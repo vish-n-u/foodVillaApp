@@ -145,14 +145,14 @@ async function onSubmit(
     body: JSON.stringify({ userEmail, password }),
   });
   let dataJson = await data.json();
-  console.log("loginData:-----", data, data.status, dataJson.status);
-
+  
   if (data.status == 200) {
     setProfileImgSrc(dataJson.message.imgLink);
     Dispatch(updateName(dataJson.message.userName));
     setSuccessfulLogin(true);
 
     localStorage.setItem("token", dataJson.message.token);
+    localStorage.setItem("refreshToken", dataJson.message.refreshToken);
     return;
   }
   if (data.status == 404) {
