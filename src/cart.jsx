@@ -4,6 +4,7 @@ import { addItem,removeItem ,clearCart} from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { createOrderLink } from "../Authorization/src/utils/constants";
+import PreviousOrders from "./previousOrder";
 
 const CDN_IMG_LINK = restaurantImg_CDN_Link
 
@@ -13,8 +14,10 @@ async function handleData(cartItems,totals,Dispatch){
   console.log(restaurantId)
   Object.keys(cartItems[restaurantId]).map((menuIds)=>{
     console.log(menuIds)
-    obj[menuIds] = cartItems[restaurantId][menuIds].itemsQuantityInCart
+    obj[menuIds] = [cartItems[restaurantId][menuIds].itemsQuantityInCart,cartItems[restaurantId][menuIds].category]
+    
   })
+  console.log("this is whats being sent",obj)
 
   try{
     const newOrder =await  fetch(createOrderLink,{
@@ -31,11 +34,11 @@ async function handleData(cartItems,totals,Dispatch){
  headers: { "content-type": "application/json" }
     })
     const orderData = await newOrder.json()
-    console.log("----",newOrder, orderData)
     if(newOrder.status==404){
-      console.log("here",orderData.message.token)
       localStorage.removeItem("token")
       localStorage.removeItem("refreshToken")
+      window.location.href="/"
+      window.location.reload()
 
     }
     if(newOrder.status==500){
@@ -122,7 +125,8 @@ const Card = ()=>{
    console.log(total)
   let id = Object.keys(cartItems)[0]
   return(
-    <div className="w-screen lg:h-screen flex justify-end ">
+    <div className="w-screen lg:h-screen flex justify-between ">
+      <PreviousOrders/>
       <div className="lg:w-1/3 px-4 lg:h-2/3 w-screen flex m-10 flex-col  overflow-y-scroll container bg-blue-50 p-4">
         { Object.keys(cartItems).length>0?
         <><img className="ml-4 h-16 w-24 mb-8" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img>
@@ -158,7 +162,7 @@ const Card = ()=>{
 </>:null}
 
       </div>
-     
+      
     </div>
   )
 }

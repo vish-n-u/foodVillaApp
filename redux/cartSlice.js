@@ -46,11 +46,8 @@ const cartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(obj));
     },
     addDataFromLocalStorage: (state, action) => {
-      state[action.payload.restaurantId] = {}
-       for(let x=0;x<Object.keys(action.payload).length;x++){
-
-       }
-
+      state[action.payload.restaurantId] = {};
+      for (let x = 0; x < Object.keys(action.payload).length; x++) {}
     },
     removeItem: (state, action) => {
       if (
@@ -81,6 +78,9 @@ const cartSlice = createSlice({
         }
       }
     },
+    reOrder: (state, action) => {
+      state.items = action.payload;
+    },
     clearCart: (state) => {
       state.items = {};
       localStorage.removeItem("cartItems");
@@ -88,5 +88,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, clearCart } = cartSlice.actions;
+export const { addItem, removeItem, clearCart, reOrder } = cartSlice.actions;
 export default cartSlice.reducer;

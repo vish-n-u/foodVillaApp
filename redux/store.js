@@ -3,6 +3,7 @@ import restaurantDetailsSlice from "./restaurantDetailsSlice";
 import userNameSlice from "./userNameSlice";
 import cartSlice from "./cartSlice";
 import menuSlice from "./menuSlice";
+import allMenuSlice from "./allMenuSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     restaurantDetails: restaurantDetailsSlice,
     menuDetails: menuSlice,
     userName: userNameSlice,
+    allMenu: allMenuSlice,
   },
 });
 
