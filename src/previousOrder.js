@@ -42,11 +42,11 @@ const PreviousOrders = () => {
   return allPrevOrders.length == 0 ? (
     <div></div>
   ) : (
-    <div className="flex flex-col h-3/4 my-2 border-2 border-black w-1/2 container overflow-y-scroll">
+    <div className="flex flex-col lg:h-3/4 h-full my-2 border-2 border-black lg:w-1/2 w-11/12 container overflow-y-scroll">
       {allPrevOrders.map((rs) => {
         let obj = {};
         return (
-          <div className="m-2 flex container w-full border p-2 border-black">
+          <div className="lg:m-2 my-2 flex container w-full border p-2 border-black">
             <img
               className="h-24 w-32  border-2 border-blue-700"
               src={
@@ -111,7 +111,6 @@ const PreviousOrders = () => {
                       onClick={() => {
                         setShowCartItemsMessage(false);
                         handleClick(rs.restaurantId, Dispatch, obj);
-                      
                       }}
                     >
                       Yes,start fresh!
