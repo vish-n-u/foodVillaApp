@@ -125,7 +125,7 @@ const Card = ()=>{
    console.log(total)
   let id = Object.keys(cartItems)[0]
   return(
-    <div className="w-screen lg:h-screen flex justify-between ">
+    <div className="w-screen lg:h-screen lg:flex flex flex-col-reverse justify-between ">
       <PreviousOrders/>
       <div className="lg:w-1/3 px-4 lg:h-2/3 w-screen flex m-10 flex-col  overflow-y-scroll container bg-blue-50 p-4">
         { Object.keys(cartItems).length>0?
