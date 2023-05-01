@@ -3,7 +3,7 @@ const ShimmerUI  =() =>{
     {new Array(12).fill(true).map(()=>{
         return(
         
-            <div className="aspect-video w-1/5 bg-slate-300 border-2 m-3 " >
+            <div className="aspect-video w-1/5 bg-slate-300 border-2 my-3 " >
 
         </div>
         )

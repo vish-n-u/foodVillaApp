@@ -53,13 +53,14 @@ const Body = () => {
         <button
           id="search"
           key="search"
+          className="ml-2"
           onClick={(e) => {
             let filterData = searchText;
             let filteredData = getFilteredData(filterData, restaurants);
             setFilterSearch(filteredData);
           }}
         >
-          Search
+          🔍
         </button>
         {/* <p className="flex justify-end">{IsOnline() == true ? "🟢" : "🔴"}</p> */}
       </div>

@@ -12,7 +12,10 @@ async function setUserData(Dispatch) {
   const isValidUser = await fetch(authenticateUserAndGetData, {
     method: "POST",
     mode: "cors",
-    body: JSON.stringify({ token: localStorage.getItem("token") }),
+    body: JSON.stringify({
+      token: localStorage.getItem("token"),
+      refreshToken: localStorage.getItem("refreshToken"),
+    }),
     headers: { "content-type": "application/json" },
   });
   console.log("isValidUSer by header----,", isValidUser);
@@ -58,25 +61,27 @@ const Header = () => {
   });
 
   return (
-    <div className="flex justify-between shadow-lg bg-fuchsia-100 w-screen">
+    <div className="flex justify-between shadow-lg bg-fuchsia-100 w-screen lg:h-40">
       <img
-        className="lg:h-36 lg:w-44 m-3 md:h-28 md:w-36 h-16 w-20"
+        className="lg:h-36 lg:w-44 m-1 my-3 md:h-36 md:w-40 h-24 w-28 lg:px-4"
         src="https://images-workbench.99static.com/xsIn-JPiXqWm4PaVeCGm7zz1Vn0=/99designs-contests-attachments/95/95490/attachment_95490984"
         alt="companyLogo"
       ></img>
 
-      <div className="font-bold font-serif relative flex flex-col md:flex-row lg:flex-row">
-        <span className="text-xl">rápidosh</span>
+      <div className="font-bold font-serif items-center w-full  lg:justify-around lg:items-stretch relative flex flex-col">
+        <span className="text-xl lg:w-1/2 w-full justify-center py-4 lg:p-0 flex lg:justify-end lg:my-10 lg:text-3xl">
+          rápidosh
+        </span>
 
-        <div>
-          <ul className="flex justify-between m-0 md:mr-5 lg:mr-5">
+        <div className="flex justify-end  w-full lg:mr-5">
+          <ul className="flex lg:text-xl font-thin justify-between m-0 md:mr-5 lg:mr-5">
             <li className="my-3 p-2">
               <Link to="/">Home</Link>
             </li>
-            <li className="my-3 py-2">Contact</li>
+            {/* <li className="my-3 py-2">Contact</li>
             <li className="my-3 p-2">
               <Link to="/about">About</Link>
-            </li>
+            </li> */}
             <div
               className="my-3 p-2"
               onClick={() => setIsSigninClicked(!isSigninClicked)}
@@ -85,7 +90,7 @@ const Header = () => {
               {isSigninClicked && (
                 <div
                   ref={ref}
-                  className="fixed top-14 right-5 lg:h-32 lg:w-60 bg-white flex justify-around items-center "
+                  className="fixed lg:top-36  right-5 lg:h-32 lg:w-60 bg-white flex justify-around items-center md:h-24 md:w-44 h-20 w-40"
                 >
                   {!userName ? (
                     <>

@@ -125,9 +125,9 @@ const Card = ()=>{
    console.log(total)
   let id = Object.keys(cartItems)[0]
   return(
-    <div className="w-screen lg:h-screen lg:flex flex flex-col-reverse justify-between ">
+    <div className="w-screen lg:h-screen lg:flex lg:flex-row flex flex-col-reverse justify-between ">
       <PreviousOrders/>
-      <div className="lg:w-1/3 px-4 lg:h-2/3 w-screen flex m-10 flex-col  overflow-y-scroll container bg-blue-50 p-4">
+      <div className="lg:w-1/3 lg:px-4 lg:h-2/3 w-screen flex lg:m-10 flex-col  overflow-y-scroll container bg-blue-50 lg:p-4">
         { Object.keys(cartItems).length>0?
         <><img className="ml-4 h-16 w-24 mb-8" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img>
       <div className="lg:h-2/3 will-change-scroll px-8 border-2 border-black flex  flex-col bg-blue-100 overflow-y-scroll container">{ Object.keys(cartItems[id]).map(item=>{

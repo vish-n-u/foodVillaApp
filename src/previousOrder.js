@@ -42,7 +42,7 @@ const PreviousOrders = () => {
   return allPrevOrders.length == 0 ? (
     <div></div>
   ) : (
-    <div className="flex flex-col lg:h-3/4 h-full my-2 border-2 border-black lg:w-1/2 w-11/12 container overflow-y-scroll">
+    <div className="flex flex-col lg:h-3/4 h-full my-2 border-2 border-black lg:w-1/2 w-11/12 container px-2 overflow-y-scroll">
       {allPrevOrders.map((rs) => {
         let obj = {};
         return (
