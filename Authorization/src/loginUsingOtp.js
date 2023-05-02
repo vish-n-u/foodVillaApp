@@ -6,7 +6,7 @@ const LoginUsingOtp = () => {
   const { id } = useParams();
   const [otp, setOtp] = useState("");
   return (
-    <div className="flex justify-center items-center align-middle h-screen">
+    <div className="flex justify-center h-full items-center align-middle ">
       <div className="flex flex-col w-1/3 h-fit  bg-blue-50 border border-black justify-center items-center">
         <input
           value={otp}

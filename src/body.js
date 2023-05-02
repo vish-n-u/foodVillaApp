@@ -39,7 +39,7 @@ const Body = () => {
     filterSearch
   );
   return (
-    <div className=" bg-fuchsia-50 w-screen" key="body">
+    <div className=" bg-blue-50 w-screen" key="body">
       <div className="flex justify-center my-3" key="searchBar">
         <input
           id="bar"

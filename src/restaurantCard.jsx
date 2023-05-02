@@ -5,7 +5,7 @@ const { Link } = require("react-router-dom");
 const RestaurantCard = ({cloudinaryImageId:img,name,avgRating:rating,deliveryTime,cuisines,costForTwoString:cost,id}) =>{
     return (
           
-        <div className="aspect-square w-80 lg:m-4 mb-4 mt-0 bg-fuchsia-50   overflow-hidden p-3  hover:transition   hover:shadow-sm hover:shadow-slate-800" key="restaurantCard">
+        <div className="aspect-square w-80 lg:m-4 mb-4 mt-0 bg-blue-50   overflow-hidden p-3  hover:transition   hover:shadow-sm hover:shadow-slate-800" key="restaurantCard">
             <Link to={"/menucard/"+id }>
             <img src={restaurantImg_CDN_Link+img} className="aspect-video mb-2 w-72" key ="img" ></img>
             <h2 className="font-semibold  text-lg mb-2 align-middle justify-center ">{name}</h2>

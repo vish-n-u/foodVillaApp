@@ -61,7 +61,7 @@ const Header = () => {
   });
 
   return (
-    <div className="flex justify-between shadow-lg bg-fuchsia-100 w-screen lg:h-40">
+    <div className="flex justify-between shadow-lg bg-blue-100 w-screen lg:h-40">
       <img
         className="lg:h-36 lg:w-44 m-1 my-3 md:h-36 md:w-40 h-24 w-28 lg:px-4"
         src="https://images-workbench.99static.com/xsIn-JPiXqWm4PaVeCGm7zz1Vn0=/99designs-contests-attachments/95/95490/attachment_95490984"
@@ -83,7 +83,7 @@ const Header = () => {
               <Link to="/about">About</Link>
             </li> */}
             <div
-              className="my-3 p-2"
+              className="my-3 p-2 cursor-pointer"
               onClick={() => setIsSigninClicked(!isSigninClicked)}
             >
               {userName || "Signin"}
@@ -95,16 +95,16 @@ const Header = () => {
                   {!userName ? (
                     <>
                       {" "}
-                      <li className="z-10">
+                      <li className="z-10 cursor-pointer">
                         <Link to="/signUp">Register</Link>
                       </li>
-                      <li className="z-10">
+                      <li className="z-10 cursor-pointer">
                         <Link to="/login">Login</Link>
                       </li>
                     </>
                   ) : (
                     <li
-                      className="z-10"
+                      className="z-10 cursor-pointer"
                       onClick={() => {
                         localStorage.clear();
                         window.location.reload(false);

@@ -35,7 +35,7 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
       <Navigate to="/" />
     </div>
   ) : (
-    <div className=" justify-center align-middle w-screen">
+    <div className=" justify-center align-middle w-screen ">
       <div className="mt-5 border border-black  justify-center w-11/12  lg:w-1/3 h-fit">
         <div className="flex flex-col justify-center">
           <span className="ml-10 mb-10 font-semibold text-lg inline">

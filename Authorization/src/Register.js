@@ -57,7 +57,7 @@ const Register = () => {
     />
   ) : (
     <>
-      <div className="flex flex-col bg-slate-200 h-full     items-center content-center  align-middle lg:flex lg:flex-row lg:justify-evenly">
+      <div className="flex flex-col  h-full     items-center content-center  align-middle lg:flex lg:flex-row lg:justify-evenly">
         <div className="w-screen flex-col mt-2 justify-start items-center flex  mb-7 lg:w-1/2 lg:justify-center">
           <div className="border-2 w-11/12 border-black mt-5   bg-blue-50 h-fit rounded-xl lg:w-3/5">
             <div className="flex flex-col content-center align-middle justify-center items-center">
@@ -228,12 +228,14 @@ async function handleClick(
   }
 }
 
-async function sendOTP(email,
+async function sendOTP(
+  email,
   setisFormSubmitted,
   returnDataJson,
   setJwtToken,
   userName,
-  setRefreshToken) {
+  setRefreshToken
+) {
   console.log("myEmail:", email, "myTOken", returnDataJson.message.token);
   try {
     let sendOTP = await fetch(
@@ -259,7 +261,7 @@ async function sendOTP(email,
       console.log("OTP VERIFICATION SUCESS", returnDataJson.message.token);
       setisFormSubmitted(true);
       setJwtToken(returnDataJson.message.token);
-      setRefreshToken(returnDataJson.message.refreshToken)
+      setRefreshToken(returnDataJson.message.refreshToken);
     }
   } catch (err) {
     console.log(err);

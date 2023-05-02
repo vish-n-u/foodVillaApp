@@ -23,7 +23,7 @@ const Login = () => {
   return successfulLogin ? (
     <Navigate to="/" />
   ) : noOfSubmits <= 3 && !isLoginUsingOtp ? (
-    <div className="flex  flex-col justify-center items-center align-middle pt-5 h-full bg-slate-100">
+    <div className="flex  flex-col justify-center items-center align-middle pt-5 h-full ">
       <div className="border-2  border-black flex flex-col w-11/12 content-center   bg-blue-50 h-fit rounded-xl justify-center items-center align-middle lg:w-1/3">
         <h1 className="text-xl font-semibold m-2"> Hey welcome back!</h1>
 

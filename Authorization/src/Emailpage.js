@@ -22,10 +22,10 @@ const Emailpage = () => {
       refreshToken={refreshToken}
     />
   ) : (
-    <div className="w-full h-screen  bg-slate-200">
-      <div className="flex flex-col  h-full w-full flex-wrap items-center align-middle justify-center content-center">
+    <div className="w-full h-screen bg-red-200  ">
+      <div className="flex flex-col  h-5/6 w-full flex-wrap items-center align-middle justify-center content-center">
         <span className="text-lg">Please provide your registered email-id</span>
-        <div className="border border-black w-11/12   p-2 m-2  h-1/3  flex flex-col align-middle justify-center content-center items-center bg-blue-100 rounded-lg md:w-1/3 lg:w-1/3 md:h-1/2 lg:h-1/2">
+        <div className="border border-black w-11/12   p-2 m-2  h-2/3  flex flex-col align-middle justify-center content-center items-center bg-blue-100 rounded-lg md:w-1/3 lg:w-1/3 md:h-1/2 lg:h-1/2">
           <input
             className={`w-3/5 h-10 pl-2 m-4 border border-black ${
               err ? "mb-0" : "mb - 4"
