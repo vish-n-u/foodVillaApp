@@ -16,4 +16,4 @@ export const authenticateUserAndGetData =
 
 export const createOrderLink =
   // "https://cute-teal-pelican-tam.cyclic.app/socialMedia/api/v1/order";
-  "http://localhost:3000/socialMedia/api/v1/order";
+  "https://cute-teal-pelican-tam.cyclic.app/socialMedia/api/v1/order";
