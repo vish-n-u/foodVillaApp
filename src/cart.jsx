@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { menuItemsImg_CDN_Link,restaurantImg_CDN_Link } from "./constants";
 import { addItem,removeItem ,clearCart} from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
+import { Navigate ,useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { createOrderLink } from "../Authorization/src/utils/constants";
 import PreviousOrders from "./previousOrder";
@@ -110,11 +111,12 @@ console.log(eachItemPrice)
                
 }
 
-const Card = ()=>{
+const Cart = ({fromHeader,setIsCartClicked})=>{
   const cartItems = useSelector(store=>store.cart.items)
   const restaurantDetail =useSelector(store=>store.restaurantDetails)
    const [eachItemPrice,setEachItemPrice] = useState({})
    const Dispatch = useDispatch()
+   const Navigate = useNavigate()
    if(!cartItems&&localStorage.getItem("cartItems")){
   addData()
    }
@@ -125,12 +127,14 @@ const Card = ()=>{
    console.log(total)
   let id = Object.keys(cartItems)[0]
   return(
-    <div className="w-screen lg:h-screen lg:flex lg:flex-row flex flex-col-reverse justify-between ">
-      <PreviousOrders/>
-      <div className="lg:w-1/3 lg:px-4 lg:h-2/3 w-screen flex lg:m-10 flex-col  overflow-y-scroll container bg-blue-50 lg:p-4">
+    <div className={`flex flex-col-reverse justify-between  z-50 text-black  ${fromHeader?"h-full w-full bg-white":"lg:h-screen w-screen lg:flex-row"  }`}>
+ {!fromHeader? <PreviousOrders/>:null} 
+      
+      <div className={` border border-black lg:px-4   flex  flex-col  overflow-y-scroll container  lg:p-4 ${fromHeader?"rounded-2xl p-2":"lg:w-1/3 lg:h-2/3 w-screen  lg:m-10"}`}>
         { Object.keys(cartItems).length>0?
-        <><img className="ml-4 h-16 w-24 mb-8" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img>
-      <div className="lg:h-2/3 will-change-scroll px-8 border-2 border-black flex  flex-col bg-blue-100 overflow-y-scroll container">{ Object.keys(cartItems[id]).map(item=>{
+        <>
+        <div className="flex justify-start"><img className="ml-4 h-16 w-24 mb-8 items-center align-middle m-2" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img> <span className="lg:text-lg">{restaurantDetail[id].name}</span></div>
+      <div className="lg:h-2/3  lg:px-8 border-2 border-black flex  flex-col bg-blue-100 overflow-y-scroll container">{ Object.keys(cartItems[id]).map(item=>{
        return <CartCard carts={cartItems[id][item] } restaurantId={id} eachItemPrice={eachItemPrice} setEachItemPrice={setEachItemPrice}  />
       })
       }
@@ -158,7 +162,16 @@ const Card = ()=>{
 }
 {Object.keys(cartItems).length>0?<>
 <div className="flex justify-around"><h1 className="text-lg p-2 m-2 font-semibold">total</h1><h1 className="text-lg p-2 m-2 font-semibold">{"₹"+ Math.round(totals)}</h1></div>
-<button onClick={()=>handleData(cartItems,totals,Dispatch)} className="text-lg font-semibold p-2 py-4 bg-blue-400 m-2 mx-4">Pay  ₹ {Math.round(totals)}</button>
+{  fromHeader?
+<button
+onClick={()=>{
+  setIsCartClicked(false)
+  if(!localStorage.getItem("token")) Navigate("/signUp")
+  else Navigate("/cart")
+}}
+
+className="text-lg font-semibold text-white p-2 py-4 bg-black m-2 mx-4">checkout</button>
+:<button onClick={()=>handleData(cartItems,totals,Dispatch)} className="text-lg font-semibold p-2 py-4 bg-blue-400 m-2 mx-4">Pay  ₹ {Math.round(totals)}</button>}
 </>:null}
 
       </div>
@@ -169,4 +182,4 @@ const Card = ()=>{
 
 
 
-export default Card
+export default Cart

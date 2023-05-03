@@ -39,10 +39,11 @@ const Body = () => {
     filterSearch
   );
   return (
-    <div className=" bg-blue-50 w-screen" key="body">
-      <div className="flex justify-center my-3" key="searchBar">
+    <div className="  w-screen" key="body">
+      <div className="flex justify-center   my-3" key="searchBar">
         <input
-          id="bar"
+          className="rounded-full px-6 shadow-xl"
+          id="bar" 
           key="bar"
           type="text"
           placeholder={searchText}
@@ -53,7 +54,7 @@ const Body = () => {
         <button
           id="search"
           key="search"
-          className="ml-2"
+          className="ml-2 "
           onClick={(e) => {
             let filterData = searchText;
             let filteredData = getFilteredData(filterData, restaurants);
@@ -74,7 +75,7 @@ const Body = () => {
         {restaurants.length == 0 ? (
           <ShimmerUI />
         ) : (
-          <div className="w-screen flex flex-row justify-evenly flex-wrap">
+          <div className="w-screen flex flex-row 0 justify-evenly flex-wrap">
             {filterSearch.map((rs) => {
               if (Object.keys(restaurantDetails).length <= 1) {
                 Dispatch(addData(rs));

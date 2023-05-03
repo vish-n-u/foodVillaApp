@@ -21,7 +21,7 @@ const MenuCss = () => {
 
   return Object.keys(datas).length <= 1 ? null : (
     <div
-      className="bg-slate-800 lg:items-center lg:justify-center justify-start pb-5 h-56 pt-5 sticky top-0 flex p-4  z-[100] text-yellow-50 w-screen"
+      className="bg-slate-800 lg:items-center lg:justify-center justify-start pb-5 h-56 pt-5 sticky top-0 flex p-4  z-[90] text-yellow-50 w-screen"
       key="header"
     >
       <img

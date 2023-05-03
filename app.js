@@ -14,7 +14,7 @@ import SignupForm from "./Authorization/src/Register";
 import Login from "./Authorization/src/Login";
 import Count from "./src/count";
 import LoginUsingOtp from "./Authorization/src/loginUsingOtp";
-import Card from "./src/cart";
+import Cart from "./src/cart";
 import Timer from "./src/Timer";
 import store from "./redux/store";
 import ShimmerUI from "./src/shimmerUI";
@@ -55,7 +55,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Card />,
+        element: <Cart />,
       },
       { path: "/count", element: <Count /> },
       { path: "/timer", element: <Timer /> },

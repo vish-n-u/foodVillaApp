@@ -72,7 +72,7 @@ const MenuCard = () => {
     <p>null</p>
   ) : (
     <>
-      <MenuCss />
+      <MenuCss restaurant={filteredRestaurant} />
       <div
         className={`flex flex-wrap content-center ${
           isMenuClicked ? "bg-black bg-opacity-60 " : ""
@@ -151,7 +151,7 @@ const MenuCard = () => {
                                     {rs.name}
                                   </h2>
                                   <h3>
-                                    {"₹" +  
+                                    {"₹" +
                                       (rs.defaultPrice / 100 || rs.price / 100)}
                                   </h3>
                                   <span className="overflow-hidden ">

@@ -7,7 +7,7 @@ const menuSlice = createSlice({
   },
   reducers: {
     addMenuDetails: (state, action) => {
-      // console.log("-Action.Payload----", action.payload.filterData);
+      console.log("-Action.Payload----", action.payload.filterData);
       state.items = {
         ...state.items,
         [action.payload.id]: action.payload.filterData,

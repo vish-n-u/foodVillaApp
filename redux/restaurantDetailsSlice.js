@@ -5,7 +5,7 @@ const restaurantSlice = createSlice({
   initialState: {},
   reducers: {
     addData: (state, action) => {
-      // console.log("addData--", action.payload?.data?.id);
+      console.log("addData--", action.payload?.data?.id);
       if (!state?.[action.payload?.data?.id])
         state[action.payload.data.id] = action.payload.data;
     },
