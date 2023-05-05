@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import OTP from "./OTP";
 import { loginRoute } from "./utils/constants";
 import { validateEmail } from "./utils/helper";
+import { UserContext } from "../../app";
 const Emailpage = () => {
   const [email, setEmail] = useState("");
   const [err, setErr] = useState({ err: false, message: "", otp: "" });
@@ -11,6 +12,7 @@ const Emailpage = () => {
   const [token, setToken] = useState("");
   const [refreshToken, setRefreshToken] = useState("");
   const [userName, setUserName] = useState("");
+  const pageColour = useContext(UserContext);
   console.log("invalidEmail", invalidEmail);
   return otpSent ? (
     <OTP
@@ -22,12 +24,20 @@ const Emailpage = () => {
       refreshToken={refreshToken}
     />
   ) : (
-    <div className="w-full h-screen bg-red-200  ">
-      <div className="flex flex-col  h-5/6 w-full flex-wrap items-center align-middle justify-center content-center">
+    <div className="w-full h-screen  ">
+      <div
+        className={`flex flex-col  h-5/6 w-full flex-wrap items-center align-middle justify-center content-center ${
+          pageColour == "white" ? "bg-white" : "bg-black text-white"
+        }`}
+      >
         <span className="text-lg">Please provide your registered email-id</span>
-        <div className="border border-black w-11/12   p-2 m-2  h-2/3  flex flex-col align-middle justify-center content-center items-center bg-blue-100 rounded-lg md:w-1/3 lg:w-1/3 md:h-1/2 lg:h-1/2">
+        <div
+          className={`border  w-11/12 text-black  p-2 m-2  h-2/3  flex flex-col align-middle justify-center content-center items-center bg-blue-100 rounded-lg md:w-1/2 lg:w-1/3 md:h-2/3 lg:h-1/2 ${
+            pageColour !== "white" ? "border-2 border-blue-500" : "border-black"
+          }`}
+        >
           <input
-            className={`w-3/5 h-10 pl-2 m-4 border border-black ${
+            className={`w-3/5 h-10 pl-2 m-4 border  border-black ${
               err ? "mb-0" : "mb - 4"
             }`}
             value={email}

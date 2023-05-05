@@ -3,9 +3,10 @@ import { menuItemsImg_CDN_Link,restaurantImg_CDN_Link } from "./constants";
 import { addItem,removeItem ,clearCart} from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { Navigate ,useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { createOrderLink } from "../Authorization/src/utils/constants";
 import PreviousOrders from "./previousOrder";
+import { UserContext } from "../app"
 
 const CDN_IMG_LINK = restaurantImg_CDN_Link
 
@@ -60,10 +61,7 @@ async function handleData(cartItems,totals,Dispatch){
 
 }
 
-   function addData(){
-  
-    
-   }
+   
 
 const CartCard = ({carts,restaurantId,eachItemPrice,setEachItemPrice}) =>{
  const Dispatch = useDispatch()
@@ -117,6 +115,7 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
    const [eachItemPrice,setEachItemPrice] = useState({})
    const Dispatch = useDispatch()
    const Navigate = useNavigate()
+   const pageColour = useContext(UserContext)
    if(!cartItems&&localStorage.getItem("cartItems")){
   addData()
    }
@@ -127,13 +126,13 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
    console.log(total)
   let id = Object.keys(cartItems)[0]
   return(
-    <div className={`flex flex-col-reverse justify-between  z-50 text-black  ${fromHeader?"h-full w-full bg-white":"lg:h-screen w-screen lg:flex-row"  }`}>
+    <div className={`flex flex-col-reverse justify-between  z-50 text-black  ${fromHeader? pageColour!="white"?"h-full w-full bg-white":"h-full w-full bg-black":pageColour=="white"?"lg:h-screen w-screen lg:flex-row ":"lg:h-screen w-screen lg:flex-row bg-black text-white"  }`}>
  {!fromHeader? <PreviousOrders/>:null} 
       
-      <div className={` border border-black lg:px-4   flex  flex-col  overflow-y-scroll container  lg:p-4 ${fromHeader?"rounded-2xl p-2":"lg:w-1/3 lg:h-2/3 w-screen  lg:m-10"}`}>
+      <div className={` border border-black lg:px-4   flex  flex-col  overflow-y-scroll container  lg:p-4 ${fromHeader?"rounded-2xl p-2":"lg:w-1/3 lg:h-2/3 w-screen  lg:m-10"} ${pageColour=="white"?"border-2 border-black":"border-2 border-white"}`}>
         { Object.keys(cartItems).length>0?
         <>
-        <div className="flex justify-start"><img className="ml-4 h-16 w-24 mb-8 items-center align-middle m-2" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img> <span className="lg:text-lg">{restaurantDetail[id].name}</span></div>
+        <div className="flex justify-start"><img className="ml-4 h-16 w-24 mb-8 items-center align-middle m-2" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img> <span className={`lg:text-lg ${fromHeader? pageColour=="white"?"text-white":"text-black":pageColour!="white"?"text-black ":" text-white"  }` }>{restaurantDetail[id].name}</span></div>
       <div className="lg:h-2/3  lg:px-8 border-2 border-black flex  flex-col bg-blue-100 overflow-y-scroll container">{ Object.keys(cartItems[id]).map(item=>{
        return <CartCard carts={cartItems[id][item] } restaurantId={id} eachItemPrice={eachItemPrice} setEachItemPrice={setEachItemPrice}  />
       })
@@ -170,7 +169,7 @@ onClick={()=>{
   else Navigate("/cart")
 }}
 
-className="text-lg font-semibold text-white p-2 py-4 bg-black m-2 mx-4">checkout</button>
+className={`text-lg font-semibold text-white p-2 py-4  m-2 mx-4 ${pageColour!="white"?"bg-black text-white":"bg-white text-black"}`}>checkout</button>
 :<button onClick={()=>handleData(cartItems,totals,Dispatch)} className="text-lg font-semibold p-2 py-4 bg-blue-400 m-2 mx-4">Pay  ₹ {Math.round(totals)}</button>}
 </>:null}
 

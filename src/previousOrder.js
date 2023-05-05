@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import restaurantDetailsSlice from "../redux/restaurantDetailsSlice";
 import { prevOrderDetails } from "./constants";
 import { restaurantImg_CDN_Link } from "./constants";
 import { reOrder } from "../redux/cartSlice";
+import { UserContext } from "../app";
 async function getData(setAllPrevOrders) {
   try {
     const data = await fetch(prevOrderDetails, {
@@ -34,6 +35,7 @@ const PreviousOrders = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const [showCartItemsMessage, setShowCartItemsMessage] = useState(false);
   const Dispatch = useDispatch();
+  const pageColour = useContext(UserContext);
 
   useEffect(() => {
     if (localStorage.getItem("token")) getData(setAllPrevOrders);
@@ -42,7 +44,11 @@ const PreviousOrders = () => {
   return allPrevOrders.length == 0 ? (
     <div></div>
   ) : (
-    <div className="flex flex-col lg:h-3/4 h-full my-2 border-2 border-black lg:w-1/2 w-11/12 container px-2 overflow-y-scroll">
+    <div
+      className={`flex flex-col lg:h-3/4 h-full my-2 border-2 border-black lg:w-1/2 w-11/12 container px-2 overflow-y-scroll ${
+        pageColour == "white" ? "bg-white" : "bg-black text-white"
+      }`}
+    >
       {allPrevOrders.map((rs) => {
         let obj = {};
         return (
@@ -65,7 +71,13 @@ const PreviousOrders = () => {
 
                       obj[key].itemsQuantityInCart = rs.orderDetails[key][0];
                       return (
-                        <span className="ml-3 mt-1 text-sm text-slate-800">
+                        <span
+                          className={`ml-3 mt-1 text-sm ${
+                            pageColour == "white"
+                              ? "text-slate-800"
+                              : "text-white"
+                          }`}
+                        >
                           {vals.name + "   x" + +rs.orderDetails[key][0]}
                         </span>
                       );
@@ -74,7 +86,7 @@ const PreviousOrders = () => {
                 );
               })}
               <div className="flex align-baseline items-end ml-3 mt-1 h-full w-full flex-wrap justify-around  ">
-                <h1 className="">{"Total          " + rs.totalAmount}</h1>
+                <h1 className="">{"Total          " + "₹" + rs.totalAmount}</h1>
                 <button
                   onClick={() => {
                     if (Object.keys(cartItems).length == 0)

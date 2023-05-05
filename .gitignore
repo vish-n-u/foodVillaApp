@@ -3,3 +3,6 @@ node_modules
 dist
 new.js
 notIndex.css
+trial.jsx
+about.jsx
+count.jsx

@@ -1,16 +1,16 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import categoryObj from "./utils/helperFunction/categoryObjFunction";
 import { useSelector, useDispatch } from "react-redux";
 import FilterMenu from "./FilterMenu";
 import { menuItemsImg_CDN_Link, swiggyMenuApi } from "./constants";
 import MenuCss from "./MenuCss";
 import { getWidth } from "./constants";
-
 import useGetMenuDetail from "./utils/useGetMenuDetails";
 import { addItem, removeItem } from "../redux/cartSlice";
-
+import { UserContext } from "../app";
 import NavBar from "./menuNavbar";
+import MenuCardShimmer from "./menuCardShimmerUi";
 
 function replaceVal(val) {
   let retur = val.replace(/[^a-zA-Z0-9]/g, "");
@@ -20,7 +20,7 @@ function replaceVal(val) {
 
 const MenuCard = () => {
   const cartItems = useSelector((store) => store.cart.items);
-
+  const pageColour = useContext(UserContext);
   const dispatch = useDispatch();
   const handleAddItems = (item) => dispatch(addItem(item));
   const handleRemoveItems = (item) => dispatch(removeItem(item));
@@ -69,17 +69,25 @@ const MenuCard = () => {
 
   console.log(window.screen.width);
   return !details ? (
-    <p>null</p>
+    <MenuCardShimmer />
   ) : (
     <>
       <MenuCss restaurant={filteredRestaurant} />
       <div
         className={`flex flex-wrap content-center ${
-          isMenuClicked ? "bg-black bg-opacity-60 " : ""
+          isMenuClicked
+            ? pageColour == "white"
+              ? "bg-black bg-opacity-80 "
+              : ""
+            : ""
         } align-middle justify-center items-center w-screen`}
       >
-        <h1>{isMenuClicked}</h1>
-        <div className="flex flex-col items-center w-full">
+        {/* <h1>{isMenuClicked}</h1> */}
+        <div
+          className={`flex flex-col  items-center w-full ${
+            pageColour == "white" ? "" : "bg-black"
+          }`}
+        >
           {
             <FilterMenu
               filterSearch={filterSearch}
@@ -94,17 +102,23 @@ const MenuCard = () => {
           }
 
           <div
-            className=" w-screen justify-start lg:w-screen md:w-3/4 flex flex-row  "
+            className={` w-screen  justify-start lg:w-screen md:w-3/4 flex flex-row   ${
+              pageColour == "white" ? "" : "bg-black"
+            } `}
             key={"menuParent"}
           >
             {getWidth() > 1024 && window.screen.width > 1024 && (
-              <div className="flex  lg:w-1/4">
+              <div className="flex z-[110] lg:w-1/4">
                 {filteredRestaurant && (
                   <NavBar filteredRestaurant={filteredRestaurant} />
                 )}
               </div>
             )}
-            <div className="flex flex-col w-screen lg:w-3/4">
+            <div
+              className={`flex  flex-col w-screen lg:w-3/4 ${
+                pageColour == "white" ? "" : "bg-black text-white"
+              }`}
+            >
               {filteredRestaurant &&
                 isCategoryOpen &&
                 Object.keys(filteredRestaurant).map((val) => {
@@ -113,7 +127,7 @@ const MenuCard = () => {
                       <div key={val}>
                         <div
                           id={replaceVal(val)}
-                          className="text-xl  mt-10 font-semibold bg-slate-100 py-4 w-screen flex justify-evenly lg:w-full"
+                          className="text-xl  mt-10 font-semibold   py-4 w-screen flex justify-evenly lg:w-full"
                         >
                           <h1 className="">
                             {filteredRestaurant[val].length > 0
@@ -138,16 +152,22 @@ const MenuCard = () => {
                           filteredRestaurant[val].map((rs) => {
                             return (
                               <div
-                                className="h-auto w-screen lg:w-full  flex justify-between flex-wrap lg:p-2 lg:m-2 border-b-2 "
+                                className={`h-auto w-screen lg:w-full  flex justify-between flex-wrap lg:p-2 lg:m-2 border-b-2 ${
+                                  pageColour == "white" ? "" : "text-white"
+                                }`}
                                 key={rs.id + rs.category}
                               >
-                                <div className=" flex flex-col pl-4 w-3/5 lg:w-2/5 md:w-2/5 justify-between z-[-1]">
+                                <div
+                                  className={`flex flex-col pl-4 w-3/5 lg:w-2/5 md:w-2/5 justify-between  z-[20] ${
+                                    pageColour == "white" ? "" : "text-white"
+                                  }`}
+                                >
                                   {rs.isVeg == 1 ? (
                                     <div>{"🟢"}</div>
                                   ) : (
                                     <div>🔴</div>
                                   )}
-                                  <h2 className="font-bold w-full text-lg">
+                                  <h2 className="font-bold w-full text-lg ">
                                     {rs.name}
                                   </h2>
                                   <h3>
@@ -164,7 +184,7 @@ const MenuCard = () => {
                                       {rs.imageid == "" ||
                                       rs.imageId == undefined ? null : (
                                         <img
-                                          className="h-36 w-4/5 md:w-1/4 lg:w-1/4  z-[-2] relative"
+                                          className="h-36 w-4/5 md:w-1/4 lg:w-1/4  z-[20] relative"
                                           src={
                                             menuItemsImg_CDN_Link + rs.imageId
                                           }
@@ -174,7 +194,7 @@ const MenuCard = () => {
                                       {!cartItems?.[id]?.[rs.id]
                                         ?.itemsQuantityInCart ? (
                                         <h1
-                                          className="bg-green-50 z-10 flex  justify-center items-center  text-center -mb-4 border-2 border-green-600 h-9 w-3/5 md:w-1/6 lg:w-1/6 rounded-sm absolute shadow-md hover:cursor-pointer"
+                                          className="bg-green-50 z-[22] flex  justify-center items-center  text-center -mb-4 border-2 border-green-600 h-9 w-3/5 md:w-1/6 lg:w-1/6 rounded-sm absolute shadow-md hover:cursor-pointer text-black"
                                           onClick={() => {
                                             if (
                                               Object.keys(cartItems).length >
@@ -194,10 +214,10 @@ const MenuCard = () => {
                                         <div
                                           id="kk"
                                           key="key"
-                                          className="bg-green-50 z-10 flex shadow-md justify-evenly items-center text-center border-2 border-green-600 h-9 md:w-1/4 w-4/5 rounded-sm absolute "
+                                          className="bg-green-50 z-[22] flex shadow-md justify-evenly items-center text-center border-2 border-green-600 h-9 md:w-1/4 w-4/5 rounded-sm absolute text-black"
                                         >
                                           <button
-                                            className="font-semibold z-10 text-2xl"
+                                            className="font-semibold z-[22] text-2xl"
                                             onClick={() => {
                                               handleRemoveItems({
                                                 rs: rs,
@@ -214,7 +234,7 @@ const MenuCard = () => {
                                             }
                                           </span>
                                           <button
-                                            className="font-semibold z-10  text-2xl"
+                                            className="font-semibold z-[22]  text-2xl"
                                             onClick={() => {
                                               if (
                                                 Object.keys(cartItems).length >
@@ -236,7 +256,7 @@ const MenuCard = () => {
                                       )}
                                     </>
                                   ) : (
-                                    <div className=" flex flex-wrap items-center  z-[-1]  border-[1] border-slate-400 text-sm w-2/3 text-black">
+                                    <div className=" flex flex-wrap items-center  z-[20]  border-[1] border-slate-400 text-sm w-2/3 text-black">
                                       {rs?.nextAvailableAtMessage}
                                     </div>
                                   )}
@@ -253,7 +273,7 @@ const MenuCard = () => {
       </div>
       {isMenuClicked && (
         <div className="w-screen z-40 flex justify-center content-center  items-center">
-          <div className="w-3/4 z-40 bg-white h-auto max-h-[50%] fixed bottom-16 overflow-scroll ">
+          <div className="w-3/4 lg:w-1/3  z-40 bg-white h-auto max-h-[50%] fixed bottom-16 overflow-scroll ">
             <NavBar
               filteredRestaurant={filteredRestaurant}
               menuButton={true}

@@ -1,41 +1,35 @@
-import React, { lazy, Suspense, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import Header from "./src/header";
-// import Body from "./src/body";
-import UserContext from "./src/utils/userContext";
-import { Footer } from "./src/footer";
-import Home from "./src/homePage";
 import MenuCard from "./src/menuCard";
-import Trial from "./src/trial";
 import SignupForm from "./Authorization/src/Register";
 import Login from "./Authorization/src/Login";
-import Count from "./src/count";
 import LoginUsingOtp from "./Authorization/src/loginUsingOtp";
 import Cart from "./src/cart";
-import Timer from "./src/Timer";
 import store from "./redux/store";
-import ShimmerUI from "./src/shimmerUI";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-// import About from "./src/about";
+import OTP from "./Authorization/src/OTP";
+import Body from "./src/body";
+
 const clientConfigs = {
   client_id:
     "899698031769-ndeoh4e02af6ee1qffqgecp23dbno64g.apps.googleusercontent.com",
 };
 
-const About = lazy(() => import("./src/about"));
-const Body = lazy(() => import("./src/body"));
-
+export const UserContext = createContext();
 const AppLayout = () => {
+  const [pageColour, setPageColour] = useState("white");
   return (
     <Provider store={store}>
       <GoogleOAuthProvider clientId={clientConfigs.client_id}>
-        <Header />
+        <UserContext.Provider value={pageColour}>
+          <Header setPageColour={setPageColour} pageColour={pageColour} />
 
-        <Outlet />
-        <Footer />
+          <Outlet />
+        </UserContext.Provider>
       </GoogleOAuthProvider>
     </Provider>
   );
@@ -47,36 +41,21 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          <Suspense>
-            <Body />
-          </Suspense>
-        ),
+        element: <Body />,
       },
       {
         path: "/cart",
         element: <Cart />,
       },
-      { path: "/count", element: <Count /> },
-      { path: "/timer", element: <Timer /> },
       { path: "/login", element: <Login /> },
       { path: "/otpLogin/:id", element: <LoginUsingOtp /> },
 
       {
-        path: "/about",
-        element: (
-          <Suspense>
-            <About />
-          </Suspense>
-        ),
-      },
-      { path: "/trial", element: <Trial /> },
-      {
         path: "/menucard/:id",
         element: <MenuCard />,
       },
-      { path: "/trial", element: <Trial /> },
       { path: "/signUp", element: <SignupForm /> },
+      { path: "/otp", element: <OTP /> },
     ],
   },
 ]);

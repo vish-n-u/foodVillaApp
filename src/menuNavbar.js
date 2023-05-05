@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
+import { UserContext } from "../app";
 
 function replaceVal(val) {
   let retur = val.replace(/[^a-zA-Z0-9]/g, "");
@@ -33,6 +34,7 @@ const NavBar = ({
   changedByHandler,
 }) => {
   const ref = useRef();
+  const pageColour = useContext(UserContext);
 
   useEffect(() => {
     // let isMenuClicked = isMenuClicked;
@@ -56,14 +58,16 @@ const NavBar = ({
   return (
     <div
       ref={ref}
-      className={`flex  flex-col container  w-full ${
+      className={`flex z-50  flex-col container  w-full ${
         !menuButton ? "mt-16 mr-10" : "h-full "
       }`}
     >
       <nav
-        className={`flex flex-col p-2 align-middle justify-center shadow-2xl bg-white w-full   border-2 border-black items-center content-center ${
-          menuButton ? "h-full rounded-2xl " : "h-auto"
-        }`}
+        className={`flex flex-col  p-2 align-middle justify-center shadow-2xl bg-black w-full   border-2 border-white items-center content-center ${
+          pageColour == "white"
+            ? "bg-black text-white  border-white"
+            : "bg-white text-black border-black"
+        } ${menuButton ? "h-full rounded-2xl " : "h-auto"}`}
       >
         {Object.keys(filteredRestaurant).map((rs) => {
           // console.log("reached", rs);
@@ -71,7 +75,7 @@ const NavBar = ({
             <ul className="my-3 ">
               <li className="">
                 <a
-                  className=" font-medium font-serif text-lg text-blue-600 "
+                  className="  font-medium font-serif text-lg "
                   href={"#" + replaceVal(rs)}
                   onClick={(event) =>
                     menuButton
@@ -79,7 +83,7 @@ const NavBar = ({
                       : scrollToSection()
                   }
                 >
-                  {rs}
+                  {rs == "undefined" ? "others" : rs}
                 </a>
               </li>
             </ul>

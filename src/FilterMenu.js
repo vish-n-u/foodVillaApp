@@ -12,7 +12,7 @@ const FilterMenu = ({
   setDetails,
 }) => {
   return (
-    <div className="w-screen flex justify-center z-[110] sticky top-44 ">
+    <div className="w-screen flex justify-center z-[90] sticky top-44 ">
       <input
         className="h-10 font-semibold shadow-xl bg-white w-1/2 md:w-3/4 lg:w-80"
         type="text"

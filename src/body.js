@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import RestaurantCard from "./restaurantCard";
-import ShimmerUI from "./shimmerUI";
+import RestaurantCardShimmerUI from "./restaurantCardShimmerUI";
 import useRestaurant from "./utils/useRestaurant";
 
 import { useDispatch, useSelector } from "react-redux";
 import { addData } from "../redux/restaurantDetailsSlice";
+import { UserContext } from "../app";
 
 function getFilteredData(keyword, restaurants) {
   return restaurants.filter((rs) => {
@@ -23,6 +24,7 @@ const Body = () => {
   let [restaurants, setRestaurants] = useState([]);
   let restaurantDetails = useSelector((store) => store.restaurantDetails);
   const Dispatch = useDispatch();
+  const pageColour = useContext(UserContext);
   let err = false;
 
   useRestaurant(
@@ -39,11 +41,16 @@ const Body = () => {
     filterSearch
   );
   return (
-    <div className="  w-screen" key="body">
-      <div className="flex justify-center   my-3" key="searchBar">
+    <div
+      className={`  w-screen ${
+        pageColour == "white" ? "bg-white" : "bg-black"
+      }`}
+      key="body"
+    >
+      <div className="flex justify-center py-2  my-3" key="searchBar">
         <input
-          className="rounded-full px-6 shadow-xl"
-          id="bar" 
+          className="rounded-full px-6 shadow-md shadow-white  "
+          id="bar"
           key="bar"
           type="text"
           placeholder={searchText}
@@ -73,9 +80,9 @@ const Body = () => {
           <ErrorDisplay />
         ) : ( */}
         {restaurants.length == 0 ? (
-          <ShimmerUI />
+          <RestaurantCardShimmerUI />
         ) : (
-          <div className="w-screen flex flex-row 0 justify-evenly flex-wrap">
+          <div className="w-screen flex flex-row  justify-evenly flex-wrap">
             {filterSearch.map((rs) => {
               if (Object.keys(restaurantDetails).length <= 1) {
                 Dispatch(addData(rs));
