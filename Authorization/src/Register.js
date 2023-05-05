@@ -61,11 +61,11 @@ const Register = () => {
     <>
       <div className={`flex align-top flex-wrap mt-10 `}>
         <div
-          className={`h-3/4 w-screen flex flex-col-reverse items-center justify-center content-center lg:flex lg:flex-row lg:justify-evenly ${
+          className={`h-3/4 w-screen flex  flex-col-reverse items-center justify-center content-center lg:flex lg:flex-row lg:justify-evenly ${
             pageColour == "white" ? "" : "bg-black border  text-white"
           }`}
         >
-          <div className="w-screen flex-col mt-2 justify-start items-center flex  mb-7 lg:w-1/2 lg:justify-center lg:align-middle lg:content-center">
+          <div className="w-screen flex-col mt-2 justify-start items-center flex  mb-7 lg:w-1/2 lg:justify-center lg:align-middle lg:content-center ">
             <div
               className={`border-2 w-11/12 border-black mt-5     rounded-xl lg:w-3/5 ${
                 pageColour == "white"
@@ -146,11 +146,11 @@ const Register = () => {
               </Link>
             </h1>
           </div>
-          
-          </div><div className="h-fit w-fit">
+          <div className="h-fit w-fit">
             <GoogleLogins
               setISSigningInUsingGoogle={setISSigningInUsingGoogle}
             />
+          </div>
         </div>
       </div>
     </>

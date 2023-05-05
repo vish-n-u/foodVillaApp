@@ -20,16 +20,14 @@ function GoogleLogins({ setISSigningInUsingGoogle }) {
     localStorage.setItem("refreshToken", newData.message.refreshToken);
     Dispatch(updateName(newData.message.userName));
     setISSigningInUsingGoogle(true);
-    
   };
   const errorMessage = (error) => {
     alert("An internal server error occured please retry");
     console.log(error);
   };
   return (
-    
-    <div className="flex flex-col-reverse   items-center  lg:mt-3 ">
-      <h2 className=" text-lg mt-5">or </h2>
+    <div className="flex flex-col-reverse lg:flex-row  items-center  lg:mt-3 ">
+      <h2 className=" text-lg mt-5 lg:mr-10 lg:mt-0">or </h2>
 
       <GoogleLogin
         width="280px"
