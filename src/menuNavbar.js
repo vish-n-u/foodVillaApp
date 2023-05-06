@@ -58,8 +58,8 @@ const NavBar = ({
   return (
     <div
       ref={ref}
-      className={`flex z-50  flex-col container  w-full ${
-        !menuButton ? "mt-16 mr-10" : "h-full "
+      className={`flex   flex-col container  w-full ${
+        !menuButton ? "mt-16 mr-10 " : "h-full z-50"
       }`}
     >
       <nav

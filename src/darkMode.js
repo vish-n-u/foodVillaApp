@@ -29,8 +29,9 @@ export function DarkMode({ setPageColour, pageColour }) {
           </label>
         </div>
       ) : (
-        <div>
+        <div className=" hover:shadow-2xl shadow-black">
           <h1
+            className="cursor-pointer  hover:shadow-2xl shadow-black "
             onClick={() => {
               setEnabled(!enabled);
               let colour = pageColour == "white" ? "black" : "white";

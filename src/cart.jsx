@@ -126,13 +126,13 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
    console.log(total)
   let id = Object.keys(cartItems)[0]
   return(
-    <div className={`flex flex-col-reverse justify-between  z-50 text-black  ${fromHeader? pageColour!="white"?"h-full w-full bg-white":"h-full w-full bg-black":pageColour=="white"?"lg:h-screen w-screen lg:flex-row ":"lg:h-screen w-screen lg:flex-row bg-black text-white"  }`}>
+    <div className={`flex w-screen  items-center flex-col-reverse justify-between  z-50 text-black  ${fromHeader? pageColour!="white"?"h-full w-full bg-white":"h-full w-full bg-black":pageColour=="white"?"lg:h-screen w-screen lg:flex-row ":"lg:h-screen w-screen lg:flex-row bg-black text-white"  }`}>
  {!fromHeader? <PreviousOrders/>:null} 
       
       <div className={` border border-black lg:px-4   flex  flex-col  overflow-y-scroll container  lg:p-4 ${fromHeader?"rounded-2xl p-2":"lg:w-1/3 lg:h-2/3 w-screen  lg:m-10"} ${pageColour=="white"?"border-2 border-black":"border-2 border-white"}`}>
         { Object.keys(cartItems).length>0?
         <>
-        <div className="flex justify-start"><img className="ml-4 h-16 w-24 mb-8 items-center align-middle m-2" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img> <span className={`lg:text-lg ${fromHeader? pageColour=="white"?"text-white":"text-black":pageColour!="white"?"text-black ":" text-white"  }` }>{restaurantDetail[id].name}</span></div>
+        <div className="flex justify-start"><img className="ml-4 h-16 w-24 mb-8 items-center align-middle m-2" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img> <span className={`lg:text-lg mt-2 ${fromHeader? pageColour=="white"?"text-white":"text-black":pageColour=="white"?"text-black ":" text-white"  }` }>{restaurantDetail[id].name}</span></div>
       <div className="lg:h-2/3  lg:px-8 border-2 border-black flex  flex-col bg-blue-100 overflow-y-scroll container">{ Object.keys(cartItems[id]).map(item=>{
        return <CartCard carts={cartItems[id][item] } restaurantId={id} eachItemPrice={eachItemPrice} setEachItemPrice={setEachItemPrice}  />
       })
@@ -151,7 +151,7 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
 
   }
      </div>
-     <div className="flex justify-between  m-1">
+     <div className={`flex justify-between  m-1 `}>
       <span>Total</span> { Object.keys(cartItems).length>0?<h1>{"₹"+ Math.round(totals)}</h1>:null}
      </div>
      </div>
@@ -160,7 +160,7 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
       <><h1>Empty Cart</h1></>
 }
 {Object.keys(cartItems).length>0?<>
-<div className="flex justify-around"><h1 className="text-lg p-2 m-2 font-semibold">total</h1><h1 className="text-lg p-2 m-2 font-semibold">{"₹"+ Math.round(totals)}</h1></div>
+<div className={`flex justify-around ${pageColour==="white"?"text-black":"text-gray-100"}`}><h1 className="text-lg p-2 m-2 font-semibold">Total</h1><h1 className="text-lg p-2 m-2 font-semibold">{"₹"+ Math.round(totals)}</h1></div>
 {  fromHeader?
 <button
 onClick={()=>{

@@ -7,8 +7,6 @@ import { DarkMode } from "../src/darkMode";
 import { authenticateUserAndGetData } from "../Authorization/src/utils/constants";
 import Cart from "./cart";
 
-
-
 async function setUserData(Dispatch) {
   const isValidUser = await fetch(authenticateUserAndGetData, {
     method: "POST",

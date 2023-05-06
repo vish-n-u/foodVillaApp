@@ -4,6 +4,7 @@ import { Redirect, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateName } from "../../redux/userNameSlice";
 import { UserContext } from "../../app";
+import { otpGenerator, verifyOtp } from "./utils/constants";
 const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
   console.log(token);
   let [timerSec, setTimerSec] = useState(20);
@@ -92,15 +93,12 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
                 className="cursor-pointer text-lg text-blue-900 underline flex justify-center p-2"
                 onClick={async () => {
                   console.log("-----", email);
-                  let finalSubmit = await fetch(
-                    "http://localhost:7001/otpGenerator/ap1/v1/otps",
-                    {
-                      method: "POST",
-                      mode: "cors",
-                      body: JSON.stringify({ to: email }),
-                      headers: { "content-type": "application/json" },
-                    }
-                  );
+                  let finalSubmit = await fetch(otpGenerator, {
+                    method: "POST",
+                    mode: "cors",
+                    body: JSON.stringify({ to: email }),
+                    headers: { "content-type": "application/json" },
+                  });
                   setTimerSec(30);
                   setResubmitted(resubmitted + 1);
                   setOtpErr(false);
@@ -130,15 +128,12 @@ async function handleSubmit(
   refreshToken
 ) {
   console.log("finalSubmit");
-  const isOtpCorrect = await fetch(
-    "http://localhost:7001/otpGenerator/ap1/v1/verifyOtp",
-    {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify({ email, otp }),
-      headers: { "content-type": "application/json" },
-    }
-  );
+  const isOtpCorrect = await fetch(verifyOtp, {
+    method: "POST",
+    mode: "cors",
+    body: JSON.stringify({ email, otp }),
+    headers: { "content-type": "application/json" },
+  });
   console.log("isOtpCorrect:", isOtpCorrect);
   if (isOtpCorrect.status != 200) {
     // setErr({

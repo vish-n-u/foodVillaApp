@@ -108,7 +108,7 @@ const MenuCard = () => {
             key={"menuParent"}
           >
             {getWidth() > 1024 && window.screen.width > 1024 && (
-              <div className="flex z-[110] lg:w-1/4">
+              <div className="flex  lg:w-1/4">
                 {filteredRestaurant && (
                   <NavBar filteredRestaurant={filteredRestaurant} />
                 )}
