@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import GoogleLogins from "./GoogleLogin";
+import { otpGenerator } from "./utils/constants";
 import OTP from "./OTP";
 import {
   registerViaGoogle,
@@ -235,7 +236,7 @@ async function sendOTP(
   console.log("myEmail:", email, "myTOken", returnDataJson.message.token);
   try {
     let sendOTP = await fetch(
-      "http://localhost:7001/otpGenerator/ap1/v1/otps",
+      otpGenerator,
       {
         method: "POST",
         mode: "cors",
