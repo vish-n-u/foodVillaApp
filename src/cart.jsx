@@ -160,7 +160,7 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
       <><h1>Empty Cart</h1></>
 }
 {Object.keys(cartItems).length>0?<>
-<div className={`flex justify-around ${pageColour==="white"?"text-black":"text-gray-100"}`}><h1 className="text-lg p-2 m-2 font-semibold">Total</h1><h1 className="text-lg p-2 m-2 font-semibold">{"₹"+ Math.round(totals)}</h1></div>
+<div className={`flex justify-around  ${fromHeader? pageColour!="white"?"text-black":"text-white":pageColour=="white"?"text-black":" text-white"  }`}><h1 className="text-lg p-2 m-2 font-semibold">Total</h1><h1 className="text-lg p-2 m-2 font-semibold">{"₹"+ Math.round(totals)}</h1></div>
 {  fromHeader?
 <button
 onClick={()=>{
