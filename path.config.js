@@ -1,7 +1,6 @@
-if(process.env.NODE_ENV!=="PRODUCTION"){
-  require("dotenv").config()
+if (process.NODE_ENV !== "PRODUCTION") {
+  require("dotenv").config();
 }
-
 
 export const registrationRoute = process.env.REGISTRATION_ROUTE;
 export const loginRoutes = process.env.LOGINS_ROUTES;
