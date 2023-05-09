@@ -1,11 +1,10 @@
 import { useState, useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import RestaurantCard from "./restaurantCard";
 import RestaurantCardShimmerUI from "./restaurantCardShimmerUI";
 import useRestaurant from "./utils/useRestaurant";
 
-import { useDispatch, useSelector } from "react-redux";
-import { addData } from "../redux/restaurantDetailsSlice";
 import { UserContext } from "../app";
 
 function getFilteredData(keyword, restaurants) {
@@ -34,12 +33,7 @@ const Body = () => {
     Dispatch,
     restaurantDetails
   );
-  console.log(
-    "----restauranrDetails",
-    restaurantDetails,
-    "----filterSearch",
-    filterSearch
-  );
+
   return (
     <div
       className={`  w-screen ${
@@ -84,10 +78,6 @@ const Body = () => {
         ) : (
           <div className="w-screen flex flex-row  justify-evenly flex-wrap">
             {filterSearch.map((rs) => {
-              if (Object.keys(restaurantDetails).length <= 1) {
-                Dispatch(addData(rs));
-              }
-
               return <RestaurantCard {...rs.data} key={rs.data.id} />;
             })}
           </div>

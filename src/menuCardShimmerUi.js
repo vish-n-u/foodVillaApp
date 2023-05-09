@@ -26,7 +26,7 @@ const MenuCardShimmer = () => {
       <div className="w-full  flex justify-center items-center ">
         <div className="lg:w-3/4 w-screen flex flex-col justify-center  items-center">
           <div className="w-full lg:w-1/2  mt-20 flex h-10 justify-center items-center   lg:bg-slate-400"></div>
-          {arr.map((index) => {
+          {arr.map((x, index) => {
             return (
               <div
                 key={index}

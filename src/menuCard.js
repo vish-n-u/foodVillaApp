@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useRef, useContext } from "react";
-import categoryObj from "./utils/helperFunction/categoryObjFunction";
+
 import { useSelector, useDispatch } from "react-redux";
 import FilterMenu from "./FilterMenu";
 import { menuItemsImg_CDN_Link, swiggyMenuApi } from "./constants";
 import MenuCss from "./MenuCss";
+import categoryObj from "./utils/helperFunction/categoryObjFunction";
 import { getWidth } from "./constants";
 import useGetMenuDetail from "./utils/useGetMenuDetails";
 import { addItem, removeItem } from "../redux/cartSlice";

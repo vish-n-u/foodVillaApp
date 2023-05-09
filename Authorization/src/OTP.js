@@ -4,12 +4,13 @@ import { Redirect, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateName } from "../../redux/userNameSlice";
 import { UserContext } from "../../app";
-import { otpGenerator, verifyOtp } from "./utils/constants";
+import { otpGenerator, verifyOtp } from "../../path.config";
 const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
-  console.log(token);
-  let [timerSec, setTimerSec] = useState(20);
+  console.log(token, email);
+  let [timerSec, setTimerSec] = useState(60);
   const [otp, setOtp] = useState("");
   const [otpErr, setOtpErr] = useState(false);
+  const [wrongOtps, setWrongOtps] = useState({});
   const [resubmitted, setResubmitted] = useState(0);
   const [isRegistrationComplete, setIsRegistrationComplete] = useState(false);
   const pageColour = useContext(UserContext);
@@ -61,6 +62,9 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
                 value={otp}
                 onChange={(e) => {
                   setOtp(e.target.value);
+                  if (otpErr) {
+                    setOtpErr(false);
+                  }
                 }}
                 placeholder="otp..."
               ></input>
@@ -80,7 +84,9 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
                       token,
                       userName,
                       Dispatch,
-                      refreshToken
+                      refreshToken,
+                      wrongOtps,
+                      setWrongOtps
                     )
                   }
                 >
@@ -99,7 +105,7 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
                     body: JSON.stringify({ to: email }),
                     headers: { "content-type": "application/json" },
                   });
-                  setTimerSec(30);
+                  setTimerSec(60);
                   setResubmitted(resubmitted + 1);
                   setOtpErr(false);
                 }}
@@ -125,9 +131,11 @@ async function handleSubmit(
   token,
   userName,
   Dispatch,
-  refreshToken
+  refreshToken,
+  wrongOtps,
+  setWrongOtps
 ) {
-  console.log("finalSubmit");
+  console.log("finalSubmit", otp, email);
   const isOtpCorrect = await fetch(verifyOtp, {
     method: "POST",
     mode: "cors",
@@ -135,16 +143,18 @@ async function handleSubmit(
     headers: { "content-type": "application/json" },
   });
   console.log("isOtpCorrect:", isOtpCorrect);
-  if (isOtpCorrect.status != 200) {
+  if (isOtpCorrect.status !== 200) {
     // setErr({
     //   ...err,
     //   otp: "incorrect otp",
     // });
-    setOtpErr(true);
-    console.log("++++++", otp, "+++++++++");
-    return;
+    if (isOtpCorrect.status == 400) {
+      setOtpErr(true);
+      setWrongOtps({ ...wrongOtps, [otp]: true });
+      return;
+    }
   }
-  if (isOtpCorrect.status == 500) {
+  if (isOtpCorrect.status === 500) {
     alert("internal server err");
     return;
   } else {

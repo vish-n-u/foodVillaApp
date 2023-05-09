@@ -3,11 +3,16 @@ import { useState, useEffect, useContext } from "react";
 import { useDispatch } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import Emailpage from "./Emailpage";
-import { loginRoute } from "./utils/constants";
+import {
+  deleteElement,
+  loginRoutes,
+  registrationRoute,
+} from "../../path.config";
 import { validateEmail } from "./utils/helper";
 import { updateName } from "../../redux/userNameSlice";
 import { UserContext } from "../../app";
 import GoogleLogins from "./GoogleLogin";
+
 const Login = () => {
   const [profileImgSrc, setProfileImgSrc] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -170,12 +175,15 @@ async function onSubmit(
   setSuccessfulLogin,
   Dispatch
 ) {
-  let data = await fetch(loginRoute, {
+  console.log(loginRoutes, registrationRoute, deleteElement);
+  const data = await fetch(loginRoutes, {
     method: "POST",
     mode: "cors",
-    headers: { "content-type": "application/json" },
+
     body: JSON.stringify({ userEmail, password }),
+    headers: { "content-type": "application/json" },
   });
+
   let dataJson = await data.json();
 
   if (data.status == 200) {
@@ -187,7 +195,7 @@ async function onSubmit(
     localStorage.setItem("refreshToken", dataJson.message.refreshToken);
     return;
   }
-  if (data.status == 404) {
+  if (data.status == 400) {
     console.log("data.message.email::------", dataJson.message.email);
     if (dataJson.message.email) {
       setUserEmail("");

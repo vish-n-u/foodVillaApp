@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { updateName } from "../../redux/userNameSlice";
 import { GoogleLogin } from "@react-oauth/google";
-import { registerViaGoogle } from "./utils/constants";
+import { registerViaGoogle } from "../../path.config";
 
 function GoogleLogins({ setISSigningInUsingGoogle }) {
   const Dispatch = useDispatch();

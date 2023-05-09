@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import restaurantDetailsSlice from "../redux/restaurantDetailsSlice";
-import { prevOrderDetails } from "./constants";
+import { prevOrderDetails } from "../path.config";
 import { restaurantImg_CDN_Link } from "./constants";
 import { reOrder } from "../redux/cartSlice";
 import { UserContext } from "../app";
@@ -18,10 +18,11 @@ async function getData(setAllPrevOrders) {
     });
     console.log(data);
     const dataJson = await data.json();
-    console.log("dataJson-------", dataJson);
+
     if (dataJson.message.newAccessToken != undefined)
       localStorage.setItem("token", dataJson.message.newAccessToken);
     setAllPrevOrders(dataJson.message);
+    // console.log("datjsonmessage", dataJson.message);
   } catch (err) {
     console.log(err);
   }
@@ -66,9 +67,11 @@ const PreviousOrders = () => {
         }`}
       >
         {allPrevOrders.map((rs) => {
+          console.log("rs._id===", rs._id);
           let obj = {};
           return (
             <div
+              key={rs._id}
               className={` flex container w-full border p-2 border-black ${
                 pageColour == "white" ? "border-black" : "border-white"
               }`}
@@ -92,6 +95,7 @@ const PreviousOrders = () => {
                         obj[key].itemsQuantityInCart = rs.orderDetails[key][0];
                         return (
                           <span
+                            key={key}
                             className={`ml-3 mt-1 text-sm ${
                               pageColour == "white"
                                 ? "text-slate-800"

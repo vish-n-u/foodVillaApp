@@ -15,6 +15,7 @@
     "@react-oauth/google": "^0.10.0",
     "@reduxjs/toolkit": "^1.9.3",
     "@tailwindcss/forms": "^0.5.3",
+    "dotenv": "^16.0.3",
     "formik": "^2.2.9",
     "google-auth-library": "^8.7.0",
     "heroicons-react": "^1.4.1",
@@ -27,7 +28,9 @@
     "remarkable": "^2.0.1"
   },
   "devDependencies": {
+    "os-browserify": "^0.3.0",
     "parcel": "^2.8.2",
+    "path-browserify": "^1.0.1",
     "postcss": "^8.4.21",
     "process": "^0.11.10",
     "react-dom-visualizer": "^1.0.0",

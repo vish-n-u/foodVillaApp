@@ -1,9 +1,9 @@
 const RestaurantCardShimmerUI  =() =>{
     return <div className=" w-screen flex flex-row flex-wrap  justify-evenly mt-5">
-    {new Array(12).fill(true).map(()=>{
+    {new Array(12).fill(true).map((x,index)=>{
         return(
         
-            <div className="aspect-square w-80 lg:m-4 mb-4 mt-0 p-3  border-2 my-3 " >
+            <div key={index} className="aspect-square w-80 lg:m-4 mb-4 mt-0 p-3  border-2 my-3 " >
                 <div className="aspect-video mb-2 w-72 bg-slate-300"> </div>
                 <div className="font-semibold bg-slate-400 text-lg mb-2 w-2/3 h-5 align-middle justify-center "></div>
             <h4 id ="cuisines" className="flex bg-slate-400 w-2/3 h-5"></h4>

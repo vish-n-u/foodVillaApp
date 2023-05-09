@@ -1,32 +1,20 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
+
 import GoogleLogins from "./GoogleLogin";
-import { otpGenerator } from "./utils/constants";
-import OTP from "./OTP";
 import {
+  otpGenerator,
   registerViaGoogle,
   registrationRoute,
   deleteElement,
-} from "./utils/constants";
+  loginRoutes,
+} from "../../path.config";
+
+import { validateEmail } from "./utils/helper";
+import OTP from "./OTP";
 import { UserContext } from "../../app";
 
-const toBase64 = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
-async function onUpload(e, setVal) {
-  console.log("e.target.files[0]::----", e.target.files);
-  if (e.target.files[0]) {
-    console.log("reached");
-    const base64 = await toBase64(e.target.files[0]);
-    console.log("base64::", base64);
-    setVal(base64);
-  }
-}
 
 const Register = () => {
   const [userName, setUserName] = useState("");
@@ -44,7 +32,34 @@ const Register = () => {
   const [isSigningInUsingGoogle, setISSigningInUsingGoogle] = useState(false);
   const [jwtToken, setJwtToken] = useState("");
   const [refreshToken, setRefreshToken] = useState("");
+  const [attemptedMails, setAttemptedMails] = useState({});
   const pageColour = useContext(UserContext);
+
+  useEffect(() => {
+    function onEnter(e) {
+      console.log("ENTER HAS BEEN PRESSDE", e, e.key);
+      if (e.key === "Enter") {
+        handleClick(
+          userName,
+          userPassword,
+          email,
+          setErr,
+          setEmail,
+          setisFormSubmitted,
+          err,
+          val,
+          setJwtToken,
+          setRefreshToken
+        );
+      }
+    }
+
+    document.addEventListener("keypress", onEnter);
+    return () => {
+      document.removeEventListener("keypress", onEnter);
+    };
+  });
+  console.log(err, "=====");
 
   return isSigningInUsingGoogle ? (
     <Navigate to="/" />
@@ -84,42 +99,80 @@ const Register = () => {
               </div>
               <div className="flex flex-col items-center h-full text-black  w-full">
                 <input
-                  className="border border-black mb-6 m-2 mt-3 w-3/5 pl-2 h-10"
+                  className={`border border-black mb-6 m-2 mt-3 w-3/5 pl-2 h-10 ${
+                    err.userNameErr ? "mb-0" : ""
+                  }`}
                   placeholder="Username..."
                   onChange={(e) => {
                     setUserName(e.target.value);
+                    if (err.userNameErr !== "") {
+                      setErr({ ...err, userNameErr: "" });
+                    }
                   }}
                 ></input>
+                {err.userNameErr ? (
+                  <span className="text-red-500 mb-5">{err.userNameErr}</span>
+                ) : null}
 
                 <input
                   type="password"
                   placeholder="password"
                   onChange={(e) => {
                     setUserPassword(e.target.value);
+                    if (err.userPasswordErr !== "") {
+                      setErr({ ...err, userPasswordErr: "" });
+                    }
                   }}
-                  className="border border-black w-3/5 m-2 mb-6 pl-2 h-10"
+                  className={`border border-black mb-6 m-2 mt-3 w-3/5 pl-2 h-10 ${
+                    err.userPasswordErr ? "mb-0" : ""
+                  }`}
                 ></input>
-
+                {err.userPasswordErr ? (
+                  <span className="text-red-500 mb-5">
+                    {err.userPasswordErr}
+                  </span>
+                ) : null}
                 <input
                   type="email"
                   placeholder="Email-id"
-                  className="border border-black w-3/5 m-2 pl-2 h-10 mb-10"
+                  className={`border border-black mb-6 m-2 mt-3 w-3/5 pl-2 h-10 ${
+                    err.userEmailErr ? "mb-0" : ""
+                  }`}
                   onChange={(e) => {
+                    if (err.email != "") {
+                      setErr({ ...err, userEmailErr: "" });
+                    }
                     setEmail(e.target.value);
+                    if (
+                      !validateEmail(e.target.value) &&
+                      e.target.value.length > 0
+                    ) {
+                      setErr({ ...err, userEmailErr: "Invalid Email" });
+                    }
                   }}
                 ></input>
 
-                {err.userEmailErr == 400 ? (
-                  <h1>
+                {err.userEmailErr == 400 || attemptedMails[email] ? (
+                  <h1 className="text-red-500  mb-5">
                     This email is already registered with us try
                     <Link to="/login" className="text-blue-700 underline">
                       logging in
                     </Link>
                   </h1>
-                ) : null}
+                ) : err.userEmailErr == "Invalid Email" ? (
+                  <h1 className="text-red-500">Invalid Email</h1>
+                ) : (
+                  ""
+                )}
                 {!isFormSubmitted ? (
                   <button
-                    className="px-5 bg-blue-700 font-medium text-lg py-2 rounded-md mb-5 w-1/2 text-white"
+                    className={`px-5 bg-blue-700 font-medium text-lg py-2 rounded-md mb-5 w-1/2 text-white ${
+                      err.userEmailErr !== "" ||
+                      err.userNameErr !== "" ||
+                      err.userPasswordErr !== ""
+                        ? "cursor-not-allowed"
+                        : ""
+                    }`}
                     onClick={() => {
                       handleClick(
                         userName,
@@ -170,16 +223,28 @@ async function handleClick(
   setJwtToken,
   setRefreshToken
 ) {
-  const data = {
-    userName,
-    userPassword,
-    email,
-  };
+  console.log("handleSubmit called", err.userNameErr);
+  if (err.userNameErr || err.userPasswordErr || err.userEmailErr) {
+    return;
+  }
+  if (!userName) {
+    setErr({ ...err, userNameErr: "UserName can't be empty" });
+    return;
+  }
+  if (!userPassword) {
+    setErr({ ...err, userPasswordErr: "password can't be empty" });
+    return;
+  }
+  if (!email) {
+    setErr({ ...err, userEmailErr: "email can't be empty" });
+    return;
+  }
+
   try {
-    console.log("final submission");
+    console.log("final submission", registrationRoute, registerRoute);
     const returnData = await fetch(registrationRoute, {
-      method: "POST",
       mode: "cors",
+      method: "POST",
       body: JSON.stringify({
         userName,
         password: userPassword,
@@ -189,21 +254,10 @@ async function handleClick(
       headers: { "content-type": "application/json" },
     });
     let returnDataJson = await returnData.json();
-    console.log(
-      returnData,
-      "returnData.status",
-      returnData.status,
-      "returnDataJson",
-      returnDataJson,
-      "returnData.body",
-      returnDataJson.body,
-      "returnData.msg",
-      returnDataJson.message
-    );
 
     if (returnData.status == 400) {
       setErr({ ...err, userEmailErr: 400 });
-      setEmail = "";
+      setEmail("");
       return;
     }
     if (returnData.status == 500) {
@@ -235,15 +289,12 @@ async function sendOTP(
 ) {
   console.log("myEmail:", email, "myTOken", returnDataJson.message.token);
   try {
-    let sendOTP = await fetch(
-      otpGenerator,
-      {
-        method: "POST",
-        mode: "cors",
-        body: JSON.stringify({ to: email }),
-        headers: { "content-type": "application/json" },
-      }
-    );
+    let sendOTP = await fetch(otpGenerator, {
+      method: "POST",
+      mode: "cors",
+      body: JSON.stringify({ to: email }),
+      headers: { "content-type": "application/json" },
+    });
     console.log("sendOTP:", sendOTP, sendOTP.status);
     if (sendOTP.status !== 200) {
       const returnData = await fetch(deleteElement, {

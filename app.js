@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
+import Trial from "./trial";
 import Header from "./src/header";
 import MenuCard from "./src/menuCard";
 import SignupForm from "./Authorization/src/Register";
@@ -56,6 +57,7 @@ const appRouter = createBrowserRouter([
       },
       { path: "/signUp", element: <SignupForm /> },
       { path: "/otp", element: <OTP /> },
+      { path: "/trial", element: <Trial /> },
     ],
   },
 ]);

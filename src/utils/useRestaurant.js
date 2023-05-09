@@ -5,7 +5,13 @@ import { swiggyRestaurantApi } from "../constants";
 import { addMenuData } from "../../redux/allMenuSlice";
 import jsonData from "../../data";
 
-async function getData(setRestaurants, setFilterSearch, err, Dispatch) {
+async function getData(
+  setRestaurants,
+  setFilterSearch,
+  err,
+  Dispatch,
+  restaurantDetails
+) {
   // try {
   // console.log("restaurant data", jsonData);
   // const getMenuData = await fetch(
@@ -24,6 +30,11 @@ async function getData(setRestaurants, setFilterSearch, err, Dispatch) {
     // const data = await jsonData.json();
     setRestaurants(jsonData);
     setFilterSearch(jsonData);
+    if (Object.keys(restaurantDetails).length < 1) {
+      jsonData.map((rs) => {
+        Dispatch(addMenuData(rs));
+      });
+    }
 
     // Dispatch(addMenuData(jsonDatas.message));
 
@@ -62,9 +73,15 @@ const useRestaurant = (
         setFilterSearch(arr);
       }
       return;
+    } else {
+      getData(
+        setRestaurants,
+        setFilterSearch,
+        err,
+        Dispatch,
+        restaurantDetails
+      );
     }
-
-    getData(setRestaurants, setFilterSearch, err, Dispatch);
   }, [setRestaurants, setFilterSearch, Dispatch]);
 };
 

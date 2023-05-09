@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateName } from "../redux/userNameSlice";
 
 import { DarkMode } from "../src/darkMode";
-import { authenticateUserAndGetData } from "../Authorization/src/utils/constants";
+import { authenticateUserAndGetData } from "../path.config";
 import Cart from "./cart";
 
 async function setUserData(Dispatch) {

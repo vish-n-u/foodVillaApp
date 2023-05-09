@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import OTP from "./OTP";
-import { loginRoute } from "./utils/constants";
+import { loginRoutes, otpGenerator } from "../../path.config";
 import { validateEmail } from "./utils/helper";
 import { UserContext } from "../../app";
 const Emailpage = () => {
@@ -107,7 +107,7 @@ const verifyUser = async (
   setUserName,
   setRefreshToken
 ) => {
-  const data = await fetch(loginRoute, {
+  const data = await fetch(loginRoutes, {
     method: "POST",
     mode: "cors",
     headers: { "content-type": "application/json" },
@@ -116,7 +116,7 @@ const verifyUser = async (
   console.log(data);
   const dataJson = await data.json();
 
-  if (data.status == 404) {
+  if (data.status == 400) {
     console.log("data---", data);
     setErr({
       err: true,
@@ -130,15 +130,12 @@ const verifyUser = async (
     return;
   } else {
     try {
-      let sendOTP = await fetch(
-        "http://localhost:7001/otpGenerator/ap1/v1/otps",
-        {
-          method: "POST",
-          mode: "cors",
-          body: JSON.stringify({ to: email }),
-          headers: { "content-type": "application/json" },
-        }
-      );
+      let sendOTP = await fetch(otpGenerator, {
+        method: "POST",
+        mode: "cors",
+        body: JSON.stringify({ to: email }),
+        headers: { "content-type": "application/json" },
+      });
       if (data.status == 500) {
         alert("A server err occured please retry");
       } else if (data.status == 200) {

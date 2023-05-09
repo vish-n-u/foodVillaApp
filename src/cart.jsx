@@ -4,7 +4,7 @@ import { addItem,removeItem ,clearCart} from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { Navigate ,useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import { createOrderLink } from "../Authorization/src/utils/constants";
+import { createOrderLink } from "../path.config";
 import PreviousOrders from "./previousOrder";
 import { UserContext } from "../app"
 
@@ -69,11 +69,11 @@ const CartCard = ({carts,restaurantId,eachItemPrice,setEachItemPrice}) =>{
 if(!eachItemPrice[id]){
   setEachItemPrice({...eachItemPrice,[id]:(defaultPrice/100*itemsQuantityInCart||price/100*itemsQuantityInCart)})
 } 
-console.log(eachItemPrice)
+console.log("checking id",eachItemPrice,id)
 
   
     return(
-    <div  key={'Rbody1'} className="box-border flex px-2  justify-between mt-2 items-center content-center align-middle
+    <div  key={id} className="box-border text-black  flex px-2  justify-between mt-2 items-center content-center align-middle
       hover:shadow-xl w-full" > 
       
      
@@ -126,15 +126,16 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
    console.log(total)
   let id = Object.keys(cartItems)[0]
   return(
-    <div className={`flex w-screen  items-center flex-col-reverse justify-between  z-50 text-black  ${fromHeader? pageColour!="white"?"h-full w-full bg-white":"h-full w-full bg-black":pageColour=="white"?"lg:h-screen w-screen lg:flex-row ":"lg:h-screen w-screen lg:flex-row bg-black text-white"  }`}>
+    <div key={"cartbody1"} className={`flex w-screen  items-center flex-col-reverse justify-between  z-50 text-black  ${fromHeader? pageColour!="white"?"lg:h-full h-3/5 w-full bg-white":"lg:h-full h-3/5 w-full bg-black":pageColour=="white"?"lg:h-3/4 w-screen lg:flex-row ":"lg:h-screen  w-screen lg:flex-row bg-black text-white"  } `}>
  {!fromHeader? <PreviousOrders/>:null} 
       
-      <div className={` border border-black lg:px-4   flex  flex-col  overflow-y-scroll container  lg:p-4 ${fromHeader?"rounded-2xl p-2":"lg:w-1/3 lg:h-2/3 w-screen  lg:m-10"} ${pageColour=="white"?"border-2 border-black":"border-2 border-white"}`}>
+      <div key={"cartbody2"} className={` border border-black lg:px-4   flex  flex-col  overflow-y-scroll container  lg:p-4 ${fromHeader?"rounded-2xl p-2":"lg:w-1/3 lg:h-2/3 w-screen  lg:m-10"} ${pageColour=="white"?"border-2 border-black":"border-2 border-white"}`}>
         { Object.keys(cartItems).length>0?
         <>
-        <div className="flex justify-start"><img className="ml-4 h-16 w-24 mb-8 items-center align-middle m-2" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img> <span className={`lg:text-lg mt-2 ${fromHeader? pageColour=="white"?"text-white":"text-black":pageColour=="white"?"text-black ":" text-white"  }` }>{restaurantDetail[id].name}</span></div>
-      <div className="lg:h-2/3  lg:px-8 border-2 border-black flex  flex-col bg-blue-100 overflow-y-scroll container">{ Object.keys(cartItems[id]).map(item=>{
-       return <CartCard carts={cartItems[id][item] } restaurantId={id} eachItemPrice={eachItemPrice} setEachItemPrice={setEachItemPrice}  />
+        <div key={"cartbody3"} className="flex justify-start"><img className="ml-4 h-16 w-24 mb-8 items-center align-middle m-2" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img> <span className={`lg:text-lg mt-2 ${fromHeader? pageColour=="white"?"text-white":"text-black":pageColour=="white"?"text-black ":" text-white"  }` }>{restaurantDetail[id].name}</span></div>
+      <div key={"cartbody4"} className="lg:h-2/3  lg:px-8 border-2 border-black flex  flex-col bg-blue-100 overflow-y-scroll container">{ Object.keys(cartItems[id]).map(item=>{
+        // console.log("checking id main",item)
+       return <CartCard carts={cartItems[id][item] } key={item} restaurantId={id} eachItemPrice={eachItemPrice} setEachItemPrice={setEachItemPrice}  />
       })
       }
       <div className="flex flex-col mt-7 px-2">
