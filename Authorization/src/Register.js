@@ -14,7 +14,6 @@ import {
 import { validateEmail } from "./utils/helper";
 import OTP from "./OTP";
 import { UserContext } from "../../app";
-registerRoute
 
 const Register = () => {
   const [userName, setUserName] = useState("");
@@ -241,7 +240,6 @@ async function handleClick(
   }
 
   try {
-   
     const returnData = await fetch(registrationRoute, {
       mode: "cors",
       method: "POST",
