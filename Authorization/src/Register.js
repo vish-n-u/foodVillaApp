@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
-
+import LoadingScreen from "../../src/Loading";
 import GoogleLogins from "./GoogleLogin";
 import {
   otpGenerator,
@@ -24,6 +24,7 @@ const Register = () => {
     userPasswordErr: "",
     userEmailErr: "",
   });
+  const [showLoadingScreen, setShowLoadingScreen] = useState(false);
   const [isFormSubmitted, setisFormSubmitted] = useState(false);
   const [val, setVal] = useState(
     "https://icon-library.com/images/user-icon-jpg/user-icon-jpg-5.jpg"
@@ -38,29 +39,40 @@ const Register = () => {
     function onEnter(e) {
       console.log("ENTER HAS BEEN PRESSDE", e, e.key);
       if (e.key === "Enter") {
-        handleClick(
-          userName,
-          userPassword,
-          email,
-          setErr,
-          setEmail,
-          setisFormSubmitted,
-          err,
-          val,
-          setJwtToken,
-          setRefreshToken
-        );
+        setShowLoadingScreen(true);
       }
     }
-
-    document.addEventListener("keypress", onEnter);
+    const targetElement = document.getElementById("register");
+    targetElement.addEventListener("keypress", onEnter);
     return () => {
-      document.removeEventListener("keypress", onEnter);
+      console.log("Component unmounted");
+      targetElement.removeEventListener("keypress", onEnter);
     };
-  });
+  }, []);
   console.log(err, "=====");
 
-  return isSigningInUsingGoogle ? (
+  useEffect(() => {
+    console.log(showLoadingScreen);
+    if (showLoadingScreen) {
+      handleClick(
+        userName,
+        userPassword,
+        email,
+        setErr,
+        setEmail,
+        setisFormSubmitted,
+        err,
+        val,
+        setJwtToken,
+        setRefreshToken,
+        setShowLoadingScreen
+      );
+    }
+  }, [showLoadingScreen]);
+
+  return showLoadingScreen ? (
+    <LoadingScreen />
+  ) : isSigningInUsingGoogle ? (
     <Navigate to="/" />
   ) : isFormSubmitted ? (
     <OTP
@@ -74,7 +86,7 @@ const Register = () => {
     />
   ) : (
     <>
-      <div className={`flex align-top flex-wrap mt-10 `}>
+      <div id="register" className={`flex align-top flex-wrap mt-10 `}>
         <div
           className={`h-3/4 w-screen flex  flex-col-reverse items-center justify-center content-center lg:flex lg:flex-row lg:justify-evenly ${
             pageColour == "white" ? "" : "bg-black border  text-white"
@@ -173,18 +185,7 @@ const Register = () => {
                         : ""
                     }`}
                     onClick={() => {
-                      handleClick(
-                        userName,
-                        userPassword,
-                        email,
-                        setErr,
-                        setEmail,
-                        setisFormSubmitted,
-                        err,
-                        val,
-                        setJwtToken,
-                        setRefreshToken
-                      );
+                      setShowLoadingScreen(true);
                     }}
                   >
                     Submit
@@ -220,9 +221,11 @@ async function handleClick(
   err,
   val,
   setJwtToken,
-  setRefreshToken
+  setRefreshToken,
+  setShowLoadingScreen,
+  showLoadingScreen
 ) {
-  console.log("handleSubmit called", err.userNameErr);
+  console.log("handleSubmit called", err.userNameErr, showLoadingScreen);
   if (err.userNameErr || err.userPasswordErr || err.userEmailErr) {
     return;
   }
@@ -252,14 +255,17 @@ async function handleClick(
       headers: { "content-type": "application/json" },
     });
     let returnDataJson = await returnData.json();
+    console.log("showLoadingScreen", showLoadingScreen);
 
     if (returnData.status == 400) {
       setErr({ ...err, userEmailErr: 400 });
       setEmail("");
+      setShowLoadingScreen(false);
       return;
     }
     if (returnData.status == 500) {
       alert("An internal server err occured pls retry");
+      setShowLoadingScreen(false);
       return;
     } else {
       sendOTP(
@@ -268,7 +274,8 @@ async function handleClick(
         returnDataJson,
         setJwtToken,
         userName,
-        setRefreshToken
+        setRefreshToken,
+        setShowLoadingScreen
       );
     }
   } catch (err) {
@@ -283,7 +290,8 @@ async function sendOTP(
   returnDataJson,
   setJwtToken,
   userName,
-  setRefreshToken
+  setRefreshToken,
+  setShowLoadingScreen
 ) {
   console.log("myEmail:", email, "myTOken", returnDataJson.message.token);
   try {
@@ -294,6 +302,7 @@ async function sendOTP(
       headers: { "content-type": "application/json" },
     });
     console.log("sendOTP:", sendOTP, sendOTP.status);
+    setShowLoadingScreen(false);
     if (sendOTP.status !== 200) {
       const returnData = await fetch(deleteElement, {
         method: "DELETE",

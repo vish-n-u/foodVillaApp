@@ -12,6 +12,7 @@ import { validateEmail } from "./utils/helper";
 import { updateName } from "../../redux/userNameSlice";
 import { UserContext } from "../../app";
 import GoogleLogins from "./GoogleLogin";
+import LoadingScreen from "../../src/Loading";
 
 const Login = () => {
   const [profileImgSrc, setProfileImgSrc] = useState("");
@@ -23,12 +24,32 @@ const Login = () => {
     userEmail: "",
     password: "",
   });
+  const [showLoadingScreen, setShowLoadingScreen] = useState(false);
   const [successfulLogin, setSuccessfulLogin] = useState(false);
   const [isLoginUsingOtp, setIsLoginUsingOtp] = useState(false);
   const [isSigningInUsingGoogle, setISSigningInUsingGoogle] = useState(false);
   const Dispatch = useDispatch();
   const pageColour = useContext(UserContext);
-  return isSigningInUsingGoogle ? (
+
+  useEffect(() => {
+    console.log("`````", showLoadingScreen);
+    if (showLoadingScreen)
+      onSubmit(
+        userEmail,
+        setUserEmail,
+        password,
+        setPassword,
+        err,
+        setErr,
+        setProfileImgSrc,
+        setSuccessfulLogin,
+        Dispatch,
+        setShowLoadingScreen
+      );
+  }, [showLoadingScreen]);
+  return showLoadingScreen ? (
+    <LoadingScreen />
+  ) : isSigningInUsingGoogle ? (
     <Navigate to="/" />
   ) : successfulLogin ? (
     <Navigate to="/" />
@@ -121,17 +142,7 @@ const Login = () => {
                     return;
                   }
                   setNoOfSubmits(noOfSubmits + 1);
-                  onSubmit(
-                    userEmail,
-                    setUserEmail,
-                    password,
-                    setPassword,
-                    err,
-                    setErr,
-                    setProfileImgSrc,
-                    setSuccessfulLogin,
-                    Dispatch
-                  );
+                  setShowLoadingScreen(true);
                 }}
                 className="w-3/4 py-2 flex align-middle mb-3 text-lg font-semibold text-white  justify-center items-center  m-2 rounded-xl  bg-blue-700 active:bg-blue-900"
               >
@@ -173,7 +184,8 @@ async function onSubmit(
   setErr,
   setProfileImgSrc,
   setSuccessfulLogin,
-  Dispatch
+  Dispatch,
+  setShowLoadingScreen
 ) {
   console.log(loginRoutes, registrationRoute, deleteElement);
   const data = await fetch(loginRoutes, {
@@ -185,7 +197,7 @@ async function onSubmit(
   });
 
   let dataJson = await data.json();
-
+  setShowLoadingScreen(false);
   if (data.status == 200) {
     setProfileImgSrc(dataJson.message.imgLink);
     Dispatch(updateName(dataJson.message.userName));

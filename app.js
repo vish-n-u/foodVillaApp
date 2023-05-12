@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
-
 import Header from "./src/header";
 import MenuCard from "./src/menuCard";
 import SignupForm from "./Authorization/src/Register";
@@ -14,7 +13,7 @@ import Cart from "./src/cart";
 import store from "./redux/store";
 import OTP from "./Authorization/src/OTP";
 import Body from "./src/body";
-
+import LoadingScreen from "./src/Loading";
 const clientConfigs = {
   client_id:
     "899698031769-ndeoh4e02af6ee1qffqgecp23dbno64g.apps.googleusercontent.com",
@@ -45,6 +44,10 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
+        path: "/loading",
+        element: <LoadingScreen />,
+      },
+      {
         path: "/cart",
         element: <Cart />,
       },
@@ -57,7 +60,6 @@ const appRouter = createBrowserRouter([
       },
       { path: "/signUp", element: <SignupForm /> },
       { path: "/otp", element: <OTP /> },
-      
     ],
   },
 ]);

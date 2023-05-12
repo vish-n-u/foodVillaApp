@@ -5,6 +5,7 @@ import { prevOrderDetails } from "../path.config";
 import { restaurantImg_CDN_Link } from "./constants";
 import { reOrder } from "../redux/cartSlice";
 import { UserContext } from "../app";
+import LoadingScreen from "./Loading";
 async function getData(setAllPrevOrders) {
   try {
     const data = await fetch(prevOrderDetails, {
@@ -16,9 +17,9 @@ async function getData(setAllPrevOrders) {
       }),
       headers: { "content-type": "application/json" },
     });
-    console.log(data);
+    console.log("show data", data);
     const dataJson = await data.json();
-
+    console.log("show dataJson", dataJson);
     if (dataJson.message.newAccessToken != undefined)
       localStorage.setItem("token", dataJson.message.newAccessToken);
     setAllPrevOrders(dataJson.message);
@@ -36,6 +37,7 @@ const PreviousOrders = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const [showCartItemsMessage, setShowCartItemsMessage] = useState(false);
   const Dispatch = useDispatch();
+  const [showLoadingScreen, setShowLoadingScreen] = useState(false);
   const pageColour = useContext(UserContext);
 
   useEffect(() => {
@@ -43,7 +45,7 @@ const PreviousOrders = () => {
   }, []);
   console.log("allPrevOrders.length-----", allPrevOrders, allPrevOrders.length);
   return allPrevOrders.length == 0 ? (
-    <div></div>
+    <LoadingScreen />
   ) : (
     <div
       className={`flex flex-col lg:w-1/2 mt-16  w-11/12 justify-between items-center  border-2 lg:h-3/4 h-full

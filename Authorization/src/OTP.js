@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { updateName } from "../../redux/userNameSlice";
 import { UserContext } from "../../app";
 import { otpGenerator, verifyOtp } from "../../path.config";
+import LoadingScreen from "../../src/Loading";
 const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
   console.log(token, email);
   let [timerSec, setTimerSec] = useState(60);
@@ -13,6 +14,7 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
   const [wrongOtps, setWrongOtps] = useState({});
   const [resubmitted, setResubmitted] = useState(0);
   const [isRegistrationComplete, setIsRegistrationComplete] = useState(false);
+  const [showLoadingScreen, setShowLoadingScreen] = useState([]);
   const pageColour = useContext(UserContext);
   const Dispatch = useDispatch();
   useEffect(() => {
@@ -30,9 +32,38 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
       clearInterval(interval);
     };
   }, [resubmitted]);
-  console.log("--------err", err);
+  useEffect(() => {
+    if (showLoadingScreen[0] == 0) {
+      handleSubmit(
+        otp,
+        otpErr,
+        setOtpErr,
+        setIsRegistrationComplete,
+        email,
+        token,
+        userName,
+        Dispatch,
+        refreshToken,
+        wrongOtps,
+        setWrongOtps,
+        setShowLoadingScreen
+      );
+    }
+    if (showLoadingScreen[0] == 1) {
+      handleResend(
+        email,
+        setTimerSec,
+        resubmitted,
+        setResubmitted,
+        setOtpErr,
+        setShowLoadingScreen
+      );
+    }
+  }, [showLoadingScreen]);
 
-  return resubmitted > 3 ? (
+  return showLoadingScreen.length > 0 ? (
+    <LoadingScreen />
+  ) : resubmitted > 3 ? (
     <Navigate to="/" replace={true} />
   ) : isRegistrationComplete ? (
     <div>
@@ -74,21 +105,7 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
               <div className="flex flex-col items-center">
                 <button
                   className="p-2 mb-5 bg-blue-600 rounded-lg w-2/3 active:bg-blue-800"
-                  onClick={() =>
-                    handleSubmit(
-                      otp,
-                      otpErr,
-                      setOtpErr,
-                      setIsRegistrationComplete,
-                      email,
-                      token,
-                      userName,
-                      Dispatch,
-                      refreshToken,
-                      wrongOtps,
-                      setWrongOtps
-                    )
-                  }
+                  onClick={() => setShowLoadingScreen([0])}
                 >
                   Submit
                 </button>
@@ -98,16 +115,7 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
               <h1
                 className="cursor-pointer text-lg text-blue-900 underline flex justify-center p-2"
                 onClick={async () => {
-                  console.log("-----", email);
-                  let finalSubmit = await fetch(otpGenerator, {
-                    method: "POST",
-                    mode: "cors",
-                    body: JSON.stringify({ to: email }),
-                    headers: { "content-type": "application/json" },
-                  });
-                  setTimerSec(60);
-                  setResubmitted(resubmitted + 1);
-                  setOtpErr(false);
+                  setShowLoadingScreen([1]);
                 }}
               >
                 resend otp
@@ -133,7 +141,8 @@ async function handleSubmit(
   Dispatch,
   refreshToken,
   wrongOtps,
-  setWrongOtps
+  setWrongOtps,
+  setShowLoadingScreen
 ) {
   console.log("finalSubmit", otp, email);
   const isOtpCorrect = await fetch(verifyOtp, {
@@ -142,7 +151,7 @@ async function handleSubmit(
     body: JSON.stringify({ email, otp }),
     headers: { "content-type": "application/json" },
   });
-  console.log("isOtpCorrect:", isOtpCorrect);
+  setShowLoadingScreen([]);
   if (isOtpCorrect.status !== 200) {
     // setErr({
     //   ...err,
@@ -166,4 +175,25 @@ async function handleSubmit(
 
     return;
   }
+}
+
+async function handleResend(
+  email,
+  setTimerSec,
+  resubmitted,
+  setResubmitted,
+  setOtpErr,
+  setShowLoadingScreen
+) {
+  console.log("verifyOTP", email);
+  let finalSubmit = await fetch(otpGenerator, {
+    method: "POST",
+    mode: "cors",
+    body: JSON.stringify({ to: email }),
+    headers: { "content-type": "application/json" },
+  });
+  setTimerSec(60);
+  setResubmitted(resubmitted + 1);
+  setOtpErr(false);
+  setShowLoadingScreen([]);
 }

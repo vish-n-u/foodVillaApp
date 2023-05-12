@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import OTP from "./OTP";
 import { loginRoutes, otpGenerator } from "../../path.config";
 import { validateEmail } from "./utils/helper";
 import { UserContext } from "../../app";
+import LoadingScreen from "../../src/Loading";
 const Emailpage = () => {
   const [email, setEmail] = useState("");
   const [err, setErr] = useState({ err: false, message: "", otp: "" });
@@ -12,9 +13,27 @@ const Emailpage = () => {
   const [token, setToken] = useState("");
   const [refreshToken, setRefreshToken] = useState("");
   const [userName, setUserName] = useState("");
+  const [showLoadingScreen, setShowLoadingScreen] = useState(false);
   const pageColour = useContext(UserContext);
   console.log("invalidEmail", invalidEmail);
-  return otpSent ? (
+  useEffect(() => {
+    console.log(showLoadingScreen);
+    if (showLoadingScreen)
+      verifyUser(
+        email,
+        setErr,
+        invalidEmail,
+        setInvalidEmail,
+        setIsOtpSent,
+        setToken,
+        setUserName,
+        setRefreshToken,
+        setShowLoadingScreen
+      );
+  }, [showLoadingScreen]);
+  return showLoadingScreen ? (
+    <LoadingScreen />
+  ) : otpSent ? (
     <OTP
       err={err}
       setErr={setErr}
@@ -77,16 +96,7 @@ const Emailpage = () => {
             } `}
             onClick={() => {
               if (err.err) return;
-              verifyUser(
-                email,
-                setErr,
-                invalidEmail,
-                setInvalidEmail,
-                setIsOtpSent,
-                setToken,
-                setUserName,
-                setRefreshToken
-              );
+              setShowLoadingScreen(true);
             }}
           >
             Submit
@@ -105,7 +115,8 @@ const verifyUser = async (
   setIsOtpSent,
   setToken,
   setUserName,
-  setRefreshToken
+  setRefreshToken,
+  setShowLoadingScreen
 ) => {
   const data = await fetch(loginRoutes, {
     method: "POST",
@@ -114,6 +125,7 @@ const verifyUser = async (
     body: JSON.stringify({ email, requestFor: "otpBased" }),
   });
   console.log(data);
+
   const dataJson = await data.json();
 
   if (data.status == 400) {
@@ -136,6 +148,7 @@ const verifyUser = async (
         body: JSON.stringify({ to: email }),
         headers: { "content-type": "application/json" },
       });
+      setShowLoadingScreen(false);
       if (data.status == 500) {
         alert("A server err occured please retry");
       } else if (data.status == 200) {

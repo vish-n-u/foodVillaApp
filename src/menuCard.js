@@ -14,9 +14,9 @@ import NavBar from "./menuNavbar";
 import MenuCardShimmer from "./menuCardShimmerUi";
 
 function replaceVal(val) {
-  let retur = val.replace(/[^a-zA-Z0-9]/g, "");
+  let replaceValue = val.replace(/[^a-zA-Z0-9]/g, "");
   // console.log("menuCard regex value", retur);
-  return retur;
+  return replaceValue;
 }
 
 const MenuCard = () => {
@@ -34,6 +34,7 @@ const MenuCard = () => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const [showCartItemsMessage, setShowCartItemsMessage] = useState(false);
   const [shouldCartItemsChange, setShouldCartItemsChange] = useState(false);
+
   const refButton = useRef();
 
   useGetMenuDetail(id, details, setDetails, setFilteredRestaurant, dispatch);
