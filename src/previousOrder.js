@@ -6,7 +6,8 @@ import { restaurantImg_CDN_Link } from "./constants";
 import { reOrder } from "../redux/cartSlice";
 import { UserContext } from "../app";
 import LoadingScreen from "./Loading";
-async function getData(setAllPrevOrders) {
+import PreviousOrderShimmer from "./previousOrderShimmer";
+async function getData(setAllPrevOrders, setShowLoadingScreen) {
   try {
     const data = await fetch(prevOrderDetails, {
       method: "POST",
@@ -19,6 +20,7 @@ async function getData(setAllPrevOrders) {
     });
     console.log("show data", data);
     const dataJson = await data.json();
+    setShowLoadingScreen(false);
     console.log("show dataJson", dataJson);
     if (dataJson.message.newAccessToken != undefined)
       localStorage.setItem("token", dataJson.message.newAccessToken);
@@ -41,14 +43,21 @@ const PreviousOrders = () => {
   const pageColour = useContext(UserContext);
 
   useEffect(() => {
-    if (localStorage.getItem("token")) getData(setAllPrevOrders);
+    if (localStorage.getItem("token")) setShowLoadingScreen(true);
   }, []);
+  useEffect(() => {
+    if (showLoadingScreen) {
+      getData(setAllPrevOrders, setShowLoadingScreen);
+    }
+  }, [showLoadingScreen]);
   console.log("allPrevOrders.length-----", allPrevOrders, allPrevOrders.length);
-  return allPrevOrders.length == 0 ? (
-    <LoadingScreen />
+  return showLoadingScreen ? (
+    <PreviousOrderShimmer />
+  ) : allPrevOrders.length === 0 ? (
+    <div className="m-2">Happy first ordering</div>
   ) : (
     <div
-      className={`flex flex-col lg:w-1/2 mt-16  w-11/12 justify-between items-center  border-2 lg:h-3/4 h-full
+      className={`flex flex-col flex-wrap lg:w-1/2 mt-16  w-11/12 justify-between items-center  border-2 lg:h-3/4 h-full
     ${
       pageColour == "white"
         ? "bg-white border-black"
@@ -127,8 +136,11 @@ const PreviousOrders = () => {
                 </div>
               </div>
               {showCartItemsMessage && (
-                <div className="w-screen flex transition-all  items-center text-center scroll-smooth justify-center py-4 my-4 border-blue-800">
-                  <div className="bg-blue-100 container fixed w-11/12 bottom-4 z-50 lg:w-1/3 text-black">
+                <div
+                  id="repeatOrder"
+                  className="w-screen ml-0  flex  transition-all   items-end text-center scroll-smooth justify-end py-4 my-4 border-blue-800"
+                >
+                  <div className="bg-blue-100  container fixed w-10/12 md:w-1/2 bottom-4 z-50 lg:w-1/3 text-black">
                     <h1 className="text-lg font-semibold my-2">
                       Items already in cart
                     </h1>

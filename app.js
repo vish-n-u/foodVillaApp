@@ -14,6 +14,7 @@ import store from "./redux/store";
 import OTP from "./Authorization/src/OTP";
 import Body from "./src/body";
 import LoadingScreen from "./src/Loading";
+import PreviousOrderShimmer from "./src/previousOrderShimmer";
 const clientConfigs = {
   client_id:
     "899698031769-ndeoh4e02af6ee1qffqgecp23dbno64g.apps.googleusercontent.com",
@@ -42,6 +43,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
+      },
+      {
+        path: "/previousOrderShimer",
+        element: <PreviousOrderShimmer />,
       },
       {
         path: "/loading",

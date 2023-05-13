@@ -126,7 +126,7 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
    console.log(total)
   let id = Object.keys(cartItems)[0]
   return(
-    <div key={"cartbody1"} className={`flex w-screen  items-center flex-col-reverse justify-between  z-50 text-black  ${fromHeader? pageColour!="white"?"lg:h-full h-3/5 w-full bg-white":"lg:h-full h-3/5 w-full bg-black":pageColour=="white"?"lg:h-3/4 w-screen lg:flex-row ":"lg:h-screen  w-screen lg:flex-row bg-black text-white"  } `}>
+    <div key={"cartbody1"} className={`flex w-screen  items-center flex-col-reverse justify-between  z-50 text-black  ${fromHeader? pageColour!="white"?"lg:h-full h-3/5 w-full bg-white":"lg:h-full h-3/5 w-full bg-black":pageColour=="white"?"lg:h-3/4 w-screen lg:flex-row ":"lg:h-3/4  w-screen lg:flex-row bg-black text-white"  } `}>
  {!fromHeader? <PreviousOrders/>:null} 
       
       <div key={"cartbody2"} className={` border border-black lg:px-4   flex  flex-col  overflow-y-scroll container  lg:p-4 ${fromHeader?"rounded-2xl p-2":"lg:w-1/3 lg:h-2/3 w-screen  lg:m-10"} ${pageColour=="white"?"border-2 border-black":"border-2 border-white"}`}>
