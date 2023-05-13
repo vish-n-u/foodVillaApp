@@ -126,14 +126,14 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
    console.log(total)
   let id = Object.keys(cartItems)[0]
   return(
-    <div key={"cartbody1"} className={`flex w-screen  items-center flex-col-reverse justify-between  z-50 text-black  ${fromHeader? pageColour!="white"?"lg:h-full h-3/5 w-full bg-white":"lg:h-full h-3/5 w-full bg-black":pageColour=="white"?"lg:h-3/4 w-screen lg:flex-row ":"lg:h-3/4  w-screen lg:flex-row bg-black text-white"  } `}>
+    <div key={"cartbody1"} className={`flex w-screen lg:align-top lg:items-start  items-center flex-col-reverse justify-between  z-50 text-black  ${fromHeader? pageColour!="white"?"lg:h-full h-3/5 w-full bg-white text-black":"lg:h-full h-3/5 w-full bg-black":pageColour=="white"?"lg:h-3/4 w-screen lg:flex-row ":"lg:h-3/4  w-screen lg:flex-row bg-black text-white"  } `}>
  {!fromHeader? <PreviousOrders/>:null} 
       
       <div key={"cartbody2"} className={` border border-black lg:px-4   flex  flex-col  overflow-y-scroll container  lg:p-4 ${fromHeader?"rounded-2xl p-2":"lg:w-1/3 lg:h-2/3 w-screen  lg:m-10"} ${pageColour=="white"?"border-2 border-black":"border-2 border-white"}`}>
         { Object.keys(cartItems).length>0?
         <>
         <div key={"cartbody3"} className="flex justify-start"><img className="ml-4 h-16 w-24 mb-8 items-center align-middle m-2" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img> <span className={`lg:text-lg mt-2 ${fromHeader? pageColour=="white"?"text-white":"text-black":pageColour=="white"?"text-black ":" text-white"  }` }>{restaurantDetail[id].name}</span></div>
-      <div key={"cartbody4"} className="lg:h-2/3  lg:px-8 border-2 border-black flex  flex-col bg-blue-100 overflow-y-scroll container">{ Object.keys(cartItems[id]).map(item=>{
+      <div key={"cartbody4"} className="lg:h-2/3  lg:px-8 border-2 border-black flex  flex-col bg-blue-100 text-black overflow-y-scroll container">{ Object.keys(cartItems[id]).map(item=>{
         // console.log("checking id main",item)
        return <CartCard carts={cartItems[id][item] } key={item} restaurantId={id} eachItemPrice={eachItemPrice} setEachItemPrice={setEachItemPrice}  />
       })
@@ -170,7 +170,7 @@ onClick={()=>{
   else Navigate("/cart")
 }}
 
-className={`text-lg font-semibold text-white p-2 py-4  m-2 mx-4 ${pageColour!="white"?"bg-black text-white":"bg-white text-black"}`}>checkout</button>
+className={`text-lg font-semibold  p-2 py-4  m-2 mx-4 ${pageColour!="white"?"bg-black text-white":"bg-white text-black"}`}>checkout</button>
 :<button onClick={()=>handleData(cartItems,totals,Dispatch)} className="text-lg font-semibold p-2 py-4 bg-blue-400 m-2 mx-4">Pay  ₹ {Math.round(totals)}</button>}
 </>:null}
 

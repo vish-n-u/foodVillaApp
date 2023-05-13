@@ -57,7 +57,7 @@ const PreviousOrders = () => {
     <div className="m-2">Happy first ordering</div>
   ) : (
     <div
-      className={`flex flex-col flex-wrap lg:w-1/2 mt-16  w-11/12 justify-between items-center  border-2 lg:h-3/4 h-full
+      className={`flex  flex-col flex-wrap lg:w-1/2 mt-16  w-11/12 justify-between items-center  border-2 lg:h-3/4 h-full
     ${
       pageColour == "white"
         ? "bg-white border-black"
