@@ -71,19 +71,12 @@ const Header = ({ setPageColour, pageColour }) => {
   });
   useEffect(() => {
     function listen(e) {
-      console.log(
-        "is cartClickedRef doesnot contain",
-        cartRef2.current?.contains(e.target),
-        isCartClicked
-      );
       if (cartRef2.current?.contains(e.target)) return;
       if (!cartRef.current?.contains(e.target)) {
-        console.log("is cartClickedRef doesnot contain", isCartClicked);
         const threshold = 200; // adjust this to your liking
         // const shouldHideNow = window.scrollY > threshold;
         if (isCartClicked) setIsCartClicked(false);
       } else {
-        console.log("is cartClickedRef does contain", isCartClicked);
         setIsCartClicked(!isCartClicked);
       }
     }

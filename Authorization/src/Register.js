@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import LoadingScreen from "../../src/Loading";
+import BikeDude from "../../src/bikerdude";
 import GoogleLogins from "./GoogleLogin";
 import {
   otpGenerator,
@@ -11,6 +12,7 @@ import {
   loginRoutes,
 } from "../../path.config";
 
+import App2 from "../../src/trial";
 import { validateEmail } from "./utils/helper";
 import OTP from "./OTP";
 import { UserContext } from "../../app";
@@ -34,6 +36,7 @@ const Register = () => {
   const [refreshToken, setRefreshToken] = useState("");
   const [attemptedMails, setAttemptedMails] = useState({});
   const pageColour = useContext(UserContext);
+  const [unMount, setUnMount] = useState(false);
 
   useEffect(() => {
     function onEnter(e) {
@@ -52,8 +55,8 @@ const Register = () => {
   console.log(err, "=====");
 
   useEffect(() => {
-    console.log(showLoadingScreen);
-    if (showLoadingScreen) {
+    console.log(" useEffect register handleclick called", showLoadingScreen);
+    if (showLoadingScreen === true) {
       handleClick(
         userName,
         userPassword,
@@ -69,21 +72,23 @@ const Register = () => {
       );
     }
   }, [showLoadingScreen]);
-
+  console.log("=====", showLoadingScreen, unMount, "=======");
   return showLoadingScreen ? (
-    <LoadingScreen />
+    <BikeDude showLoadingScreen={showLoadingScreen} />
   ) : isSigningInUsingGoogle ? (
-    <Navigate to="/" />
+    showLoadingScreen === false && <Navigate to="/" />
   ) : isFormSubmitted ? (
-    <OTP
-      isFormSubmitted={isFormSubmitted}
-      err={err}
-      setErr={setErr}
-      email={email}
-      token={jwtToken}
-      userName={userName}
-      refreshToken={refreshToken}
-    />
+    showLoadingScreen === false && (
+      <OTP
+        isFormSubmitted={isFormSubmitted}
+        err={err}
+        setErr={setErr}
+        email={email}
+        token={jwtToken}
+        userName={userName}
+        refreshToken={refreshToken}
+      />
+    )
   ) : (
     <>
       <div id="register" className={`flex align-top flex-wrap mt-10 `}>
@@ -302,7 +307,7 @@ async function sendOTP(
       headers: { "content-type": "application/json" },
     });
     console.log("sendOTP:", sendOTP, sendOTP.status);
-    setShowLoadingScreen(false);
+
     if (sendOTP.status !== 200) {
       const returnData = await fetch(deleteElement, {
         method: "DELETE",
@@ -310,6 +315,7 @@ async function sendOTP(
         body: JSON.stringify({ email }),
         headers: { "content-type": "application/json" },
       });
+
       localStorage.clear();
       return;
     } else {
@@ -317,6 +323,7 @@ async function sendOTP(
       setisFormSubmitted(true);
       setJwtToken(returnDataJson.message.token);
       setRefreshToken(returnDataJson.message.refreshToken);
+      setShowLoadingScreen(false);
     }
   } catch (err) {
     console.log(err);

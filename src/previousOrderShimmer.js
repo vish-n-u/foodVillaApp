@@ -4,7 +4,7 @@ let arr = new Array(5).fill(10);
 const PreviousOrderShimmer = () => {
   return (
     <div
-      className={`flex flex-col flex-wrap lg:w-1/2 mt-16  w-11/12 align-top justify-between items-center  border-2 lg:h-3/4 h-full`}
+      className={`flex animate-pulse flex-col flex-wrap lg:w-1/2 mt-16  w-11/12 align-top justify-between items-center  border-2 lg:h-3/4 h-full`}
     >
       {arr.map((rs, index) => (
         <div

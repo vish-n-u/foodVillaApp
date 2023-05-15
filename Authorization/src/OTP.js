@@ -17,6 +17,7 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
   const [showLoadingScreen, setShowLoadingScreen] = useState([]);
   const pageColour = useContext(UserContext);
   const Dispatch = useDispatch();
+  console.log("email----", email);
   useEffect(() => {
     if (timerSec == 0) return;
     let interval = setInterval(() => {
@@ -33,6 +34,7 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
     };
   }, [resubmitted]);
   useEffect(() => {
+    console.log("ShowLoadingScreen,", showLoadingScreen, email);
     if (showLoadingScreen[0] == 0) {
       handleSubmit(
         otp,
@@ -185,7 +187,7 @@ async function handleResend(
   setOtpErr,
   setShowLoadingScreen
 ) {
-  console.log("verifyOTP", email);
+  console.log("handle resend verifyOTP", email);
   let finalSubmit = await fetch(otpGenerator, {
     method: "POST",
     mode: "cors",

@@ -4,7 +4,10 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
+import Apping from "./src/bikerdude";
 import Header from "./src/header";
+
+import MovingImage from "./src/moveImg";
 import MenuCard from "./src/menuCard";
 import SignupForm from "./Authorization/src/Register";
 import Login from "./Authorization/src/Login";
@@ -15,6 +18,9 @@ import OTP from "./Authorization/src/OTP";
 import Body from "./src/body";
 import LoadingScreen from "./src/Loading";
 import PreviousOrderShimmer from "./src/previousOrderShimmer";
+import BikeDude from "./src/bikerdude";
+import App2 from "./src/trial";
+
 const clientConfigs = {
   client_id:
     "899698031769-ndeoh4e02af6ee1qffqgecp23dbno64g.apps.googleusercontent.com",
@@ -45,12 +51,29 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
+        path: "/movingImg",
+        element: <MovingImage />,
+      },
+
+      {
+        path: "/bikeDude",
+        element: <BikeDude />,
+      },
+      {
         path: "/previousOrderShimer",
         element: <PreviousOrderShimmer />,
       },
       {
         path: "/loading",
         element: <LoadingScreen />,
+      },
+      {
+        path: "/trial",
+        element: <App2 />,
+      },
+      {
+        path: "/apping",
+        element: <Apping />,
       },
       {
         path: "/cart",
