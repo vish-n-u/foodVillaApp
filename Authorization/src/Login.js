@@ -55,13 +55,13 @@ const Login = () => {
     <Navigate to="/" />
   ) : noOfSubmits <= 3 && !isLoginUsingOtp ? (
     <>
-      <div className={`flex   align-top  pt-5  `}>
+      <div className={`flex   align-top  h-screen mt-1  `}>
         <div
-          className={`h-3/4 w-full mt-5 flex flex-col justify-center items-center align-middle  ${
+          className={`h-3/4 w-full   flex flex-col justify-center items-center align-middle  ${
             pageColour == "white" ? "" : "bg-black text-white"
           }`}
         >
-          <div className="h-fit w-fit ">
+          <div className="h-fit w-fit lg:mb-7 mb-3">
             <GoogleLogins
               setISSigningInUsingGoogle={setISSigningInUsingGoogle}
             />

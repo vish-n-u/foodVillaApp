@@ -43,7 +43,7 @@ const Emailpage = () => {
       refreshToken={refreshToken}
     />
   ) : (
-    <div className="w-full h-screen  ">
+    <div className="w-full h-screen border border-white ">
       <div
         className={`flex flex-col  h-5/6 w-full flex-wrap items-center align-middle justify-center content-center ${
           pageColour == "white" ? "bg-white" : "bg-black text-white"

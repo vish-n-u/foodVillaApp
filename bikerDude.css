@@ -1,65 +1,15 @@
-.bike-loader {
-    position: relative;
-    width: 100px;
-    height: 100px;
+.rotating-image-container {
+  animation: rotate 0.6s infinite linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .bike-loader-wheel {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 5px solid #333;
-    animation: spin 1s linear infinite;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .bike-loader-frame {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    width: 70px;
-    height: 50px;
-    background-color: #333;
-    animation: bounce 1s linear infinite;
-  }
-  
-  .bike-loader-seat {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 10px;
-    background-color: #333;
-    border-radius: 50%;
-  }
-  
-  .bike-loader-handlebar {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    width: 50px;
-    height: 10px;
-    background-color: #333;
-    animation: bounce 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    100% {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
-  }
-  
-  @keyframes bounce {
-    50% {
-      transform: translate(-50%, -50%) rotate(10deg);
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-  }
+}

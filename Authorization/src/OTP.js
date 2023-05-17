@@ -72,9 +72,9 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
       <Navigate to="/" />
     </div>
   ) : (
-    <div className="  w-screen h-screen  mt-2">
+    <div className="  w-screen h-screen  ">
       <div
-        className={`w-screen h-3/4 flex items-center content-center justify-center align-middle ${
+        className={`w-screen h-3/4 flex  items-center content-center justify-center align-middle ${
           pageColour == "white" ? "" : "bg-black"
         }  `}
       >

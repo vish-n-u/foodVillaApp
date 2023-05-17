@@ -196,7 +196,7 @@ const MenuCard = () => {
                                       {!cartItems?.[id]?.[rs.id]
                                         ?.itemsQuantityInCart ? (
                                         <h1
-                                          className="bg-green-50 z-[22] flex  justify-center items-center  text-center -mb-4 border-2 border-green-600 h-9 w-3/5 md:w-1/6 lg:w-1/6 rounded-sm absolute shadow-md hover:cursor-pointer text-black"
+                                          className="bg-blue-50 z-[22] flex  justify-center items-center  text-center -mb-4 border-2 border-blue-600 h-9 w-3/5 md:w-1/6 lg:w-1/6 rounded-sm absolute shadow-md hover:cursor-pointer text-black"
                                           onClick={() => {
                                             if (
                                               Object.keys(cartItems).length >
@@ -216,7 +216,7 @@ const MenuCard = () => {
                                         <div
                                           id="kk"
                                           key="key"
-                                          className="bg-green-50 z-[22] flex shadow-md justify-evenly items-center text-center border-2 border-green-600 h-9 md:w-1/4 w-4/5 rounded-sm absolute text-black"
+                                          className="bg-blue-50 z-[22] flex shadow-md justify-evenly items-center text-center border-2 border-blue-600 h-9 md:w-1/4 w-4/5 rounded-sm absolute text-black"
                                         >
                                           <button
                                             className="font-semibold z-[22] text-2xl"

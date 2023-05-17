@@ -91,9 +91,9 @@ const Register = () => {
     )
   ) : (
     <>
-      <div id="register" className={`flex align-top flex-wrap mt-10 `}>
+      <div id="register" className={`flex align-top flex-wrap h-screen`}>
         <div
-          className={`h-3/4 w-screen flex  flex-col-reverse items-center justify-center content-center lg:flex lg:flex-row lg:justify-evenly ${
+          className={`h-5/6 w-screen flex  flex-col-reverse items-center justify-center content-center lg:flex lg:flex-row lg:justify-evenly ${
             pageColour == "white" ? "" : "bg-black border  text-white"
           }`}
         >

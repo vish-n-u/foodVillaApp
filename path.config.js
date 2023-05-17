@@ -12,6 +12,7 @@ export const createOrderLink = process.env.CREATE_ORDER_LINK;
 export const otpGenerator = process.env.OTP_GENERATOR;
 export const verifyOtp = process.env.VERIFY_OTP;
 export const prevOrderDetails = process.env.PREV_ORDER_DETAILS;
+export const updateOrderDetails = process.env.ORDER_UPDATE;
 console.log(
   "registrationRoute---",
   registrationRoute,

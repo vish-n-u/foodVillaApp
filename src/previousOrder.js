@@ -57,23 +57,23 @@ const PreviousOrders = () => {
     <div className="m-2">Happy first ordering</div>
   ) : (
     <div
-      className={`flex  flex-col flex-wrap lg:w-1/2 mt-16  w-11/12 justify-between items-center  border-2 lg:h-3/4 h-full
+      className={`flex  flex-col h-screen flex-wrap lg:w-1/2 mt-16  w-11/12 justify-between items-center  border-2 lg:h-3/4 
     ${
       pageColour == "white"
         ? "bg-white border-black"
         : "bg-black border-white text-white"
     }`}
     >
-      <h1
+      <div
         className={`text-lg font-bold flex   mb-5"  ${
           pageColour === "white" ? "text-black" : " text-white"
         }
         `}
       >
         Previous orders
-      </h1>
+      </div>
       <div
-        className={`flex flex-col  h-auto  border-2  lg:w-full w-full  px-2 overflow-y-scroll ${
+        className={`flex flex-col   h-auto  border-2  lg:w-full w-full  px-2 overflow-y-scroll ${
           pageColour == "white" ? "bg-white" : "bg-black text-white"
         }`}
       >
@@ -83,10 +83,20 @@ const PreviousOrders = () => {
           return (
             <div
               key={rs._id}
-              className={` flex container w-full border p-2 border-black ${
+              className={` flex container ${
+                rs.orderSuccessful == false ? "bg-gray-300 opacity-40" : ""
+              } w-full border p-2 border-black ${
                 pageColour == "white" ? "border-black" : "border-white"
               }`}
             >
+              {!rs.orderSuccessful && (
+                <h1
+                  id="failed"
+                  className=" text-xl opacity-100 flex font-bold  transform align-middle text-red-600 items-center justify-center"
+                >
+                  order cancelled
+                </h1>
+              )}
               <img
                 className="h-24 w-32  border-2 border-blue-700"
                 src={
