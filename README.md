@@ -1,7 +1,7 @@
 # Swiggy clone application
 This project is a highly responsive swiggy-clone web application
 
-### This is the frontend details of the project
+# This is the frontend details of the project
 
 
 ## Tools used
