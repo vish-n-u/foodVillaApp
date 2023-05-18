@@ -74,6 +74,6 @@ npm run start
 
  5.Open your browser and visit http://localhost:1234 to see the app running.
  </br>
-* "Please note that in order to experience the full range of features offered by this application, it is essential to install the necessary external dependencies.
+ (Please note that in order to experience the full range of features offered by this application, it is essential to install the necessary external dependencies.)
 
 
