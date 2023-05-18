@@ -37,12 +37,12 @@ const FullScreenDiv = () => {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center bg-red-500 text-white transform transition-transform duration-[3000ms] ${
+      className={`fixed inset-0 flex-col flex items-center justify-center bg-red-500 text-white transform transition-transform duration-[3000ms] ${
         showDiv ? 'scale-100' : 'scale-0'
       }`}
     >
-      <h1 className="lg:text-3xl text-2xl font-semibold">Your Delivery partner had an accident!</h1>
-      <h1 className="lg:text-2xl text-lg">Your order has been cancelled!</h1>
+      <div className="lg:text-3xl text-2xl font-semibold block">Your Delivery partner had an accident!</div>
+      <div className="lg:text-2xl text-lg mt-4 ">Your order has been cancelled!</div>
     </div>
   );
 };
@@ -130,7 +130,7 @@ const BikeDude = ({showLoadingScreen,id}) => {
    
   }, [showLoadingScreen,isOpened, translateX,translateY,direction]);
   useEffect(()=>{
-    if(increasePercentage==5) alert("Dont speed up anymore!")
+    if(increasePercentage==5) alert("Dont speed up anymore!It may cause an accident")
   },[increasePercentage])
 useEffect(()=>{
   if(hasAccidentHappened){
@@ -138,7 +138,7 @@ useEffect(()=>{
     setTimeout(()=>{
       window.location.href = '/' // can have a state variable to check whether the request has been completed and based on that set the alert
       window.open("/")
-    },10000)
+    },7000)
   }
 },[hasAccidentHappened])
   return (
@@ -162,10 +162,10 @@ useEffect(()=>{
           ></img> 
           </div>
         )}
-         <img id="destination" style={{bottom:"0" ,right:`0`}} alt="location/img" className="absolute h-10 w-10" src="https://media.tenor.com/6utC7ZK8iJkAAAAC/location-red.gif"></img>
+         {!hasAccidentHappened&&<img id="destination" style={{bottom:"0" ,right:`0`}} alt="location/img" className="absolute h-10 w-10" src="https://media.tenor.com/6utC7ZK8iJkAAAAC/location-red.gif"></img>}
       </div>
       {/* <button className="bg-black h-5 absolute  text-white" onClick={()=>setIsOpened(!isOpened)}>{"click me"}</button> */}
-    <button className="bg-black left-[50%] bottom-60 absolute text-white" onClick={()=>setIncreasePercentage(increasePercentage+2)}>increaseSpeed</button>
+    {!hasAccidentHappened&&<button className="bg-orange-500 p-4 shadow-md rounded-lg text-lg left-[50%] bottom-60 absolute text-white" onClick={()=>setIncreasePercentage(increasePercentage+2)}>increaseSpeed</button>}
     </div>
   );
 };

@@ -24,6 +24,7 @@ async function getData(setAllPrevOrders, setShowLoadingScreen) {
     console.log("show dataJson", dataJson);
     if (dataJson.message.newAccessToken != undefined)
       localStorage.setItem("token", dataJson.message.newAccessToken);
+    dataJson.message.reverse();
     setAllPrevOrders(dataJson.message);
     // console.log("datjsonmessage", dataJson.message);
   } catch (err) {
