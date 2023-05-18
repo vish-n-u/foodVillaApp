@@ -53,7 +53,7 @@ This project is a highly responsive swiggy-clone web application, built using Re
 ### Installation
 
 1. Clone the repository:
-```shell
+
 git clone https://github.com/vish-n-u/foodVillaApp
 
 2.Change into the project directory:
