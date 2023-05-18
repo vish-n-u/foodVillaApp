@@ -37,12 +37,12 @@ const FullScreenDiv = () => {
 
   return (
     <div
-      className={`fixed inset-0 flex-col flex items-center justify-center bg-red-500 text-white transform transition-transform duration-[3000ms] ${
+      className={`fixed inset-0 flex-col flex items-center p-4 justify-center bg-red-500 text-white transform transition-transform duration-[3000ms] ${
         showDiv ? 'scale-100' : 'scale-0'
       }`}
     >
-      <div className="lg:text-3xl text-2xl font-semibold block">Your Delivery partner had an accident!</div>
-      <div className="lg:text-2xl text-lg mt-4 ">Your order has been cancelled!</div>
+      <div className="lg:text-3xl md:text-2xl text-lg font-semibold block">Your Delivery partner had an accident!</div>
+      <div className="lg:text-2xl md:text-lg text-base mt-4 ">Your order has been cancelled!</div>
     </div>
   );
 };
