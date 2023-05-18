@@ -10,66 +10,55 @@ This project is a highly responsive swiggy-clone web application, built using Re
 <br/>
 
 ## Features
-- Responsive Layout
-- Forms
-- Cards
-- Accordion
-- Data Fetching
-- Animations
-- Error Handling
-- Responsive Images
-- Nested Routes
+- User authentication: Sign up, login, and logout functionality.
+- Google authentication
+- Restaurant listing: Display a list of restaurants with their details, such as name, cuisine type, and ratings.
+- Menu display: Show the menu items available for each restaurant.
+- Cart management: Allow users to add items to the cart, update quantities, and remove items.
+- Order placement: Enable users to place orders for the selected items.
+- Order history: Show a history of past orders placed by the user.
+- Search functionality: Allow users to search for restaurants or menu items.
+- Veg , allows user to search for only veg items in the menu.
 
->**Account creation**
-- You can create accounts for user as well as flightAdmins.
-- If the user is a customer, the account will automatically be approved on verification.
-- In case of flightAdmin, a company admin will have to approve the account.
-- JSON Web Token used for authentication.
-- Users can also update some details like name, password and email.
-- Admin can update additional details like userType and userStatus.
-- User search is also available for users with proper authorization.
-
-
-
->**Flight API**
-- A flight admin or an admin can create a new Flight, Edit their existing Flight and delete their existing flight.
-
->**FlightDate API**
-- All registered users can get a list of all flights based on price, Start and Destination.
-- All registered users can get a list of all the flights and the number of seats available.
-- A flight Admin or an admin can add or remove the number of available seats of flight on a particular day.
-
->**Booking API**
-- All registered users can create a new booking and update their existing booking.
-- All registered users can get a list of all of their bookings as well as a single booking using bookingId.
-- An admin can get the list of all the bookings.
-
->**Payment API**
-- All registered users with a booking can create a payment for their booking.
-- All payment have to be payed within 2min with a unique OTP sent to their emailId or else booking would be cancelled.
-- All registered users can get a list of all of their payments as well as a single payment using paymentId.
-- An admin can get the list of all the payments.
-
-<br/>
+## Tech-stack
+- React.js: A popular JavaScript library for building user interfaces.
+- Tailwind CSS: A utility-first CSS framework for rapidly styling your application.
+- Parcel: A zero-configuration bundler for web applications.
+- React-router-dom : Declarative routing for React web applications
+- Redux-toolkit : A centralized state management tool
 
 ## Dependencies
 |npm modules|
 |-|
-|express|
-|sequelize|
-|MySQL|
-|mongoose|
-|jsonwebtoken|
-|node-rest-client|
+|reactjs|
+|react-dom|
+|react-router-dom|
+|react-redux|
+|@react-oauth/google|
+|@reduxjs/toolkit|
 |dotenv|
-|body-parser|
-|bcryptjs|
+|google-auth-library|
 
 |external applications|
 |-|
-|notification service application|
+|social|
 |otp-creator|
 
-<br/>
+## Getting Started
+
+### Prerequisites
+
+- Node.js and npm should be installed on your machine.
+
+### Installation
+
+1. Clone the repository:
+```shell
+git clone https://github.com/vish-n-u/foodVillaApp
+
+Change into the project directory:
+cd foodVillaApp
+npm install
+npm run start
 
 
