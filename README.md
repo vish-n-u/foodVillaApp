@@ -41,8 +41,8 @@ This project is a highly responsive swiggy-clone web application, built using Re
 
 |external applications|
 |-|
-|social|
-|otp-creator|
+|backend_socialMedia| link:- https://github.com/vish-n-u/backend_socialMedia
+|MotpCreator| link:- https://github.com/li-n-paul/MotpCreator
 
 ## Getting Started
 
