@@ -59,7 +59,9 @@ const cartSlice = createSlice({
         ].itemsQuantityInCart =
           state.items[action.payload.id][action.payload.rs.id]
             .itemsQuantityInCart - 1;
-        let obj = JSON.parse(localStorage.getItem("cartItems"));
+        let obj = localStorage.getItem("cartItems")
+          ? JSON.parse(localStorage.getItem("cartItems"))
+          : {};
         obj[action.payload.rs.id] = {
           itemsQuantityInCart:
             state.items[action.payload.id][action.payload.rs.id]
@@ -79,6 +81,7 @@ const cartSlice = createSlice({
       }
     },
     reOrder: (state, action) => {
+      console.log("action.payload in reOrder", action.payload);
       state.items = action.payload;
     },
     clearCart: (state) => {

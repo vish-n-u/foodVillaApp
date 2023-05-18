@@ -177,7 +177,7 @@ const Header = ({ setPageColour, pageColour }) => {
             className={` flex fixed justify-end mr-3   rounded-lg box-content ${
               Object.keys(cartItems).length == 0
                 ? "lg:h-1/3 lg:w-1/5 h-1/3 w-1/2 bg-white border-2 border-black flex justify-center items-center"
-                : "lg:h-2/3 lg:w-1/3 md:w-1/2  w-3/4 "
+                : "h-2/3 lg:w-1/3 md:w-1/2  w-3/4 "
             } `}
           >
             {Object.keys(cartItems).length != 0 ? (

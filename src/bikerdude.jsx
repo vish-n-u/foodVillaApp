@@ -41,8 +41,8 @@ const FullScreenDiv = () => {
         showDiv ? 'scale-100' : 'scale-0'
       }`}
     >
-      <h1 className="text-4xl">Your Order has been cancelled</h1>
-      <h1 className="text-2xl">delivery partner had an accident, due to overspeeding</h1>
+      <h1 className="lg:text-3xl text-2xl font-semibold">Your Delivery partner had an accident!</h1>
+      <h1 className="lg:text-2xl text-lg">Your order has been cancelled!</h1>
     </div>
   );
 };
@@ -86,7 +86,7 @@ const BikeDude = ({showLoadingScreen,id}) => {
          if(posX>=maxWidth&&posY>=70) {setIsOpened(false)
           window.location.href = '/' 
       window.open("/")
-        alert("order has been successfully delivered! Enjoy ")}
+        alert("Delivery partner has reached your location")}
          if(increasePercentage>5){
           setTranslateY(translateY-2)
           if(direction=="right") setTranslateX(translateX-2)
@@ -130,7 +130,7 @@ const BikeDude = ({showLoadingScreen,id}) => {
    
   }, [showLoadingScreen,isOpened, translateX,translateY,direction]);
   useEffect(()=>{
-    if(increasePercentage==5) alert("dont speed up anymore!")
+    if(increasePercentage==5) alert("Dont speed up anymore!")
   },[increasePercentage])
 useEffect(()=>{
   if(hasAccidentHappened){
