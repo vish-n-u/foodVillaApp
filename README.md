@@ -1,5 +1,5 @@
 # Swiggy clone application - Frontend
-This project is a highly responsive swiggy-clone web application
+This project is a highly responsive swiggy-clone web application built using Reactjs,TailwindCss and many other tools.
 
 
 
