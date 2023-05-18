@@ -57,21 +57,21 @@ This project is a highly responsive swiggy-clone web application, built using Re
 git clone https://github.com/vish-n-u/foodVillaApp
 ```
 
-2.Change into the project directory:
+2. Change into the project directory:
 ```shell
 cd foodVillaApp
 ```
 
-3.Install the dependencies:
+3. Install the dependencies:
 ```shell
 npm install
 ```
 
-4.Start the development server:
+4 .Start the development server:
 ```shell
 npm run start
 ```
 
-# 5.Open your browser and visit http://localhost:1234 to see the app running.
+ 5.Open your browser and visit http://localhost:1234 to see the app running.
 
 
