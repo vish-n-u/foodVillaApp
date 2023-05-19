@@ -1,9 +1,10 @@
+.env
 node_modules
 .parcel-cache
 dist
 new.js
 notIndex.css
 trial.jsx
+trial.js
 about.jsx
-count.jsx
-.env
+count.js

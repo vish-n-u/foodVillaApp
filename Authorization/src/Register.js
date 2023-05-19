@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import LoadingScreen from "../../src/Loading";
-import BikeDude from "../../src/bikerdude";
 import GoogleLogins from "./GoogleLogin";
 import {
   otpGenerator,
@@ -12,7 +11,7 @@ import {
   loginRoutes,
 } from "../../path.config";
 
-import App2 from "../../src/trial";
+
 import { validateEmail } from "./utils/helper";
 import OTP from "./OTP";
 import { UserContext } from "../../app";
@@ -74,7 +73,7 @@ const Register = () => {
   }, [showLoadingScreen]);
   console.log("=====", showLoadingScreen, unMount, "=======");
   return showLoadingScreen ? (
-    <BikeDude showLoadingScreen={showLoadingScreen} />
+    <LoadingScreen />
   ) : isSigningInUsingGoogle ? (
     showLoadingScreen === false && <Navigate to="/" />
   ) : isFormSubmitted ? (
@@ -255,7 +254,6 @@ async function handleClick(
         userName,
         password: userPassword,
         email,
-        imgLink: val,
       }),
       headers: { "content-type": "application/json" },
     });

@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import restaurantDetailsSlice from "../redux/restaurantDetailsSlice";
 import { prevOrderDetails } from "../path.config";
 import { restaurantImg_CDN_Link } from "./constants";
 import { reOrder } from "../redux/cartSlice";
 import { UserContext } from "../app";
-import LoadingScreen from "./Loading";
+
 import PreviousOrderShimmer from "./previousOrderShimmer";
 async function getData(setAllPrevOrders, setShowLoadingScreen) {
   try {
@@ -56,7 +55,7 @@ const PreviousOrders = () => {
   return showLoadingScreen ? (
     <PreviousOrderShimmer />
   ) : allPrevOrders.length === 0 ? (
-    <div className="m-2">Happy first ordering</div>
+    <div className="m-2 w-full h-full">Happy first ordering</div>
   ) : (
     <div
       className={`flex mx-2 flex-col h-screen  lg:w-full lg:mt-16  w-11/12  items-center 
@@ -97,7 +96,7 @@ const PreviousOrders = () => {
                 {!rs.orderSuccessful && (
                   <h1
                     id="failed"
-                    className=" text-xl opacity-100 flex font-bold  transform align-middle text-red-600 items-center justify-center"
+                    className="relative left-[35%] md:left-0 lg:left-0 top-0  text-xl opacity-100 flex font-bold  transform align-middle text-red-600 items-center justify-center"
                   >
                     order cancelled
                   </h1>

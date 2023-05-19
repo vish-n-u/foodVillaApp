@@ -135,7 +135,7 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
     successfulPayment?<BikeDude showLoadingScreen={true} id={orderId}/>:
     <div key={"cartbody1"} className={`flex w-screen p-2 lg:align-top lg:items-start lg:h-screen items-center flex-col-reverse  z-50 text-black ${fromHeader? (pageColour!="white"?"h-full   w-full  text-black":"h-full  w-full "):pageColour=="white"?" w-screen lg:flex-row ":"  w-screen lg:flex-row bg-black text-white"  } `}>
  {!fromHeader? <PreviousOrders/>:null} 
-      <div id="cart" className="h-screen w-full p-2 lg:justify-end my-4  flex lg:mt-8">
+      <div id="cart" className="h-screen  w-full p-2 lg:justify-end my-4  flex lg:mt-8">
       <div key={"cartbody2"} className={`  lg:px-4  border-2 border-black  flex  flex-col  overflow-y-scroll container h-2/3 lg:p-4 ${fromHeader?"rounded-2xl absolute top-2 h-full  p-2":"lg:w-[75%]  w-screen  lg:m-10"} ${pageColour=="white"?` ${fromHeader?"bg-black border-2  border-black":"bg-white "} `:`border-2 ${fromHeader?"bg-white":"bg-black"} border-white`}`}>
         { Object.keys(cartItems).length>0?
         <>
