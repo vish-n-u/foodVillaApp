@@ -29,7 +29,7 @@ async function getData(
     });
     console.log("show data", data);
     const dataJson = await data.json();
-    setShowLoadingScreen(false);
+
     console.log("show dataJson", dataJson);
     if (dataJson.message.newAccessToken != undefined)
       localStorage.setItem("token", dataJson.message.newAccessToken);
@@ -42,8 +42,9 @@ async function getData(
 
     setAllPrevOrders(fullData);
     setPageNumber(pageNumber + 1);
+    setShowLoadingScreen(false);
     if (dataJson.areMoreItemsAvailable === false) {
-      setShowPreviousOrderBtn(dataJson.areMoreItemsAvailable);
+      setShowPreviousOrderBtn(false);
     }
     console.log("pageNumber:--", pageNumber);
   } catch (err) {

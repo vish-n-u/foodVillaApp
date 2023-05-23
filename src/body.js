@@ -42,9 +42,13 @@ const Body = () => {
         }`}
         key="body"
       >
-        <div className="flex justify-center  p-2  " key="searchBar">
+        <div className={`flex justify-center  p-2  `} key="searchBar">
           <input
-            className="rounded-lg lg:w-80 w-1/2  shadow-md shadow-white  "
+            className={`rounded-lg lg:w-80 w-1/2  ${
+              pageColour === "white"
+                ? "shadow-md shadow-gray-300"
+                : "shadow-md shadow-gray-500"
+            }  `}
             id="bar"
             key="bar"
             type="text"
@@ -56,7 +60,11 @@ const Body = () => {
           <button
             id="search"
             key="search"
-            className="ml-2 h-10 px-4 font-medium w-1/6 lg:w-auto text-white rounded-lg bg-[#ec6c10] flex justify-center active:bg-orange-800 items-center"
+            className={`${
+              pageColour === "white"
+                ? "shadow-md shadow-orange-300"
+                : "shadow-md shadow-gray-500"
+            } ml-2 h-10 px-4 font-medium w-1/6 lg:w-auto text-white rounded-lg bg-[#ec6c10] flex justify-center active:bg-orange-800 items-center`}
             onClick={(e) => {
               let filterData = searchText;
               let filteredData = getFilteredData(filterData, restaurants);
