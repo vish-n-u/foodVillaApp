@@ -15,7 +15,6 @@ import GoogleLogins from "./GoogleLogin";
 import LoadingScreen from "../../src/Loading";
 
 const Login = () => {
-  const [profileImgSrc, setProfileImgSrc] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
   // setUserName userName
@@ -41,7 +40,7 @@ const Login = () => {
         setPassword,
         err,
         setErr,
-        setProfileImgSrc,
+
         setSuccessfulLogin,
         Dispatch,
         setShowLoadingScreen
@@ -55,7 +54,11 @@ const Login = () => {
     <Navigate to="/" />
   ) : noOfSubmits <= 3 && !isLoginUsingOtp ? (
     <>
-      <div className={`flex   align-top  h-screen mt-1  `}>
+      <div
+        className={`flex  w-screen ${
+          pageColour !== "white" ? "bg-black" : ""
+        } align-top lg:align-middle lg:items-center  h-screen mt-1  `}
+      >
         <div
           className={`h-3/4 w-full   flex flex-col justify-center items-center align-middle  ${
             pageColour == "white" ? "" : "bg-black text-white"
@@ -67,9 +70,9 @@ const Login = () => {
             />
           </div>
           <div
-            className={`border-2   flex flex-col w-11/12 content-center    h-fit rounded-xl justify-center items-center align-middle lg:w-1/3 ${
+            className={`border-2   flex flex-col w-11/12 content-center max-w-sm   h-fit rounded-xl justify-center items-center align-middle lg:w-1/3 ${
               pageColour == "white"
-                ? "bg-blue-50 border-black"
+                ? "bg-white border-orange-500"
                 : "bg-black border-white text-white"
             }`}
           >
@@ -90,11 +93,11 @@ const Login = () => {
                   }
                 }}
                 className={` border w-full h-10 m-2  mb-0 p-2  ${
-                  err.userEmail !== "" ? "border-red-600" : "border-black"
+                  err.userEmail !== "" ? "border-red-700" : "border-black"
                 } `}
               ></input>
               {err.userEmail != "" ? (
-                <span className="text-red-600">
+                <span className="text-red-700">
                   {err.userEmail == "server"
                     ? "incorrect Email-id provided"
                     : err.userEmail}
@@ -118,7 +121,7 @@ const Login = () => {
                 className="border-black border w-full h-10 m-2 mb-0 p-2"
               ></input>
               {err.password != "" ? (
-                <span className="text-red-600">
+                <span className="text-red-800">
                   {err.password == "server"
                     ? "incorrect password provided"
                     : err.password}
@@ -144,7 +147,7 @@ const Login = () => {
                   setNoOfSubmits(noOfSubmits + 1);
                   setShowLoadingScreen(true);
                 }}
-                className="w-3/4 py-2 flex align-middle mb-3 text-lg font-semibold text-white  justify-center items-center  m-2 rounded-xl  bg-blue-700 active:bg-blue-900"
+                className="w-3/4 py-2 flex align-middle mb-3 text-lg font-semibold text-white bg-orange-500  justify-center items-center  m-2 rounded-md   active:bg-orange-900"
               >
                 Submit
               </button>
@@ -153,14 +156,14 @@ const Login = () => {
           <h1 className="mt-5 text-lg">
             Not yet registered{"   "}
             <Link to="/signup">
-              <span className="text-blue-900 underline">Register now</span>
+              <span className="text-orange-700 underline">Register now</span>
             </Link>
           </h1>
           <div className="mt-4">
             Login using{" "}
             <span
               onClick={() => setIsLoginUsingOtp(true)}
-              className="text-blue-800 cursor-pointer "
+              className="text-orange-700 cursor-pointer "
             >
               Otp
             </span>
@@ -182,7 +185,7 @@ async function onSubmit(
   setPassword,
   err,
   setErr,
-  setProfileImgSrc,
+
   setSuccessfulLogin,
   Dispatch,
   setShowLoadingScreen
@@ -199,7 +202,6 @@ async function onSubmit(
   let dataJson = await data.json();
   setShowLoadingScreen(false);
   if (data.status == 200) {
-    setProfileImgSrc(dataJson.message.imgLink);
     Dispatch(updateName(dataJson.message.userName));
     setSuccessfulLogin(true);
 
@@ -208,7 +210,12 @@ async function onSubmit(
     return;
   }
   if (data.status == 400) {
-    console.log("data.message.email::------", dataJson.message.email);
+    if (dataJson.message == "otpBased") {
+      alert(
+        "Seems like you registered using googleSign-in, so either re-register using your email-id or login-via otp or googleSign-in"
+      );
+      return;
+    }
     if (dataJson.message.email) {
       setUserEmail("");
       setErr({ ...err, userEmail: "server" });

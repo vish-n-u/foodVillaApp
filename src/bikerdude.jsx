@@ -83,7 +83,8 @@ const BikeDude = ({showLoadingScreen,id}) => {
       const interval = setInterval(() => {
         let posX = direction=="left"? (translateX<maxWidth?translateX+increasePercentage:maxWidth) :translateX>0?translateX-increasePercentage:0
          let posY =direction=="top"&&translateY<incresePos+10?translateY+increasePercentage:incresePos+10 
-         if(posX>=maxWidth&&posY>=70) {setIsOpened(false)
+         if(posX>=maxWidth&&posY>=70 &&increasePercentage<=5) {
+          setIsOpened(false)
           window.location.href = '/' 
       window.open("/")
         alert("Delivery partner has reached your location")}
@@ -152,7 +153,7 @@ useEffect(()=>{
         <FullScreenDiv/>
       }
         {isOpened&& (
-          <div className="flex flex-col ">
+          <div className="flex flex-col bg-white">
           <div className="lg:-top-[10%]  lg:left-[50%] font-serif lg:font-semibold text-xl lg:text-2xl absolute z-50 flex justify-center text-red-700">Your food is out for Delivery...</div>
           <img
           className={`h-28 w-28 lg:h-36  lg:w-36 absolute   transform ${increasePercentage>5?"rotating-image-container":""} ${increasePercentage<=5&&direction === 'top' ? 'rotate-90' : ''} ${direction === 'right' ? 'scale-x-[-1]' : ''}`}

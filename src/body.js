@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import RestaurantCard from "./restaurantCard";
 import RestaurantCardShimmerUI from "./restaurantCardShimmerUI";
 import useRestaurant from "./utils/useRestaurant";
-
+import Footer from "./footer";
 import { UserContext } from "../app";
 
 function getFilteredData(keyword, restaurants) {
@@ -19,7 +19,7 @@ function ErrorDisplay() {
 }
 const Body = () => {
   let [filterSearch, setFilterSearch] = useState([]);
-  let [searchText, setSearchText] = useState("search");
+  let [searchText, setSearchText] = useState("search for a restaurant");
   let [restaurants, setRestaurants] = useState([]);
   let restaurantDetails = useSelector((store) => store.restaurantDetails);
   const Dispatch = useDispatch();
@@ -35,55 +35,58 @@ const Body = () => {
   );
 
   return (
-    <div
-      className={`  w-screen ${
-        pageColour == "white" ? "bg-white" : "bg-black"
-      }`}
-      key="body"
-    >
-      <div className="flex justify-center py-2  my-3" key="searchBar">
-        <input
-          className="rounded-full px-6 shadow-md shadow-white  "
-          id="bar"
-          key="bar"
-          type="text"
-          placeholder={searchText}
-          onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
-        ></input>
-        <button
-          id="search"
-          key="search"
-          className="ml-2 "
-          onClick={(e) => {
-            let filterData = searchText;
-            let filteredData = getFilteredData(filterData, restaurants);
-            setFilterSearch(filteredData);
-          }}
-        >
-          🔍
-        </button>
-        {/* <p className="flex justify-end">{IsOnline() == true ? "🟢" : "🔴"}</p> */}
-      </div>
+    <>
+      <div
+        className={` border border-gray-400  w-screen ${
+          pageColour == "white" ? "bg-white" : "bg-black"
+        }`}
+        key="body"
+      >
+        <div className="flex justify-center  p-2  " key="searchBar">
+          <input
+            className="rounded-lg lg:w-80 w-1/2  shadow-md shadow-white  "
+            id="bar"
+            key="bar"
+            type="text"
+            placeholder={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          ></input>
+          <button
+            id="search"
+            key="search"
+            className="ml-2 h-10 px-4 font-medium w-1/6 lg:w-auto text-white rounded-lg bg-[#ec6c10] flex justify-center active:bg-orange-800 items-center"
+            onClick={(e) => {
+              let filterData = searchText;
+              let filteredData = getFilteredData(filterData, restaurants);
+              setFilterSearch(filteredData);
+            }}
+          >
+            search
+          </button>
+          {/* <p className="flex justify-end">{IsOnline() == true ? "🟢" : "🔴"}</p> */}
+        </div>
 
-      <div className="flex flex-wrap" key="cards">
-        {/* {restaurants.length == 0 ? (
+        <div className="flex flex-wrap" key="cards">
+          {/* {restaurants.length == 0 ? (
           <ShimmerUI />
         ) : err ? (
           <ErrorDisplay />
         ) : ( */}
-        {restaurants.length == 0 ? (
-          <RestaurantCardShimmerUI />
-        ) : (
-          <div className="w-screen flex flex-row  justify-evenly flex-wrap">
-            {filterSearch.map((rs) => {
-              return <RestaurantCard {...rs.data} key={rs.data.id} />;
-            })}
-          </div>
-        )}
+          {restaurants.length == 0 ? (
+            <RestaurantCardShimmerUI />
+          ) : (
+            <div className="w-screen flex flex-row  justify-evenly flex-wrap">
+              {filterSearch.map((rs) => {
+                return <RestaurantCard {...rs.data} key={rs.data.id} />;
+              })}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

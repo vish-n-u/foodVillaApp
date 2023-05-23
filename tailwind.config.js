@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./Authorization/src/**/*.{html,js,jsx}",
@@ -7,5 +8,6 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/forms")],
+
+  plugins: [require("@tailwindcss/forms"), require("tailwind-scrollbar")],
 };

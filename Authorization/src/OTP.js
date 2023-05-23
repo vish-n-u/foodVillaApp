@@ -106,7 +106,7 @@ const OTP = ({ err, setErr, email, token, userName, refreshToken }) => {
             {timerSec > 0 ? (
               <div className="flex flex-col items-center">
                 <button
-                  className="p-2 mb-5 bg-blue-600 rounded-lg w-2/3 active:bg-blue-800"
+                  className="p-2 mb-5 bg-orange-500 rounded-lg w-2/3 active:bg-orange-800"
                   onClick={() => setShowLoadingScreen([0])}
                 >
                   Submit

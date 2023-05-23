@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import Header from "./src/header";
-
+import Footer from "./src/footer";
 import MenuCard from "./src/menuCard";
 import SignupForm from "./Authorization/src/Register";
 import Login from "./Authorization/src/Login";
@@ -33,6 +33,7 @@ const AppLayout = () => {
           <Header setPageColour={setPageColour} pageColour={pageColour} />
 
           <Outlet />
+         
         </UserContext.Provider>
       </GoogleOAuthProvider>
     </Provider>

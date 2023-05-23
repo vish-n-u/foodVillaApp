@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-
+import { UserContext } from "../app";
+import { useContext } from "react";
 import { menuImg_CDN_Link } from "./constants";
 import useRestaurant from "./utils/useRestaurant";
 
@@ -9,6 +9,7 @@ const MenuCss = () => {
   const { id } = useParams();
   const cartItems = useSelector((store) => store.cart.items);
   let datas = useSelector((store) => store.restaurantDetails);
+  const pageColour = useContext(UserContext);
   const Dispatch = useDispatch();
 
   useRestaurant("", "", "", Dispatch, datas);
@@ -16,31 +17,60 @@ const MenuCss = () => {
   let data = datas[id];
 
   // console.log("data in menucss:", datas);
-  let cuisineData = data?.cuisines?.join(" ");
+  let cuisineData = data?.cuisines?.join(", ");
+  let location = data?.area + ", Mumbai";
   let avgRatingMsg =
     typeof (data?.avgRating - 1) == "number" ? "rating" : "too few ratings";
 
   return Object.keys(datas).length <= 1 ? null : (
     <div
-      className="bg-slate-800 lg:items-center lg:justify-center justify-start pb-5 h-56 pt-5 sticky top-0 flex p-4  z-[90] text-yellow-50 w-screen"
-      key="header"
+      className={`w-screen flex justify-center z-[90] mt-6 ${
+        pageColour != "white" ? "bg-black text-white" : ""
+      }`}
     >
-      <img
-        className="lg:h-36 md:h-36 h-28  w-2/5 lg:w-1/6 mr-1 lg:mr-5 relative  "
-        src={menuImg_CDN_Link + data.cloudinaryImageId}
-        alt="restaurantImg"
-      ></img>
-      <div key="underTitle" className="relative w-4/5 lg:w-1/5  flex flex-col ">
-        <h1 className="font-semibold   lg:text-3xl p-3 pl-0">{data.name}</h1>
-        <span>{cuisineData}</span>
-        <ul key="otherElem" className="flex justify-evenly  pl-0 pt-2">
-          <li>
-            {data.avgRating + "⭐" + " |  "}
-            <div className="font-light text-sm">{avgRatingMsg}</div>
-          </li>
-          <li>{data.costForTwoString + " |  "}</li>
-          <li>{data?.sla?.deliveryTime + "min"}</li>
-        </ul>
+      <div
+        className={` lg:items-center md:items-center flex-col-reverse lg:justify-between md:flex-row-reverse lg:flex-row-reverse justify-start pb-5 h-auto pt-5  flex p-4    w-11/12 lg:w-2/3 border ${
+          pageColour != "white" ? "bg-black text-white" : "bg-white"
+        }`}
+        key="header"
+      >
+        <img
+          className="lg:h-36 md:h-36 h-32 rounded-md  w-48  mr-1 lg:mr-5 relative  mt-3 lg:mt-0 md:mt-0 "
+          src={menuImg_CDN_Link + data.cloudinaryImageId}
+          alt="restaurantImg"
+        ></img>
+        <div
+          key="underTitle"
+          className={`relative w-full  justify-start align-top items-start  flex flex-col ${
+            pageColour !== "white" ? "text-slate-400" : "text-slate-600"
+          }`}
+        >
+          <h1
+            className={`font-bold   lg:text-xl py-1 ${
+              pageColour == "white" ? "text-black" : "text-white"
+            }`}
+          >
+            {data.name}
+          </h1>
+          <span className="text-[13px] font-medium ">{cuisineData}</span>
+          <span className="text-[13px] font-medium ">{location}</span>
+          <ul
+            key="otherElem"
+            className="flex justify-evenly font-medium pl-0  text-[13px] "
+          >
+            <li className="whitespace-pre">{data.avgRating + "⭐ " + " | "}</li>
+            <li>{data.totalRatingsString}</li>
+          </ul>
+          <ul className="flex justify-evenly font-medium pl-0  text-[13px] ">
+            <li>{data.lastMileTravelString}</li>
+            <li className="whitespace-pre">{" | "}</li>
+            <li>
+              {"₹" +
+                data.feeDetails.fees[0].fee / 100 +
+                " Delivery fees will be applied"}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

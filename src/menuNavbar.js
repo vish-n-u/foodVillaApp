@@ -1,5 +1,7 @@
 import { useRef, useEffect, useState, useContext } from "react";
 import { UserContext } from "../app";
+import "../slideIn.css";
+import "../buttonOpen.css";
 
 function replaceVal(val) {
   let retur = val.replace(/[^a-zA-Z0-9]/g, "");
@@ -58,12 +60,12 @@ const NavBar = ({
   return (
     <div
       ref={ref}
-      className={`flex   flex-col container  w-full ${
-        !menuButton ? "mt-16 mr-10 " : "h-full z-50"
+      className={`flex h-screen transition-all duration-500    ml-5 w-11/12 ${
+        !menuButton ? "" : "h-full z-50 "
       }`}
     >
       <nav
-        className={`flex flex-col  p-2 align-middle justify-center shadow-2xl bg-black w-full   border-2 border-white items-center content-center ${
+        className={`flex flex-col   scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-medium  scrollbar-corner-white overflow-y-scroll lg:h-[50%]  rounded-2xl  container  shadow-2xl bg-gray-500 w-full   border-2 border-white items-center  ${
           pageColour == "white"
             ? "bg-black text-white  border-white"
             : "bg-white text-black border-black"
@@ -72,10 +74,10 @@ const NavBar = ({
         {Object.keys(filteredRestaurant).map((rs) => {
           // console.log("reached", rs);
           return (
-            <ul className="my-3 ">
+            <ul className="my-3">
               <li className="">
                 <a
-                  className="  font-medium font-serif text-lg "
+                  className="font-medium font-serif text-lg "
                   href={"#" + replaceVal(rs)}
                   onClick={(event) =>
                     menuButton

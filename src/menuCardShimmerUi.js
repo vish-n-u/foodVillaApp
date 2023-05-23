@@ -4,13 +4,13 @@ const MenuCardShimmer = () => {
   return (
     <>
       <div
-        className="bg-slate-800 lg:items-center lg:justify-center justify-start pb-5 h-56 pt-5 sticky top-0 flex p-4  z-[90] text-yellow-50 w-screen"
+        className="bg-slate-800 animate-pulse lg:items-center lg:justify-center justify-start pb-5 h-56 pt-5 sticky top-0 flex p-4  z-[90] text-yellow-50 w-screen"
         key="header"
       >
-        <div className="lg:h-36 md:h-36 h-28  w-2/5 lg:w-1/6 mr-1 lg:mr-5 relative  bg-slate-400"></div>
+        <div className="lg:h-36 animate-pulse md:h-36 h-28  w-2/5 lg:w-1/6 mr-1 lg:mr-5 relative  bg-slate-400"></div>
         <div
           key="underTitle"
-          className="relative w-4/5 lg:w-1/5  flex flex-col "
+          className="relative w-4/5 lg:w-1/5 animate-pulse flex flex-col "
         >
           <div className="font-semibold bg-slate-400 mt-1 h-10 lg:text-3xl p-3 pl-0"></div>
           <span className="bg-slate-400 h-5 w-1/3 mt-1"></span>
@@ -25,12 +25,12 @@ const MenuCardShimmer = () => {
       </div>
       <div className="w-full  flex justify-center items-center ">
         <div className="lg:w-3/4 w-screen flex flex-col justify-center  items-center">
-          <div className="w-full lg:w-1/2  mt-20 flex h-10 justify-center items-center   lg:bg-slate-400"></div>
+          <div className="w-full animate-pulse lg:w-1/2  mt-20 flex h-10 justify-center items-center   lg:bg-slate-400"></div>
           {arr.map((x, index) => {
             return (
               <div
                 key={index}
-                className=" w-screen lg:w-full   justify-between flex lg:p-2 m-5 lg:bg-gray-500  border-b-2  "
+                className=" w-screen lg:w-full animate-pulse  justify-between flex lg:p-2 m-5 lg:bg-gray-500  border-b-2  "
               >
                 <div
                   className={`flex flex-col pl-4 w-3/5 lg:w-2/5 md:w-2/5 justify-between  z-[20] `}

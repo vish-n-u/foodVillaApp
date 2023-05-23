@@ -8,13 +8,13 @@ const RestaurantCard = ({cloudinaryImageId:img,name,avgRating:rating,deliveryTim
     const pageColour = useContext(UserContext)
     return (
           
-        <div className={`aspect-square w-80 lg:m-4 mb-4 mt-0     overflow-hidden p-3  hover:transition  ${pageColour == "white" ? "bg-white hover:shadow-2xl hover:border border-black shadow-black" : "bg-black  text-white shadow-md hover:border border-white hover:shadow-white"}   `} key="restaurantCard">
+        <div className={`aspect-square w-64 lg:m-4 mb-4 mt-0 rounded-md     p-3  transition  ${pageColour == "white" ? "bg-white hover:shadow-md border-gray-200  border hover:border-gray-300 hover:shadow-gray-500 " : "bg-black  text-white border-gray-800  border hover:border-orange-900 shadow-md hover:shadow-white"}   `} key="restaurantCard">
             <Link to={"/menucard/"+id }>
-            <img src={restaurantImg_CDN_Link+img} className="aspect-video mb-2 w-72" key ="img" ></img>
-            <h2 className="font-semibold  text-lg mb-2 align-middle justify-center ">{name}</h2>
-            <h4 id ="cuisines" className="flex ">{cuisines.join(", ")}</h4>
-            <ul  key="restElem" className="flex  justify-between mt-5">
-                <li key="rating">{rating+"⭐"}</li>
+            <img src={restaurantImg_CDN_Link+img} className=" mb-2 w-56  rounded-md" key ="img" ></img>
+            <h2 className="  text-base mb-1 align-middle justify-center ">{name}</h2>
+            <h4 id ="cuisines" className="flex text-[12px]">{cuisines.join(", ")}</h4>
+            <ul  key="restElem" className="flex font-medium text-[13px] justify-between mt-3">
+                <li className={`${rating>=4?"bg-green-600":"bg-orange-700"} text-white  px-2`} key="rating">{rating+"⭐"}</li>
                 <li key="deliveryTime">{deliveryTime+"min"}</li>
                 <li key="cost">{cost}</li>
             </ul>

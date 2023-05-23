@@ -11,7 +11,6 @@ import {
   loginRoutes,
 } from "../../path.config";
 
-
 import { validateEmail } from "./utils/helper";
 import OTP from "./OTP";
 import { UserContext } from "../../app";
@@ -98,10 +97,8 @@ const Register = () => {
         >
           <div className="w-screen flex-col mt-2 justify-start items-center flex  mb-7 lg:w-1/2 lg:justify-center lg:align-middle lg:content-center ">
             <div
-              className={`border-2 w-11/12 border-black mt-5     rounded-xl lg:w-3/5 ${
-                pageColour == "white"
-                  ? "bg-blue-50"
-                  : "bg-black border-white text-white"
+              className={`border-2 w-11/12 border-orange-500 mt-5  max-w-md   rounded-xl lg:w-3/5 ${
+                pageColour == "white" ? "" : "bg-black border-white text-white"
               }`}
             >
               <div className="flex flex-col content-center  align-middle justify-center items-center">
@@ -181,7 +178,7 @@ const Register = () => {
                 )}
                 {!isFormSubmitted ? (
                   <button
-                    className={`px-5 bg-blue-700 font-medium text-lg py-2 rounded-md mb-5 w-1/2 text-white ${
+                    className={`px-5 bg-orange-500 active:bg-orange-700 font-medium text-lg py-2 rounded-md mb-5 w-1/2 text-white ${
                       err.userEmailErr !== "" ||
                       err.userNameErr !== "" ||
                       err.userPasswordErr !== ""
@@ -199,7 +196,7 @@ const Register = () => {
             </div>
             <h1 className="mt-2 text-lg">
               Already registered
-              <Link to="/login" className="text-blue-700 ">
+              <Link to="/login" className="text-orange-700 ">
                 <span> Login now</span>
               </Link>
             </h1>
