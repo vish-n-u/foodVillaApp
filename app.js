@@ -33,7 +33,6 @@ const AppLayout = () => {
           <Header setPageColour={setPageColour} pageColour={pageColour} />
 
           <Outlet />
-         
         </UserContext.Provider>
       </GoogleOAuthProvider>
     </Provider>

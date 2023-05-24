@@ -49,9 +49,9 @@ function Footer() {
                 <li className="mb-2">Team</li>
                 <li className="mb-2">Careers</li>
                 <li className="mb-2">Blog</li>
-                <li className="mb-2">TigerFoods Super</li>
-                <li className="mb-2">TigerFoods Corporate</li>
-                <li className="mb-2">TigerFoods Instamart</li>
+                <li className="mb-2">Rapidosh Super</li>
+                <li className="mb-2">Rapidosh Corporate</li>
+                <li className="mb-2">Rapidosh Instamart</li>
               </ul>
             </div>
             <div className="w-full md:w-1/4">
@@ -86,7 +86,7 @@ function Footer() {
         <div className="bg-gray-800 py-4">
           <div className="container mx-auto text-center">
             <p className="text-sm">
-              &copy; {new Date().getFullYear()} TigerFoods. All rights reserved.
+              &copy; {new Date().getFullYear()} Rapidosh. All rights reserved.
             </p>
           </div>
         </div>
