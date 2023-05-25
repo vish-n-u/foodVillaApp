@@ -183,7 +183,7 @@ const Header = ({ setPageColour, pageColour }) => {
             {Object.keys(cartItems).length != 0 ? (
               <Cart fromHeader={true} setIsCartClicked={setIsCartClicked} />
             ) : (
-              <h1 className="text-lg ">Your cart is Empty cart</h1>
+              <h1 className="text-lg ">Your cart is Empty  </h1>
             )}
           </div>
         </div>

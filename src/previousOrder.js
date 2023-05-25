@@ -115,8 +115,8 @@ const PreviousOrders = ({ setIsUsing20PercentOff }) => {
         <div
           className={`h-[63%] w-full py-4 my-2 rounded-md border-2 ${
             pageColour == "white"
-              ? "bg-white "
-              : "bg-black border-white text-white"
+              ? "bg-white border-white"
+              : "bg-black border-black text-white"
           }`}
         >
           <div
@@ -142,7 +142,7 @@ const PreviousOrders = ({ setIsUsing20PercentOff }) => {
                   }`}
                 >
                   <div className="w-full flex flex-col justify-between">
-                    <div className=" flex w-full justify-between lg:flex-row md:flex-row flex-col border-b-2 pb-3 mb-3 border-dashed">
+                    <div className=" flex w-full justify-between lg:flex-row md:flex-row flex-col border-b-2 pb-3 mb-3 border-gray-500 border-dashed">
                       <div className="flex  w-full  mt-3 border-black">
                         <img
                           className="h-24 w-32  border-2 border-blue-700"
@@ -252,8 +252,8 @@ const PreviousOrders = ({ setIsUsing20PercentOff }) => {
                           Items already in cart
                         </h1>
                         <h1>
-                          Your cart already contains items . Would
-                          you like to reset your cart for adding items ?
+                          Your cart already contains items . Would you like to
+                          reset your cart for adding items ?
                         </h1>
                         <div className="w-full flex justify-around my-4">
                           <button

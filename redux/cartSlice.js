@@ -69,9 +69,10 @@ const cartSlice = createSlice({
         };
         localStorage.setItem("cartItems", JSON.stringify(obj));
       } else {
+        console.log(action);
         delete state.items[action.payload.id][action.payload.rs.id];
         let obj = JSON.parse(localStorage.getItem("cartItems"));
-        delete obj[action.payload.rs.id];
+        // delete obj[action.payload.rs.id];
         localStorage.setItem("cartItems", JSON.stringify(obj));
         if (Object.keys(state.items[action.payload.id]).length < 1) {
           state.items = {};

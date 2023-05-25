@@ -96,7 +96,7 @@ if(!eachItemPrice[id]){
         if(iQuantity-1>0)
         setEachItemPrice({...eachItemPrice,[id]:(defaultPrice/100*(eachItemPrice[id].itemsQuantityInCart-1||price/100*itemsQuantityInCart-1))})
         else{
-          let obj = eachItemPrice
+          let obj = JSON.stringify(eachItemPrice)
           delete obj[id]
           setEachItemPrice(obj)
         }
@@ -152,7 +152,7 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
     <div key={"cartbody1"} className={`flex w-screen  p-2 lg:align-top lg:items-start lg:h-screen items-center flex-col-reverse  z-50 text-black ${fromHeader? (pageColour!="white"?"h-full bg-transparent  w-full  text-black":"h-full bg-transparent w-full "):pageColour=="white"?" w-screen lg:flex-row bg-gray-200":"bg-gray-800  w-screen lg:flex-row  text-white"  } `}>
  {!fromHeader? <PreviousOrders setIsUsing20PercentOff={setIsUsing20PercentOff}/>:null} 
       <div id="cart" className="h-screen  w-full p-2 lg:justify-end  my-4  flex lg:mt-2">
-      <div key={"cartbody2"} className={`  lg:px-4 lg:w-1/2 w-11/12  border-2  rounded-md  flex  flex-col   container h-3/4 lg:p-4 ${fromHeader?"rounded-2xl absolute top-2 h-full w-full p-2":"lg:w-[55%]  w-screen  lg:m-10"} ${pageColour=="white"?` ${fromHeader?"bg-white border-2  border-orange-500":"bg-white "} `:`border-2 ${fromHeader?"bg-white":"bg-black"} border-white`}`}>
+      <div key={"cartbody2"} className={`  lg:px-4 lg:w-1/2 w-11/12  border-2  rounded-md  flex  flex-col   container h-3/4 lg:p-4 ${fromHeader?"rounded-2xl absolute top-2 h-full w-full p-2":"lg:w-[55%]  w-screen  lg:m-10"} ${pageColour=="white"?` ${fromHeader?"bg-white border-2  border-orange-500":"bg-white border-white"} `:`border-2 ${fromHeader?"bg-white":"bg-black border-black"} `}`}>
         { Object.keys(cartItems).length>0?
         <>
         <div key={"cartbody3"} className="flex justify-start"><img className="ml-4 h-16 w-24 mb-8 items-center align-middle m-2" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img> <Link to={`/menucard/${id}`} className={`text-base align-middle font-serif font-semibold cursor-pointer mt-2 ${fromHeader? (pageColour=="white"?"text-black":"text-black"):pageColour=="white"?"text-black ":" text-gray-300"  }` }>{restaurantDetail[id].name}</Link></div>
