@@ -27,18 +27,18 @@ async function getData(
       }),
       headers: { "content-type": "application/json" },
     });
-    console.log("show data", data);
+    // console.log("show data", data);
     const dataJson = await data.json();
 
-    console.log("show dataJson", dataJson);
+    // console.log("show dataJson", dataJson);
     if (dataJson.message.newAccessToken != undefined)
       localStorage.setItem("token", dataJson.message.newAccessToken);
-    console.log("Data", allPrevOrders, dataJson.message);
+    // console.log("Data", allPrevOrders, dataJson.message);
     let allData = [...allPrevOrders];
     allData.push(dataJson.message);
-    console.log("allData", allData, allPrevOrders, dataJson.message, dataJson);
+    // console.log("allData", allData, allPrevOrders, dataJson.message, dataJson);
     let fullData = allData.flat();
-    console.log("allData", fullData);
+    // console.log("allData", fullData);
 
     setAllPrevOrders(fullData);
     setPageNumber(pageNumber + 1);
@@ -46,9 +46,9 @@ async function getData(
     if (dataJson.areMoreItemsAvailable === false) {
       setShowPreviousOrderBtn(false);
     }
-    console.log("pageNumber:--", pageNumber);
+    // console.log("pageNumber:--", pageNumber);
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
   setLoadingBtn(false);
 }
@@ -67,7 +67,7 @@ const PreviousOrders = ({ setIsUsing20PercentOff }) => {
   const pageColour = useContext(UserContext);
   const [showPreviousOrderBtn, setShowPreviousOrderBtn] = useState(true);
   const [loadingBtn, setLoadingBtn] = useState(false);
-  console.log("-----:showPreviousBtn:-----", showPreviousOrderBtn);
+  // console.log("-----:showPreviousBtn:-----", showPreviousOrderBtn);
 
   useEffect(() => {
     if (localStorage.getItem("token")) setShowLoadingScreen(true);
@@ -178,7 +178,7 @@ const PreviousOrders = ({ setIsUsing20PercentOff }) => {
                           rs.orderDetails[key][1]
                         ].map((vals) => {
                           if (vals.id == key) {
-                            console.log(vals);
+                            // console.log(vals);
                             obj[key] = { ...vals };
 
                             obj[key].itemsQuantityInCart =
@@ -252,9 +252,8 @@ const PreviousOrders = ({ setIsUsing20PercentOff }) => {
                           Items already in cart
                         </h1>
                         <h1>
-                          Your cart contains items from other restaurant. Would
-                          you like to reset your cart for adding items from this
-                          restaurant?
+                          Your cart already contains items . Would
+                          you like to reset your cart for adding items ?
                         </h1>
                         <div className="w-full flex justify-around my-4">
                           <button
@@ -292,15 +291,16 @@ const PreviousOrders = ({ setIsUsing20PercentOff }) => {
           <button
             className="p-3 mt-5 bg-orange-500 text-lg font-normal font-serif active:bg-orange-700  text-white rounded-md"
             onClick={() => {
-              getData(
-                allPrevOrders,
-                setAllPrevOrders,
-                setShowLoadingScreen,
-                pageNumber,
-                setPageNumber,
-                setShowPreviousOrderBtn,
-                setLoadingBtn
-              );
+              if (!loadingBtn)
+                getData(
+                  allPrevOrders,
+                  setAllPrevOrders,
+                  setShowLoadingScreen,
+                  pageNumber,
+                  setPageNumber,
+                  setShowPreviousOrderBtn,
+                  setLoadingBtn
+                );
             }}
           >
             {!loadingBtn ? "show more items" : "loading..."}
@@ -312,7 +312,7 @@ const PreviousOrders = ({ setIsUsing20PercentOff }) => {
 };
 
 async function handleClick(id, Dispatch, allPrevOrders, allMenu) {
-  // console.log("entered handleClick ,id----", id);
+  console.log("entered handleClick ,id----", id);
   let obj = {};
   let newId;
   allPrevOrders.map((rs) => {
@@ -321,7 +321,7 @@ async function handleClick(id, Dispatch, allPrevOrders, allMenu) {
         return allMenu[rs.restaurantId][rs.orderDetails[key][1]].map((vals) => {
           newId = rs.restaurantId;
           if (vals.id == key) {
-            console.log(vals);
+            // console.log(vals);
             obj[key] = { ...vals };
 
             obj[key].itemsQuantityInCart = rs.orderDetails[key][0];
@@ -339,19 +339,19 @@ async function handleClick(id, Dispatch, allPrevOrders, allMenu) {
 function convertToHrs(str) {
   let min = str.slice(3);
   let carryForward = 0;
-  console.log(min);
+  // console.log(min);
   min = parseInt(min) + 30;
   min = min >= 60 ? min - 60 : min;
-  console.log(min);
+  // console.log(min);
   if (min <= 30) {
     carryForward = 1;
 
     min = min < 10 ? "0" + min : min;
   }
-  // console.log(min, carryForward);
+  console.log(min, carryForward);
   let hrs = str.slice(0, 2);
   let hr = parseInt(hrs) + carryForward + 5;
-  // console.log(min, carryForward, hr, hrs);
+  console.log(min, carryForward, hr, hrs);
   hr = hr >= 24 ? hr - 24 : hr;
 
   if (parseInt(hr) < 10) {

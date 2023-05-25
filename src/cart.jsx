@@ -16,13 +16,13 @@ const CDN_IMG_LINK = restaurantImg_CDN_Link
 async function handleData(cartItems,totals,Dispatch,setSuccessfulPayment,setOrderId,isUsing20PercentOff){
   let obj ={}
   let restaurantId = Object.keys(cartItems)[0]
-  console.log(restaurantId)
+  // console.log(restaurantId)
   Object.keys(cartItems[restaurantId]).map((menuIds)=>{
-    console.log(menuIds)
+    // console.log(menuIds)
     obj[menuIds] = [cartItems[restaurantId][menuIds].itemsQuantityInCart,cartItems[restaurantId][menuIds].category]
     
   })
-  console.log("this is whats being sent",obj)
+  // console.log("this is whats being sent",obj)
 
   try{
     const newOrder =await  fetch(createOrderLink,{
@@ -39,7 +39,7 @@ async function handleData(cartItems,totals,Dispatch,setSuccessfulPayment,setOrde
  headers: { "content-type": "application/json" }
     })
     const orderData = await newOrder.json()
-    console.log("orderData-----",orderData.message._id)
+    // console.log("orderData-----",orderData.message._id)
     if(newOrder.status==404){
       localStorage.removeItem("token")
       localStorage.removeItem("refreshToken")
@@ -53,13 +53,13 @@ async function handleData(cartItems,totals,Dispatch,setSuccessfulPayment,setOrde
     if(newOrder.status==201){
       setSuccessfulPayment(true)
       setOrderId(orderData.message._id)
-      console.log("_id====",orderData.message._id)
+      // console.log("_id====",orderData.message._id)
       Dispatch(clearCart())
     }
     if(newOrder.newAccessToken!=undefined) localStorage.setItem("token",newOrder.newAccessToken)
   }
   catch(err){
-    console.log(err)
+    // console.log(err)
   }
 
 
@@ -76,7 +76,7 @@ const CartCard = ({carts,restaurantId,eachItemPrice,setEachItemPrice,fromHeader}
 if(!eachItemPrice[id]){
   setEachItemPrice({...eachItemPrice,[id]:(defaultPrice/100*itemsQuantityInCart||price/100*itemsQuantityInCart)})
 } 
-console.log("checking id",eachItemPrice,id)
+// console.log("checking id",eachItemPrice,id)
 
   
     return(
@@ -133,25 +133,19 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
   addData()
    }
    
-   let total = Object.values(eachItemPrice).length>0?Object.values(eachItemPrice).reduce((a,b)=>a+b):0
-   console.log(total)
-  let totals=total+(total/10)+50
-   console.log(total)
-  let id = Object.keys(cartItems)[0]
-  console.log("eachItemPrice",eachItemPrice)
-  useEffect(()=>{
-    let obj = eachItemPrice
-    Object.keys(cartItems).map((parent)=>{
-      Object.keys(obj).map((result)=>{
-        if(!cartItems[parent][result]){
-          delete obj[result]
-        }
-      })
 
-      })
-      setEachItemPrice(obj)
+  useEffect(()=>{
+   console.log("cartItem has changed")
+      setEachItemPrice({})
+      console.log(eachItemPrice)
     
   },[cartItems])
+  let total = Object.values(eachItemPrice).length>0?getPrice(cartItems):0
+  // console.log(total)
+ let totals=total+(total/10)+50
+  // console.log(total)
+ let id = Object.keys(cartItems)[0]
+  console.log("eachItemPrice",eachItemPrice)
   return(
     <>{
     successfulPayment?<BikeDude showLoadingScreen={true} id={orderId}/>:
@@ -163,7 +157,7 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
         <>
         <div key={"cartbody3"} className="flex justify-start"><img className="ml-4 h-16 w-24 mb-8 items-center align-middle m-2" src ={restaurantImg_CDN_Link+restaurantDetail[id].cloudinaryImageId} alt="restroImg"></img> <Link to={`/menucard/${id}`} className={`text-base align-middle font-serif font-semibold cursor-pointer mt-2 ${fromHeader? (pageColour=="white"?"text-black":"text-black"):pageColour=="white"?"text-black ":" text-gray-300"  }` }>{restaurantDetail[id].name}</Link></div>
       <div key={"cartbody4"} className={`h-1/2  w-full self-center  border-2 rounded-md  align-middle  flex max-w-lg flex-col  text-black overflow-y-scroll container`}>{ Object.keys(cartItems[id]).map(item=>{
-        // console.log("checking id main",item)
+        console.log("checking id main",item)
        return <CartCard carts={cartItems[id][item] } key={item} restaurantId={id} eachItemPrice={eachItemPrice} setEachItemPrice={setEachItemPrice}  fromHeader={fromHeader}/>
       })
       }
@@ -215,6 +209,16 @@ className={`text-lg font-semibold flex justify-center rounded-md  p-2 py-4  m-2 
   )
 }
 
+function getPrice(cartItems){
+  let total = 0
+   Object.keys(cartItems).map(parent=>{
+    Object.keys(cartItems[parent]).map(child=>{
+      total +=cartItems[parent][child].itemsQuantityInCart * Math.round(cartItems[parent][child].price/100)
+    })
+    
+  })
+  return total
 
+}
 
 export default Cart

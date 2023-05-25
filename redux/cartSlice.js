@@ -7,13 +7,13 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      console.log(
-        "---action.payload",
-        action.payload,
-        action.payload.id,
-        state.items[action.payload.id]?.[action.payload.rs.id],
-        action.payload.deleteCurrItems
-      );
+      // console.log(
+      //   "---action.payload",
+      //   action.payload,
+      //   action.payload.id,
+      //   state.items[action.payload.id]?.[action.payload.rs.id],
+      //   action.payload.deleteCurrItems
+      // );
       if (action.payload.deleteCurrItems) {
         state.items = {};
         localStorage.removeItem("cartItems");
@@ -28,7 +28,7 @@ const cartSlice = createSlice({
         if (!state.items[action.payload.id]) {
           state.items[action.payload.id] = {};
         }
-        console.log(state.items[action.payload.id][action.payload.rs.id]);
+        // console.log(state.items[action.payload.id][action.payload.rs.id]);
         state.items[action.payload.id][action.payload.rs.id] = {
           ...action.payload.rs,
           itemsQuantityInCart: 1,
@@ -76,12 +76,12 @@ const cartSlice = createSlice({
         if (Object.keys(state.items[action.payload.id]).length < 1) {
           state.items = {};
           localStorage.removeItem("cartItems");
-          console.log("`````~~~~", action.payload);
+          // console.log("`````~~~~", action.payload);
         }
       }
     },
     reOrder: (state, action) => {
-      console.log("action.payload in reOrder", action.payload);
+      // console.log("action.payload in reOrder", action.payload);
       state.items = action.payload;
     },
     clearCart: (state) => {
