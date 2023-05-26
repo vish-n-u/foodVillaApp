@@ -65,7 +65,7 @@ const NavBar = ({
       }`}
     >
       <nav
-        className={`flex flex-col  items-start p-6 scrollbar-thumb-gray-900 scrollbar-track-gray-100   scrollbar-corner-white overflow-y-scroll lg:h-[50%]  rounded-2xl  container  shadow-2xl bg-white w-full   overflow-x-hidden border-white   ${
+        className={`flex flex-col  items-start p-6 scrollbar-thumb-gray-900    scrollbar-corner-white overflow-y-scroll lg:h-[50%]  rounded-2xl  container  shadow-2xl bg-white w-full   overflow-x-hidden border-white   ${
           pageColour == "white"
             ? "bg-black text-gray-700  border-white"
             : "bg-white text-black border-black"
@@ -74,7 +74,7 @@ const NavBar = ({
         {Object.keys(filteredRestaurant).map((rs) => {
           // console.log("reached", rs);
           return (
-            <ul className="my-3  w-full ml-3">
+            <ul key={rs} className="my-3  w-full ml-3">
               <a
                 className="flex w-full justify-between"
                 href={"#" + replaceVal(rs)}
