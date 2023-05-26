@@ -7,7 +7,6 @@ function searchMenu(
   details,
   isVeg
 ) {
-  
   if (filterSearch.length >= 3 || filterSearch.length == 0) {
     console.log(filterSearch.length, filterSearch);
     let filteredData = Object.values(filteredRestaurant).filter(
@@ -24,7 +23,7 @@ function searchMenu(
       }
     );
     setFilteredRestaurant(filteredData);
-    // console.log("filter", filteredData);
+    console.log("filter", filteredData);
   }
   if (filterSearch.length == 0) {
     if (isVeg) {

@@ -23,7 +23,7 @@ const FilterMenu = ({
       }`}
     >
       <input
-        className="h-10 font-semibold rounded-md  bg-white w-1/2 md:w-3/4 lg:w-80"
+        className="h-10 m-3 font-semibold rounded-md  bg-white w-1/2 md:w-3/4 lg:w-80"
         type="text"
         value={filterSearch}
         placeholder={" search for dishes..."}
@@ -44,7 +44,7 @@ const FilterMenu = ({
         }}
       ></input>
       <div
-        className={`h-10 font-semibold rounded-md ml-3  bg-white  flex flex-row flex-nowrap items-center `}
+        className={`h-10 font-semibold rounded-md ml-3 m-3  bg-white  flex flex-row flex-nowrap items-center `}
       >
         <input
           type={"checkbox"}

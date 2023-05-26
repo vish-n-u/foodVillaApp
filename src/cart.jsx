@@ -134,12 +134,7 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
    }
    
 
-  useEffect(()=>{
-   console.log("cartItem has changed")
-      setEachItemPrice({})
-      console.log(eachItemPrice)
-    
-  },[cartItems])
+  
   let total = Object.values(eachItemPrice).length>0?getPrice(cartItems):0
   // console.log(total)
  let totals=total+(total/10)+50
@@ -164,14 +159,14 @@ const Cart = ({fromHeader,setIsCartClicked})=>{
       <div className={`flex flex-col mt-7 px-2 ${fromHeader?"text-black":pageColour=="white"?"text-black":"text-gray-300"}`}>
         <h1 className="mb-5 font-semibold">Bill Detail</h1>
         <div className="flex justify-between m-1 ">
-    <span className="font-semibold">Items total</span> {"₹"+  Object.values(eachItemPrice).length>0?<h1>{Object.values(eachItemPrice).reduce((a,b)=>a+b)}</h1>:null}
+    <span className="font-semibold">Items total</span> 
      </div>
      <div className="flex   justify-between m-1">
       <span>Delivery Fee</span> <h1>{"₹"+  50
       }</h1>
      </div>
      <div className="flex justify-between  m-1">
-      <span>Govt Taxes&other</span> { Object.values(eachItemPrice).length>0?<h1>{"₹"+ Math.round(total/10)}</h1>:null
+      <span>Govt Taxes&other</span> { Object.values(eachItemPrice).length>0?<h1>{"₹"+ Math.round(getPrice(cartItems,"govtTaxes")/10)}</h1>:0
 
   }
      </div>
@@ -209,14 +204,15 @@ className={`text-lg font-semibold flex justify-center rounded-md  p-2 py-4  m-2 
   )
 }
 
-function getPrice(cartItems){
+function getPrice(cartItems,str){
   let total = 0
    Object.keys(cartItems).map(parent=>{
     Object.keys(cartItems[parent]).map(child=>{
-      total +=cartItems[parent][child].itemsQuantityInCart * Math.round(cartItems[parent][child].price/100)
+      total +=cartItems[parent][child].itemsQuantityInCart * ((Math.round(cartItems[parent][child].price/100))||Math.round(cartItems[parent][child].defaultPrice/100))
     })
     
   })
+  console.log("total",total,str)
   return total
 
 }

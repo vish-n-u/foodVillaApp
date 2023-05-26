@@ -60,34 +60,53 @@ const NavBar = ({
   return (
     <div
       ref={ref}
-      className={`flex h-screen transition-all duration-500    ml-5 w-11/12 ${
+      className={`flex h-screen transition-all duration-500 w-11/12   ml-5 lg:w-full ${
         !menuButton ? "" : "h-full z-50 "
       }`}
     >
       <nav
-        className={`flex flex-col   scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-medium  scrollbar-corner-white overflow-y-scroll lg:h-[50%]  rounded-2xl  container  shadow-2xl bg-gray-500 w-full   border-2 border-white items-center  ${
+        className={`flex flex-col  items-start p-6 scrollbar-thumb-gray-900 scrollbar-track-gray-100   scrollbar-corner-white overflow-y-scroll lg:h-[50%]  rounded-2xl  container  shadow-2xl bg-white w-full   overflow-x-hidden border-white   ${
           pageColour == "white"
-            ? "bg-black text-white  border-white"
+            ? "bg-black text-gray-700  border-white"
             : "bg-white text-black border-black"
-        } ${menuButton ? "h-full rounded-2xl " : "h-auto"}`}
+        } ${menuButton ? "h-full rounded-md " : "h-auto"}`}
       >
         {Object.keys(filteredRestaurant).map((rs) => {
           // console.log("reached", rs);
           return (
-            <ul className="my-3">
-              <li className="">
+            <ul className="my-3  w-full ml-3">
+              <a
+                className="flex w-full justify-between"
+                href={"#" + replaceVal(rs)}
+                onClick={(event) =>
+                  menuButton
+                    ? scrollToSection(setIsMenuClicked)
+                    : scrollToSection()
+                }
+              >
                 <a
-                  className="font-medium font-serif text-lg "
                   href={"#" + replaceVal(rs)}
                   onClick={(event) =>
                     menuButton
                       ? scrollToSection(setIsMenuClicked)
                       : scrollToSection()
                   }
+                  className="font-medium  text-sm "
                 >
                   {rs == "undefined" ? "others" : rs}
                 </a>
-              </li>
+                <a
+                  href={"#" + replaceVal(rs)}
+                  onClick={(event) =>
+                    menuButton
+                      ? scrollToSection(setIsMenuClicked)
+                      : scrollToSection()
+                  }
+                  className="font-medium mr-3 text-sm"
+                >
+                  {filteredRestaurant[rs].length}
+                </a>
+              </a>
             </ul>
           );
         })}

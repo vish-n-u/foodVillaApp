@@ -12,7 +12,7 @@ import { addItem, removeItem } from "../redux/cartSlice";
 import { UserContext } from "../app";
 import NavBar from "./menuNavbar";
 import MenuCardShimmer from "./menuCardShimmerUi";
-import "../buttonOpen.css"
+import "../buttonOpen.css";
 
 function replaceVal(val) {
   let replaceValue = val.replace(/[^a-zA-Z0-9]/g, "");
@@ -70,20 +70,14 @@ const MenuCard = () => {
     console.log("window.screen.width", getWidth());
   }, [getWidth()]);
 
-  console.log(window.screen.width);
+  console.log("filteredRestaurant:=====", filteredRestaurant);
   return !details ? (
     <MenuCardShimmer />
   ) : (
     <>
       <MenuCss restaurant={filteredRestaurant} />
       <div
-        className={`flex  content-center ${
-          isMenuClicked
-            ? pageColour == "white"
-              ? "bg-black  bg-opacity-80 "
-              : ""
-            : ""
-        } align-baseline  items-end w-screen`}
+        className={`flex  content-center  align-baseline  items-end w-screen`}
       >
         {/* <h1>{isMenuClicked}</h1> */}
         <div
