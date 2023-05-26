@@ -354,10 +354,13 @@ function convertToHrs(str) {
   console.log(min, carryForward, hr, hrs);
   hr = hr >= 24 ? hr - 24 : hr;
 
-  if (parseInt(hr) < 10) {
-    return "0" + hr + ":" + min + "AM";
+  if (parseInt(hr) < 12) {
+    if (parseInt(hr) < 10) {
+      return "0" + hr + ":" + min + "AM";
+    } else return hr + ":" + min + "AM";
   } else {
-    return hr + ":" + min + "PM";
+    if (parseInt(hr) - 12 < 10) return "0" + (hr - 12) + ":" + min + "PM";
+    else return hr - 12 + ":" + min + "PM";
   }
 }
 
