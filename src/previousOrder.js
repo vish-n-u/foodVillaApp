@@ -247,7 +247,7 @@ const PreviousOrders = ({ setIsUsing20PercentOff }) => {
                           : "none",
                       }}
                     >
-                      <div className="bg-white container border-2 p-3 shadow-md shadow-gray-600 rounded-md  fixed w-3/4 bottom-4 z-50 lg:w-1/3">
+                      <div className="bg-white container text-slate-800 border-2 p-3 shadow-md shadow-gray-600 rounded-md  fixed w-3/4 bottom-4 z-50 lg:w-1/3">
                         <h1 className="text-lg font-semibold my-2">
                           Items already in cart
                         </h1>

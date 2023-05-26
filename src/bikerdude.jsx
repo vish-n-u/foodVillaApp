@@ -166,7 +166,7 @@ useEffect(()=>{
          {!hasAccidentHappened&&<img id="destination" style={{bottom:"0" ,right:`0`}} alt="location/img" className="absolute h-10 w-10" src="https://media.tenor.com/6utC7ZK8iJkAAAAC/location-red.gif"></img>}
       </div>
       {/* <button className="bg-black h-5 absolute  text-white" onClick={()=>setIsOpened(!isOpened)}>{"click me"}</button> */}
-    {!hasAccidentHappened&&<button className="bg-orange-500 p-4 shadow-md rounded-lg text-lg left-[50%] bottom-60 absolute text-white" onClick={()=>setIncreasePercentage(increasePercentage+2)}>increaseSpeed</button>}
+    {!hasAccidentHappened&&<button className="bg-orange-500 p-4 shadow-md rounded-lg text-lg left-[50%] bottom-60 absolute active:bg-orange-700 text-white" onClick={()=>setIncreasePercentage(increasePercentage+2)}>increaseSpeed</button>}
     </div>
   );
 };
