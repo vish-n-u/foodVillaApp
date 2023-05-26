@@ -65,11 +65,19 @@ const NavBar = ({
       }`}
     >
       <nav
-        className={`flex flex-col  items-start p-6 scrollbar-thumb-gray-900    scrollbar-corner-white overflow-y-scroll lg:h-[50%]  rounded-2xl  container  shadow-2xl bg-white w-full   overflow-x-hidden border-white   ${
+        className={`flex flex-col  items-start  p-6      overflow-y-scroll lg:h-[50%]  rounded-2xl  container  shadow-2xl bg-white w-full   overflow-x-hidden border-white   ${
           pageColour == "white"
             ? "bg-black text-gray-700  border-white"
             : "bg-white text-black border-black"
         } ${menuButton ? "h-full rounded-md " : "h-auto"}`}
+        style={{
+          scrollbarColor: "#4A5568",
+          scrollbarWidth: "thin",
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "#4A5568",
+            borderRadius: "4px",
+          },
+        }}
       >
         {Object.keys(filteredRestaurant).map((rs) => {
           // console.log("reached", rs);
