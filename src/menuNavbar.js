@@ -82,40 +82,42 @@ const NavBar = ({
         {Object.keys(filteredRestaurant).map((rs) => {
           // console.log("reached", rs);
           return (
-            <ul key={rs} className="my-3  w-full ml-3">
-              <a
-                className="flex w-full justify-between"
-                href={"#" + replaceVal(rs)}
-                onClick={(event) =>
-                  menuButton
-                    ? scrollToSection(setIsMenuClicked)
-                    : scrollToSection()
-                }
-              >
+            filteredRestaurant[rs].length > 0 && (
+              <ul key={rs} className="my-3  w-full ml-3">
                 <a
+                  className="flex w-full justify-between"
                   href={"#" + replaceVal(rs)}
                   onClick={(event) =>
                     menuButton
                       ? scrollToSection(setIsMenuClicked)
                       : scrollToSection()
                   }
-                  className="font-medium  text-sm "
                 >
-                  {rs == "undefined" ? "others" : rs}
+                  <a
+                    href={"#" + replaceVal(rs)}
+                    onClick={(event) =>
+                      menuButton
+                        ? scrollToSection(setIsMenuClicked)
+                        : scrollToSection()
+                    }
+                    className="font-medium  text-sm "
+                  >
+                    {rs == "undefined" ? "others" : rs}
+                  </a>
+                  <a
+                    href={"#" + replaceVal(rs)}
+                    onClick={(event) =>
+                      menuButton
+                        ? scrollToSection(setIsMenuClicked)
+                        : scrollToSection()
+                    }
+                    className="font-medium mr-3 text-sm"
+                  >
+                    {filteredRestaurant[rs].length}
+                  </a>
                 </a>
-                <a
-                  href={"#" + replaceVal(rs)}
-                  onClick={(event) =>
-                    menuButton
-                      ? scrollToSection(setIsMenuClicked)
-                      : scrollToSection()
-                  }
-                  className="font-medium mr-3 text-sm"
-                >
-                  {filteredRestaurant[rs].length}
-                </a>
-              </a>
-            </ul>
+              </ul>
+            )
           );
         })}
       </nav>
