@@ -5,9 +5,9 @@ export const restaurantImg_CDN_Link =
 export const swiggyMenuApi =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.2183013&lng=73.0878267&restaurantId=";
 export const menuImg_CDN_Link =
-  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_324,c_fill/";
 export const menuItemsImg_CDN_Link =
-  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,e_grayscale,c_fit/"; //changed
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/"; //changed
 export const prevOrderDetails =
   "http://localhost:3000/socialMedia/api/v1/orders";
 // "https://cute-teal-pelican-tam.cyclic.app/socialMedia/api/v1/orders";
