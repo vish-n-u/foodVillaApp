@@ -4,8 +4,8 @@
   "description": "Assignment 2",
   "source": "index.html",
  "scripts": {
-  "start": "parcel index.html --max-old-space-size=4096",
-  "build": "parcel build index.html --max-old-space-size=4096",
+  "start": "node --max-old-space-size=4096 $(which parcel) index.html",
+  "build": "node --max-old-space-size=4096 $(which parcel) build index.html",
   "test": "echo \"Error: no test specified\" && exit 1"
 },
   "author": "",
