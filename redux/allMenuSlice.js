@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import allMenu from "../swiggyMenusApi";
+let allMenu = null
+import("../swiggyMenusApi").then((module) => {
+   allMenu = module.default;
+  console.log(allMenu); // Now you can use it
+})
 
 const allMenuSlice = createSlice({
   name: "allMenu",

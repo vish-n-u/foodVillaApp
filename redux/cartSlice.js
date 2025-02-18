@@ -1,5 +1,4 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import allMenu from "../swiggyMenusApi";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
