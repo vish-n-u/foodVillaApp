@@ -193,7 +193,7 @@ onClick={()=>{
 }}
 
 className={`text-lg font-semibold flex justify-center rounded-md  p-2 py-4  m-2 mx-4 ${pageColour!="white"?"bg-black text-white":"bg-orange-500  text-white"}`}>checkout</button>
-:<button onClick={()=>handleData(cartItems,totals,Dispatch,setSuccessfulPayment,setOrderId,isUsing20PercentOff)} className="text-lg font-semibold max-w-lg p-2 py-4 bg-orange-500 rounded-md active:bg-orange-800 hover:shadow-lg shadow-black  text-white m-2 mx-4">Pay  ₹ {!isUsing20PercentOff?"₹"+ Math.round(totals):"₹"+ Math.round(totals-(totals/5))}</button>}
+:<button onClick={()=>handleData(cartItems,totals,Dispatch,setSuccessfulPayment,setOrderId,isUsing20PercentOff)} className="text-lg font-semibold max-w-lg p-2 py-4 bg-orange-500 rounded-md active:bg-orange-800 hover:shadow-lg shadow-black  text-white m-2 mx-4">Pay  {!isUsing20PercentOff?"₹"+ Math.round(totals):"₹"+ Math.round(totals-(totals/5))}</button>}
 </>:null}
 
       </div>

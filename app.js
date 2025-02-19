@@ -24,8 +24,32 @@ const clientConfigs = {
 };
 
 export const UserContext = createContext();
+export const allMenu = createContext()
 const AppLayout = () => {
   const [pageColour, setPageColour] = useState("white");
+  const [allMenu,setAllMenu] = useState(null)
+
+  useEffect(()=>{
+    async function fetchMenuData(){
+    if(!allMenu){
+      try{
+        let data = await fetch(process.env.BASE_URL+"swiggyMenu")
+        const blob = await data.text();
+        const blobJSON = JSON.parse(blob)
+        console.log("url==>",blobJSON)
+        let allMenu = blobJSON
+        sessionStorage.setItem("allMenu",JSON.stringify(allMenu))
+        setAllMenu(allMenu)
+
+      }
+      catch(e){
+        console.log("e==>",e)
+      }
+    }
+  }
+  fetchMenuData()
+  },[allMenu])
+  console.log("allMenu==>",allMenu)
   return (
     <Provider store={store}>
       <GoogleOAuthProvider clientId={clientConfigs.client_id}>
