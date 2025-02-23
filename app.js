@@ -31,7 +31,7 @@ const AppLayout = () => {
 
   useEffect(()=>{
     async function fetchMenuData(){
-    if(!allMenu){
+    if(!sessionStorage.getItem("allMenu")){
       try{
         let data = await fetch(process.env.BASE_URL+"swiggyMenu")
         const blob = await data.text();
@@ -39,11 +39,18 @@ const AppLayout = () => {
         console.log("url==>",blobJSON)
         let allMenu = blobJSON
         sessionStorage.setItem("allMenu",JSON.stringify(allMenu))
+        window.location.reload()
         setAllMenu(allMenu)
 
       }
       catch(e){
         console.log("e==>",e)
+      }
+    }
+    else{
+      if(!allMenu){
+        let allMenuData = JSON.parse(sessionStorage.getItem("allMenu"))
+        setAllMenu(allMenu)
       }
     }
   }
