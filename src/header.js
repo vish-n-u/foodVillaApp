@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateName } from "../redux/userNameSlice";
-import RapidoshLogo from "./utils/RapidoshLogo.jpg";
+import RapidoshLogo from "./utils/RapidoshLogoNoBg.png";
 import { DarkMode } from "../src/darkMode";
 import { authenticateUserAndGetData } from "../path.config";
 import Cart from "./cart";
