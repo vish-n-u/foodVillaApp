@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import allMenu from "../swiggyMenusApi";
 
 const allMenuSlice = createSlice({
   name: "allMenu",
-  initialState: JSON.parse(sessionStorage.getItem("allMenu")),
+  initialState: allMenu,
   reducers: {
     addMenuData: (state, action) => {
       console.log("JsonDatasMessage", action.payload);

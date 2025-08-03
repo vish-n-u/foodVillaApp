@@ -1,4 +1,4 @@
-import React, { createContext, useState ,useEffect} from "react";
+import React, { createContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -24,39 +24,8 @@ const clientConfigs = {
 };
 
 export const UserContext = createContext();
-export const allMenu = createContext()
 const AppLayout = () => {
   const [pageColour, setPageColour] = useState("white");
-  const [allMenu,setAllMenu] = useState(null)
-
-  useEffect(()=>{
-    async function fetchMenuData(){
-    if(!sessionStorage.getItem("allMenu")){
-      try{
-        let data = await fetch(process.env.BASE_URL+"swiggyMenu")
-        const blob = await data.text();
-        const blobJSON = JSON.parse(blob)
-        console.log("url==>",blobJSON)
-        let allMenu = blobJSON
-        sessionStorage.setItem("allMenu",JSON.stringify(allMenu))
-        window.location.reload()
-        setAllMenu(allMenu)
-
-      }
-      catch(e){
-        console.log("e==>",e)
-      }
-    }
-    else{
-      if(!allMenu){
-        let allMenuData = JSON.parse(sessionStorage.getItem("allMenu"))
-        setAllMenu(allMenu)
-      }
-    }
-  }
-  fetchMenuData()
-  },[allMenu])
-  console.log("allMenu==>",allMenu)
   return (
     <Provider store={store}>
       <GoogleOAuthProvider clientId={clientConfigs.client_id}>

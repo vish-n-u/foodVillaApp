@@ -2,17 +2,17 @@ if (process.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config();
 }
 
-export const registrationRoute =  process.env.BASE_URL + "register";
-export const loginRoutes = process.env.BASE_URL +"login";
-export const deleteElement = process.env.BASE_URL+"delete";
-export const registerViaGoogle = process.env.BASE_URL+"registerGoogle";
+export const registrationRoute = process.env.REGISTRATION_ROUTE;
+export const loginRoutes = process.env.LOGINS_ROUTES;
+export const deleteElement = process.env.DELETE_ELEMENT;
+export const registerViaGoogle = process.env.REGISTER_VIA_GOOGLE;
 export const authenticateUserAndGetData =
-process.env.BASE_URL+"authUser";
-export const createOrderLink = process.env.BASE_URL+"order";
-export const otpGenerator = process.env.OTP_GENERATOR_BASE_URL+"otps";
-export const verifyOtp = process.env.OTP_GENERATOR_BASE_URL+"verifyOtp";
-export const prevOrderDetails = process.env.BASE_URL+"orders";
-export const updateOrderDetails = process.env.BASE_URL+"orders";
+  process.env.AUTHENTICATE_USER_AND_GET_DATA;
+export const createOrderLink = process.env.CREATE_ORDER_LINK;
+export const otpGenerator = process.env.OTP_GENERATOR;
+export const verifyOtp = process.env.VERIFY_OTP;
+export const prevOrderDetails = process.env.PREV_ORDER_DETAILS;
+export const updateOrderDetails = process.env.ORDER_UPDATE;
 console.log(
   "registrationRoute---",
   registrationRoute,

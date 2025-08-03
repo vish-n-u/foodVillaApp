@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Assignment 2",
   "source": "index.html",
- "scripts": {
-  "start": "node --max-old-space-size=4096 $(which parcel) index.html",
-  "build": "node --max-old-space-size=4096 $(which parcel) build index.html",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

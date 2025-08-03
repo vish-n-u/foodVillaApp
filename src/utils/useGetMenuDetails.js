@@ -4,8 +4,7 @@ import { swiggyMenuApi } from "../constants";
 import jsonData from "../../data";
 import { addMenuDetails } from "../../redux/menuSlice";
 import { addData } from "../../redux/restaurantDetailsSlice";
-let allMenu = JSON.parse(sessionStorage.getItem("allMenu"))
-
+import allMenu from "../../swiggyMenusApi";
 
 async function getDetails(id, setDetails, setFilteredRestaurant, Dispatch) {
   console.log("getDetails of menu is getting called");

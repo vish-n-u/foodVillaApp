@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { addData } from "../../redux/restaurantDetailsSlice";
 import { swiggyRestaurantApi } from "../constants";
-
+// import allMenu from "../../swiggyMenusApi";
 import { addMenuData } from "../../redux/allMenuSlice";
 import jsonData from "../../data";
 
